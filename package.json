@@ -22,7 +22,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -34,5 +36,9 @@
   "bugs": {
     "url": "https://github.com/kzed-1/Edibles/issues"
   },
-  "homepage": "https://github.com/kzed-1/Edibles#readme"
+  "homepage": "https://github.com/kzed-1/Edibles#readme",
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
+  }
 }
