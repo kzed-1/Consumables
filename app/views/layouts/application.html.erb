@@ -13,6 +13,19 @@
         <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
     </script>
     <% end %>
+
+    <script type="text/javascript">
+      window.background = "<%= image_url("background.jpg")  %>"
+    </script>
+    <script type="text/javascript">
+      window.logo = "<%= image_url("logo.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.home = "<%= image_url("home.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.user = "<%= image_url("user.png")  %>"
+    </script>
   </head>
 
   <body>

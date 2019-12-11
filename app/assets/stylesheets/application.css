@@ -13,3 +13,200 @@
  *= require_tree .
  *= require_self
  */
+
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    /* padding: 0px 2px 6px 2px; */
+    padding: 5px;
+    background: #555;
+    color: #fff;
+    margin: 0 auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    align-items: center;
+}
+
+.bottom-header {
+    display: flex;
+    padding: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.home-button {
+    content: "U+1F3E0";
+    height: 20px;
+    width: 20px;
+    padding-left: 20px
+}
+
+.bottom-border {
+    display: flex;
+    background: #eee;
+    height: 90px;
+    align-items: center;
+}
+
+.search-box {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 20px;
+}
+.title {
+    font-weight: bold;
+    margin: auto 0;
+    font-size: 22px;
+    padding: 5px;
+}
+
+.footer {
+    background: #555;
+    height: 249px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.background-pic {
+    /* background-size: 100% 100%; */
+    /* height: 450px; */
+    /* width: 100%; */
+}
+
+.pipe {
+    padding: 5px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    padding-left: 20px;
+}
+
+.login {
+    padding-right: 20px;
+}
+
+.user {
+    height: 20px;
+    width: 20px;
+    padding-right: 20px;
+}
+
+.session-form-box {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: 100%;
+    position: absolute;
+    left: 50px;
+    padding: 14px;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+
+}
+
+/* .session-form-container {
+    background-image: url("background.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover;
+
+} */
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: url("background.jpg");
+}
+
+.input {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 9px 11px;
+    height: auto;
+    line-height: 20px;
+    width: 210px;
+    border-radius: 4px;
+    margin: 10px;
+    position: relative;
+
+}
+
+.button {
+    border: 1px solid #e5991e;
+    background-color: #faac18;
+    padding: 9px 11px;
+    height: auto;
+    line-height: 20px;
+    width: 210px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 10px;
+}
+.bottom-p-line {
+    text-align: center;
+    opacity: 1 !important;
+}
+
+.error-0 {
+    list-style-type: none;
+    /* position: absolute; */
+    /* top: 60px;
+    left: 100px; */
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.error-1 {
+    list-style-type: none;
+    /* position: absolute; */
+    /* left: 125px; */
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 5px;
+    /* top: 0; */
+    overflow: hidden;
+    position: relative;
+}
+
+.error-2 {
+    list-style-type: none;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* left: 70px; */
+    border: 1px solid red;
+    background-color: red;
+    /* border-radius: 5px; */
+    overflow: hidden;
+    position: relative;
+}
+
+.dropdown {
+    display: block;
+}
+
+.dropdown {
+    width: 100px;
+    height: 100px; 
+    position: absolute;
+    background: white;
+    right: 10px;
+}
+
+.logoutbutton {
+    color: black;
+    border: 1px solid black;
+}

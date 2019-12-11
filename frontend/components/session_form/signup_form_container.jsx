@@ -18,7 +18,8 @@ const msp = (state) => ({
 
 
 const mdp = (dispatch) => ({
-    submitForm: (formUser) => dispatch(signup(formUser))
+    submitForm: (formUser) => dispatch(signup(formUser)),
+    loginForm: (formUser) => dispatch(login(formUser))
 });
 
 export default connect(msp, mdp)(SessionForm);

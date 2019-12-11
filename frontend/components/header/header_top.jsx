@@ -1,6 +1,6 @@
 import React from 'react'
 import DropDown from './dropdown'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class HeaderTop extends React.Component {
     constructor(props){
@@ -10,17 +10,19 @@ class HeaderTop extends React.Component {
         }
     }
 
+
     render () {
         const {currentUserId, logout} = this.props
-        
+
         let display = (currentUserId) ? (
             <div><DropDown logout={logout} /></div>
         )
             :
             (
                 <div>
-                    <Link to="/signup">Sign Up</Link>
-                    <Link to="/login">Login>></Link>
+                    <NavLink exact to="/signup">Sign Up</NavLink>
+                    <span className="pipe">|</span>
+                    <NavLink className="login"exact to="/login">Login>></NavLink>
                 </div>
             )
 
