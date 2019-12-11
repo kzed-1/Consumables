@@ -67,7 +67,7 @@ class DropDown extends React.Component {
                 <img className="user" src={window.user}/>
                 {this.state.open && 
                 (   <div className="dropdown">
-                        <Link to="/">Profile</Link>
+                        <Link to="/"><p className="profile-link">Profile</p></Link>
                         <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
                     </div>
                 )}

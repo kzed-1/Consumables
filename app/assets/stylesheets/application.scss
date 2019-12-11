@@ -73,7 +73,7 @@
 .footer {
     background: #555;
     height: 249px;
-    position: fixed;
+    // position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -121,12 +121,13 @@
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    height: 100%;
-    position: absolute;
+    height: 910px;
+    width: 420px;
     left: 50px;
     padding: 14px;
     background-color: rgba(0,0,0,0.5);
-    position: fixed;
+    position: relative;
+    justify-content: center;
 
 }
 
@@ -151,10 +152,12 @@
     padding: 9px 11px;
     height: auto;
     line-height: 20px;
-    width: 210px;
+    width: 377px;
+    // width: 100%;
     border-radius: 4px;
     margin: 10px;
-    position: relative;
+    // position: relative;
+
 
 }
 
@@ -164,7 +167,8 @@
     padding: 9px 11px;
     height: auto;
     line-height: 20px;
-    width: 210px;
+    width: 377px;
+    // width: 100%;
     border-radius: 4px;
     text-align: center;
     margin: 10px;
@@ -172,6 +176,7 @@
 }
 .bottom-p-line {
     text-align: center;
+    color: white;
 }
 
 .error-0 {
@@ -252,7 +257,8 @@
     float: right;
     top: 35px;
     right: 15px;
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .logoutbutton {
@@ -264,5 +270,11 @@
     padding: 6px 12px;
     background-color: #eee;
     border-color: #d4d4d4;
+    height: 15px;
+    text-align: center;
     
+}
+
+.profile-link {
+    color: black;
 }
