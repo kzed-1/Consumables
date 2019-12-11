@@ -70,7 +70,9 @@ class SessionForm extends React.Component {
         // debugger
         
         return (
+
             <div className ="session-form">
+
                 <span className ="session-form-container">
                     <form className = "session-form-box" onSubmit={this.handleSubmit}>
                         {emailError}

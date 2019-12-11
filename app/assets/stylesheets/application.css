@@ -87,9 +87,23 @@
 
 .session-form {
     margin: 0;
+<<<<<<< HEAD
+    height: 100vh;
+    // background-color: red;
+    background-image: asset-data-url("background.jpg");
+//     display: flex;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+=======
     height: 100%;
+<<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
+    // background-image: asset-data-url("background.jpg");
+========
     /* background-image: asset-data-url("background.jpg"); */
     /* background: red; */
+>>>>>>>> 235907f4fe597f6bc6ef6c51969ed38509648efa:app/assets/stylesheets/application.css
+>>>>>>> 235907f4fe597f6bc6ef6c51969ed38509648efa
 }
 
 .pipe {
