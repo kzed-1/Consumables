@@ -18,8 +18,10 @@ const App = () => (
                 <HeaderTopContainer />
             </div>
             <div className ="bottom-border">
-                <img className="logo" src={window.logo}/>
-                <h2 className="title">Edibles</h2>
+                <span className="logo-title">
+                    <img className="logo" src={window.logo}/>
+                    <h2 className="title">Edibles</h2>
+                </span>
                 <HeaderBottom />
             </div>
         </header>

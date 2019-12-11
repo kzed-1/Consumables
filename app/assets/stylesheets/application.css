@@ -27,6 +27,8 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
     align-items: center;
+    padding: 5px 15px 5px 10px;
+    min-height: 28px;
 }
 
 .bottom-header {
@@ -49,8 +51,11 @@
 .bottom-border {
     display: flex;
     background: #eee;
-    height: 90px;
+    height: 77px;
     align-items: center;
+    padding: 8px 20px;
+    border-bottom: 1px solid #ccc;
+    line-height: 20px;
 }
 
 .search-box {
@@ -89,6 +94,11 @@
     height: 40px;
     margin: auto 0;
     padding-left: 20px;
+}
+
+.logo-title {
+    display: flex;
+    justify-content: space-between;
 }
 
 .login {
@@ -152,10 +162,10 @@ html, body {
     border-radius: 4px;
     text-align: center;
     margin: 10px;
+    color: white;
 }
 .bottom-p-line {
     text-align: center;
-    opacity: 1 !important;
 }
 
 .error-0 {
@@ -167,7 +177,14 @@ html, body {
     background-color: red;
     border-radius: 5px;
     overflow: hidden;
+    display: block;
+    width: 100px;
+    font-size: x-small;
+    color: white;
+    text-align: center;
     position: relative;
+    left: 138px;
+    padding: 2px;
 }
 
 .error-1 {
@@ -180,6 +197,15 @@ html, body {
     /* top: 0; */
     overflow: hidden;
     position: relative;
+    display: block;
+    width: 100px;
+    font-size: x-small;
+    color: white;
+    text-align: center;
+    left: auto;
+    position: relative;
+    left: 138px;
+    padding: 2px;
 }
 
 .error-2 {
@@ -189,24 +215,48 @@ html, body {
     /* left: 70px; */
     border: 1px solid red;
     background-color: red;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
-}
-
-.dropdown {
     display: block;
+    width: 100px;
+    font-size: x-small;
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 138px;
+    padding: 2px;
 }
 
+
+
 .dropdown {
-    width: 100px;
+    width: 300px;
     height: 100px; 
     position: absolute;
     background: white;
-    right: 10px;
+    right: 0;
+    padding: 10px;
+    display: block;
+    left: auto;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    background-clip: padding-box;
+    min-width: 160px;
+    float: right;
+    top: 35px;
+    right: 15px;
+
 }
 
 .logoutbutton {
     color: black;
-    border: 1px solid black;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    padding: 6px 12px;
+    background-color: #eee;
+    border-color: #d4d4d4;
+    
 }

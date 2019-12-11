@@ -1,5 +1,6 @@
 import React from 'react';
 import { logout } from '../../util/session_api_util';
+import { Link } from 'react-router-dom';
 
 // class DropDown extends React.Component {
 //     constructor(props){
@@ -64,7 +65,12 @@ class DropDown extends React.Component {
         return (
             <div onBlur={() => this.handleDropdown()} onFocus={() => this.handleDropdown()}tabIndex = "0" >
                 <img className="user" src={window.user}/>
-                {this.state.open && (<div className="dropdown"><button className="logoutbutton" onMouseDown={() => logout()}>Logout</button></div>)}
+                {this.state.open && 
+                (   <div className="dropdown">
+                        <Link to="/">Profile</Link>
+                        <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
+                    </div>
+                )}
             </div>
         )
     }
