@@ -70,19 +70,20 @@ class SessionForm extends React.Component {
         // debugger
         
         return (
-
-            <div className ="session-form-container">
-                <form className = "session-form-box" onSubmit={this.handleSubmit}>
-                    {emailError}
-                    {emailBox}
-                    {usernameError}
-                    <input className="input" onChange={this.handleInput('username')} value={this.state.username} type="text" placeholder="Username"/>
-                    {passwordError}
-                    <input className="input" onChange={this.handleInput('password')} value={this.state.password} type="password" placeholder="Password"/>
-                    <input className="button" type="submit" value={formType}/>
-                    <button className="button" onClick={this.handleDemoUser}>Demo User</button>
-                    <p className ="bottom-p-line">{textBox}{navLink}</p>
-                </form>
+            <div className="session-form">
+                <span className ="session-form-container">
+                    <form className = "session-form-box" onSubmit={this.handleSubmit}>
+                        {emailError}
+                        {emailBox}
+                        {usernameError}
+                        <input className="input" onChange={this.handleInput('username')} value={this.state.username} type="text" placeholder="Username"/>
+                        {passwordError}
+                        <input className="input" onChange={this.handleInput('password')} value={this.state.password} type="password" placeholder="Password"/>
+                        <input className="button" type="submit" value={formType}/>
+                        <button className="button" onClick={this.handleDemoUser}>Demo User</button>
+                        <p className ="bottom-p-line">{textBox}{navLink}</p>
+                    </form>
+                </span>
             </div>
         )
     }

@@ -27,8 +27,8 @@ const App = () => (
         </header>
         <Switch>
             <Route exact path="/" component={Splash}/>
-            <AuthRoute className="session-form" path="/login" component={LoginFormContainer}/>
-            <AuthRoute className="session-form" path="/signup" component={SignupFormContainer}/>
+            <AuthRoute  path="/login" component={LoginFormContainer}/>
+            <AuthRoute  path="/signup" component={SignupFormContainer}/>
         </Switch>
         <footer className="footer">
             <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
