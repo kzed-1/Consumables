@@ -85,6 +85,12 @@
     /* width: 100%; */
 }
 
+.session-form {
+    margin: 0;
+    height: 100%;
+    background-image: asset-data-url("background.jpg");
+}
+
 .pipe {
     padding: 5px;
 }
@@ -133,11 +139,11 @@
 
 } */
 
-html, body {
+/* html, body {
     margin: 0;
     height: 100%;
     background-image: url("background.jpg");
-}
+} */
 
 .input {
     border: 1px solid #ccc;
