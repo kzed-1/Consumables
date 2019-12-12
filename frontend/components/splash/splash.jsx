@@ -6,7 +6,7 @@ class Splash extends React.Component {
     render () {
         return (
             <div className="splash">
-                <img className="background-pic" src={window.background} />;
+                <img className="background-pic" src={window.splashBackground} />
                 <p></p>
             </div>
         )   

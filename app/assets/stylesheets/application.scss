@@ -59,14 +59,7 @@
 }
 
 .search-box {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 20px;
-    width: 120px;
-    padding: 6px 10px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #555;
+    width: 100px;
 }
 .title {
     font-weight: bold;
@@ -82,11 +75,19 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    // display: grid;
+    // grid-template-rows: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     z-index: 5;
+    border: none;
+    position: relative;
+    border-color: #555;
+    display: flex;
+    justify-content: center;
 }
+
+
+
 
 .background-pic {
     /* background-size: 100% 100%; */
@@ -120,6 +121,8 @@
     margin: 0;
     height: 100vh;
     background-image: asset-data-url("background.jpg");
+    background-size: cover;
+    width: 100%;
 }
 
 .pipe {
@@ -152,14 +155,15 @@
     flex-direction: column;
     /* justify-content: space-between; */
     // height: 910px;
-    height: 100%;
+    height: 795px;
     width: 420px;
     left: 50px;
     padding: 14px;
     background-color: rgba(0,0,0,0.5);
     position: relative;
     justify-content: center;
-
+    position: relative;
+    
 }
 
 /* .session-form-container {
@@ -322,14 +326,21 @@
 
 .img-link {
     position: relative;
-    top: 110px;
+    top: 207px;
+    color: #bbb;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
     // left: 600px;
 }
 
 .line {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid lightgray;
     position: relative;
-    top: 100;
+    top: 183px;
+    width: 916px;
+    height: 1px;
 }
 
 .recipes {
@@ -342,4 +353,27 @@
     padding: 6px 12px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: black;
+}
+
+.find {
+    width: 20px;
+    height: 20px;
+    // position: absolute;
+    // left: 1380px;
+    // // left: 1000px;
+    // z-index: 4;
+    // display: block
+}
+
+.search-find {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 20px;
+    width: 120px;
+    padding: 6px 10px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #555;
 }
