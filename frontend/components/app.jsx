@@ -20,7 +20,7 @@ const App = () => (
             <div className ="bottom-border">
                 <span className="logo-title">
                     <img className="logo" src={window.logo}/>
-                    <h2 className="title">Edibles</h2>
+                    <h2 className="title">edibles</h2>
                 </span>
                 <HeaderBottom />
             </div>
