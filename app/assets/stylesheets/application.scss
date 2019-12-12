@@ -155,7 +155,8 @@
     flex-direction: column;
     /* justify-content: space-between; */
     // height: 910px;
-    height: 795px;
+    // height: 795px;
+    height: 100%;
     width: 420px;
     left: 50px;
     padding: 14px;
@@ -163,6 +164,7 @@
     position: relative;
     justify-content: center;
     position: relative;
+    
     
 }
 
@@ -191,7 +193,8 @@
     // width: 100%;
     border-radius: 4px;
     margin: 10px;
-    // position: relative;
+    position: relative;
+
 
 
 }
@@ -216,7 +219,7 @@
 
 .error-0 {
     list-style-type: none;
-    position: absolute;
+    position: relative;
     border: 1px solid red;
     background-color: red;
     border-radius: 5px;
@@ -226,48 +229,47 @@
     font-size: x-small;
     color: white;
     text-align: center;
-    position: relative;
     left: 306px;
     padding: 2px;
 }
 
 .error-1 {
     list-style-type: none;
-    /* position: absolute; */
+    // position: absolute;
+    position: relative;
     /* left: 125px; */
     border: 1px solid red;
     background-color: red;
     border-radius: 5px;
     /* top: 0; */
     overflow: hidden;
-    position: relative;
     display: block;
     width: 100px;
     font-size: x-small;
     color: white;
     text-align: center;
     left: auto;
-    position: relative;
     left: 306px;
     padding: 2px;
 }
 
 .error-2 {
     list-style-type: none;
-    /* position: absolute; */
+    // position: absolute;
     /* top: 100px; */
     /* left: 70px; */
     border: 1px solid red;
     background-color: red;
     border-radius: 5px;
     overflow: hidden;
-    position: relative;
+
     display: block;
     width: 100px;
     font-size: x-small;
     color: white;
     text-align: center;
     position: relative;
+
     left: 306px;
     padding: 2px;
 }
@@ -277,7 +279,7 @@
 .dropdown {
     width: 300px;
     height: 100px; 
-    position: absolute;
+    // position: absolute;
     background: white;
     right: 0;
     padding: 10px;

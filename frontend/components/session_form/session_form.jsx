@@ -7,7 +7,8 @@ class SessionForm extends React.Component {
         super(props)
         this.state = this.props.userInfo;
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDemoUser = this.handleDemoUser.bind(this)
+        this.handleDemoUser = this.handleDemoUser.bind(this);
+        this.errorTimer = this.errorTimer.bind(this);
     }
 
     handleInput (type) {
@@ -16,10 +17,18 @@ class SessionForm extends React.Component {
         }
     };
 
+    errorTimer () {
+        setTimeout(() => {
+            this.props.clearErrors();
+        }, 2000)
+    };
+
     handleSubmit (e) {
         e.preventDefault();
         this.props.submitForm(this.state)
-            .then(() => this.props.history.push("/"))
+            .then(() => this.props.history.push("/"), () => this.errorTimer());
+        
+        
     };
 
     handleDemoUser (e) {
