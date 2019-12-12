@@ -45,26 +45,31 @@ class SessionForm extends React.Component {
         let errorslist = errors.map((error, i) => (
             <li className={`error-${i}`} key={i}>{error}</li>
         ))
-
+        
         let emailError;
-        let usernameError = errorslist[0] 
-        let passwordError = errorslist[1]
-            
+        let usernameError;  
+        let passwordError; 
+        
+        
+        for (let i = 0; i < errors.length; i++) {
+            // debugger
+            if (errors[i].includes("Email")) {
+                emailError = errorslist[i]
+            } else if (errors[i].includes("Username")) {
+                usernameError = errorslist[i]
+            } else if (errors[i].includes("Password")) {
+                passwordError = errorslist[i]
+            } else if (errors[i].includes("Please enter your username") && this.state.username.length === 0) {
+                usernameError = errorslist[i]
+            } else if (errors[i].includes("Please enter your password") && this.state.password.length === 0) {
+                passwordError = errorslist[i]
+            }
+        }
         
         if (formType === "Sign Me Up !") {
             textBox = "Already a member?";
             emailBox = <input  className="input" onChange={this.handleInput('email')} value={this.state.email} type="emailf" placeholder="Email" />
             // debugger
-            for (let i = 0; i < errors.length; i++) {
-                // debugger
-                if (errors[i].includes("Email")) {
-                    emailError = errorslist[i]
-                } else if (errors[i].includes("Username")) {
-                    usernameError = errorslist[i]
-                } else if (errors[i].includes("Password")) {
-                    passwordError = errorslist[i]
-                }
-            }
         }
         
         // debugger

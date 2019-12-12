@@ -10,8 +10,8 @@ class HeaderBottom extends React.Component {
     render() {
         return (
             <div className="bottom-header">
-                <NavLink exact to="/recipes">Recipes</NavLink>
-                <input className="search-box" type="text" /> 
+                <NavLink className = "recipes" exact to="/recipes">Recipes</NavLink>
+                <input className="search-box" type="text" placeholder="Let's Make... " /> 
             </div>
         )
     }

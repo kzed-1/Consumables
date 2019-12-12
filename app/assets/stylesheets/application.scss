@@ -51,7 +51,7 @@
 .bottom-border {
     display: flex;
     background: #eee;
-    height: 77px;
+    height: 71px;
     align-items: center;
     padding: 8px 20px;
     border-bottom: 1px solid #ccc;
@@ -62,6 +62,11 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 20px;
+    width: 120px;
+    padding: 6px 10px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #555;
 }
 .title {
     font-weight: bold;
@@ -77,13 +82,39 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    z-index: 5;
 }
 
 .background-pic {
     /* background-size: 100% 100%; */
-    /* height: 450px; */
-    /* width: 100%; */
+    height: 450px; 
+    // width: 100%; 
+    // position: relative;
+    // overflow: hidden;
+    // width: 450px;
+    // height: 100%;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: 50% 50%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+
+
+    // width: 150px; /* width of container */
+    // height: 150px; /* height of container */
+    
+    // clip: rect(0px,60px,200px,0px);
 }
+
+// .background-pic {
+//     position: absolute;
+//     right: -100;
+//     bottom: -100;
+// }
 
 .session-form {
     margin: 0;
@@ -92,7 +123,7 @@
 }
 
 .pipe {
-    padding: 5px;
+    padding: 7px;
 }
 
 .logo {
@@ -108,7 +139,6 @@
 }
 
 .login {
-    padding-right: 20px;
 }
 
 .user {
@@ -182,9 +212,7 @@
 
 .error-0 {
     list-style-type: none;
-    /* position: absolute; */
-    /* top: 60px;
-    left: 100px; */
+    position: absolute;
     border: 1px solid red;
     background-color: red;
     border-radius: 5px;
@@ -195,7 +223,7 @@
     color: white;
     text-align: center;
     position: relative;
-    left: 138px;
+    left: 306px;
     padding: 2px;
 }
 
@@ -216,7 +244,7 @@
     text-align: center;
     left: auto;
     position: relative;
-    left: 138px;
+    left: 306px;
     padding: 2px;
 }
 
@@ -236,7 +264,7 @@
     color: white;
     text-align: center;
     position: relative;
-    left: 138px;
+    left: 306px;
     padding: 2px;
 }
 
@@ -269,13 +297,49 @@
     display: inline-block;
     font-size: 14px;
     padding: 6px 12px;
-    background-color: #eee;
+    background-color: #f6f6f6;
     border-color: #d4d4d4;
     height: 15px;
-    text-align: center;
-    
+    text-align: center;  
+}
+
+.logoutbutton:hover {
+    background-color: #eee;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .profile-link {
+    color: darkgray;
+    font-size: 14px;
+
+    
+}
+
+.profile-link:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.img-link {
+    position: relative;
+    top: 110px;
+    // left: 600px;
+}
+
+.line {
+    border-bottom: 1px solid white;
+    position: relative;
+    top: 100;
+}
+
+.recipes {
+    background-color: #fff;
+    border: 1px solid transparent;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 6px 12px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: black;
 }

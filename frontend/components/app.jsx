@@ -31,7 +31,10 @@ const App = () => (
             <AuthRoute  path="/signup" component={SignupFormContainer}/>
         </Switch>
         <footer className="footer">
-            <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <span className="footer-items">
+                <div className="line"></div>
+                <div className="img-link" >Icons made by <a  href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            </span>
         </footer>
     </div>
 )
