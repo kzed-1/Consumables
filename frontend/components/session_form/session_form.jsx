@@ -48,11 +48,11 @@ class SessionForm extends React.Component {
 
         const {formType, navLink, errors} = this.props
         let emailBox = null;
-        let textBox = "New to Instructables?";
+        let textBox = "New to Instructables? ";
 
 
         let errorslist = errors.map((error, i) => (
-            <li className={`error-${i}`} key={i}>{error}</li>
+            <div><li className={`error-${i}`} key={i}>{error}</li><div className={`downarrow-${i}`} ></div></div>
         ))
         
         let emailError;
@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
         }
         
         if (formType === "Sign Me Up !") {
-            textBox = "Already a member?";
+            textBox = "Already a member? ";
             emailBox = <input  className="input" onChange={this.handleInput('email')} value={this.state.email} type="emailf" placeholder="Email" />
             // debugger
         }
@@ -89,14 +89,14 @@ class SessionForm extends React.Component {
 
                 <span className ="session-form-container">
                     <form className = "session-form-box" onSubmit={this.handleSubmit}>
-                        {emailError}
-                        {emailBox}
-                        {usernameError}
-                        <input className="input" onChange={this.handleInput('username')} value={this.state.username} type="text" placeholder="Username"/>
-                        {passwordError}
-                        <input className="input" onChange={this.handleInput('password')} value={this.state.password} type="password" placeholder="Password"/>
+                        <button className="demo-button" onClick={this.handleDemoUser}>Demo User</button>
+                        <div className ="or-line" ></div>
+                    
+                        <span className="input-wrapper">{emailError}{emailBox}</span>
+                        
+                        <span className="input-wrapper">{usernameError}<input className="input" onChange={this.handleInput('username')} value={this.state.username} type="text" placeholder="Username"/></span>
+                        <span className="input-wrapper">{passwordError}<input className="input" onChange={this.handleInput('password')} value={this.state.password} type="password" placeholder="Password"/></span>
                         <input className="button" type="submit" value={formType}/>
-                        <button className="button" onClick={this.handleDemoUser}>Demo User</button>
                         <p className ="bottom-p-line">{textBox}{navLink}</p>
                     </form>
                 </span>

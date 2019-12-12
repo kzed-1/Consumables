@@ -38,7 +38,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-
+    padding-right: 0;
 }
 
 .home-button {
@@ -126,14 +126,14 @@
 }
 
 .pipe {
-    padding: 7px;
+    padding: 8px;
 }
 
 .logo {
     width: 40px;
     height: 40px;
     margin: auto 0;
-    padding-left: 20px;
+    // padding-left: 20px;
 }
 
 .logo-title {
@@ -164,6 +164,7 @@
     position: relative;
     justify-content: center;
     position: relative;
+    // align-items: center;
     
     
 }
@@ -194,9 +195,33 @@
     border-radius: 4px;
     margin: 10px;
     position: relative;
+}
+.input-wrapper {
+    position: relative;
+}
 
+.or-line {
+    border-top: 1px solid white; 
+    margin: 20px 0;
+    width: 328px;
+    margin-left: 48px;
+    
+}
 
-
+.demo-button {
+    background-color: #30B0D5;
+    border: 1px solid #30B0D5;
+    padding: 9px 11px;
+    height: auto;
+    line-height: 20px;
+    width: 377px;
+    // width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    color: white;
+    font-size: 17.5px;
+    font-weight: 400;
 }
 
 .button {
@@ -207,10 +232,12 @@
     line-height: 20px;
     width: 377px;
     // width: 100%;
-    border-radius: 4px;
+    border-radius: 5px;
     text-align: center;
     margin: 10px;
     color: white;
+    font-size: 17.5px;
+    font-weight: 400;
 }
 .bottom-p-line {
     text-align: center;
@@ -219,59 +246,101 @@
 
 .error-0 {
     list-style-type: none;
-    position: relative;
-    border: 1px solid red;
-    background-color: red;
+    position: absolute;
+    border: 1px solid #CE4126;
+    background-color: #CE4126;
     border-radius: 5px;
     overflow: hidden;
     display: block;
     width: 100px;
-    font-size: x-small;
+    font-size: 11px;
     color: white;
     text-align: center;
-    left: 306px;
-    padding: 2px;
+    left: 298px;
+    padding: 6px;
+    bottom: 55px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
 }
 
 .error-1 {
     list-style-type: none;
-    // position: absolute;
-    position: relative;
+    position: absolute;
     /* left: 125px; */
-    border: 1px solid red;
-    background-color: red;
+    border: 1px solid #CE4126;
+    background-color: #CE4126;
     border-radius: 5px;
     /* top: 0; */
     overflow: hidden;
     display: block;
     width: 100px;
-    font-size: x-small;
+    font-size: 11px;
     color: white;
     text-align: center;
-    left: auto;
-    left: 306px;
-    padding: 2px;
+    left: 298px;
+    padding: 6px;
+    bottom: 55px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .error-2 {
     list-style-type: none;
-    // position: absolute;
+    position: absolute;
     /* top: 100px; */
     /* left: 70px; */
-    border: 1px solid red;
-    background-color: red;
+    border: 1px solid #CE4126;
+    background-color: #CE4126;
     border-radius: 5px;
-    overflow: hidden;
+    // overflow: hidden;
 
     display: block;
-    width: 100px;
-    font-size: x-small;
+    width: 200px;
+    font-size: 11px;
     color: white;
     text-align: center;
-    position: relative;
+    bottom: 55px;
+    text-overflow: ellipsis;
+    left: 198px;
+    padding: 6px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
-    left: 306px;
-    padding: 2px;
+.downarrow-0 {
+
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #CE4126;
+    width: 1px;
+    position: absolute;
+    z-index: 0;
+    bottom: 50px;
+    left: 353px;
+}
+
+.downarrow-1 {
+
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #CE4126;
+    width: 1px;
+    position: absolute;
+    z-index: 0;
+    bottom: 50px;
+    left: 353px;
+}
+.downarrow-2 {
+
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #CE4126;
+    width: 1px;
+    position: absolute;
+    z-index: 0;
+    bottom: 50px;
+    left: 300px;
 }
 
 
@@ -317,8 +386,6 @@
 .profile-link {
     color: darkgray;
     font-size: 14px;
-
-    
 }
 
 .profile-link:hover {
@@ -360,6 +427,7 @@
 .find {
     width: 20px;
     height: 20px;
+    padding-left: 4px;
     // position: absolute;
     // left: 1380px;
     // // left: 1000px;
@@ -372,10 +440,40 @@
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     height: 20px;
     width: 120px;
     padding: 6px 10px;
     background-color: #fff;
     font-size: 14px;
     color: #555;
+
+}
+
+.login-signout {
+    padding-right: 6px;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.motto-box {
+    position: relative;
+}
+
+.motto {
+    position: absolute;
+    color: white;
+    border-bottom: 2px solid white;
+    border-top: 1px solid white;
+    font-size: 60px;
+    padding: 25px 0px;
+    width: 258px;
+    display: block;
+    top: 60px;
+    left: 10px;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+}
+
+.motto-text {
+    text-shadow: 2px 2px 1px black; 
 }

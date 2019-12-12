@@ -13,6 +13,30 @@ class Api::RecipesController < ApplicationController
         end 
     end 
 
+    def show 
+        @recipe = Recipe.find(params[:id])
+    end
+
+    def update
+        @recipe = Recipe.find(params[:id])
+
+        if @recipe.update_sttributes(recipe_params)
+            render :show
+        else 
+            render json: @recipe.errors.full_messages, status: 422
+        end 
+    end
+    
+    def destroy 
+        @recipe = Recipe.find(params[:id])
+
+        if @recipe.destroy 
+            render :show
+        else 
+            render @recipe.errors.full_messages, status: 422
+        end 
+    end 
+
     private 
 
     def recipe_params 

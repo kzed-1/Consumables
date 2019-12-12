@@ -19,7 +19,7 @@ class HeaderTop extends React.Component {
         )
             :
             (
-                <div>
+                <div className="login-signout">
                     <NavLink className="login"exact to="/login">Login</NavLink>
                     <span className="pipe">|</span>
                     <NavLink exact to="/signup">Sign Up</NavLink>
