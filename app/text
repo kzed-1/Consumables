@@ -1,0 +1,7 @@
+json.users do
+    @recipes.each do |recipe|
+        json.set! recipe.author_id do 
+            json.partial! "api/users/user", user: recipe.author
+        end
+    end
+end

@@ -2,8 +2,9 @@ import React from 'react';
 import {createRecipe} from '../../actions/recipes_actions'
 import { connect } from 'react-redux';
 import {openModal, closeModal} from '../../actions/modal_action';
+import {withRouter} from 'react-router-dom';
 
-class CreateRecipeForm extends React.Component {
+class RecipeCreateForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -11,13 +12,21 @@ class CreateRecipeForm extends React.Component {
             author_id: this.props.currentUser.id,
             body: ""
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeModalCallback = this.props.closeModal.bind(this);
+        this.redirectAndSubmit = this.redirectAndSubmit.bind(this);
     }
 
     componentDidMount() {
         this.props.openModal("open")
     }
 
+    redirectAndSubmit () {
+        debugger
+        this.props.closeModal.call(this)
+        this.props.history.push("/recipes")
+    }
+ 
 
 
     handleInput (type) {
@@ -29,14 +38,14 @@ class CreateRecipeForm extends React.Component {
     handleSubmit (e) {
         e.preventDefault();
         this.props.createRecipe(this.state)
-            .then(this.props.closeModal("close"))
+            .then(() => this.redirectAndSubmit.call(this))
         
     }
 
     render () {
         return (
-            <div>
-                <form onSubmit={}>
+            <div className ="recipe-create-form-container">
+                <form className= "recipe-create-form" onSubmit={this.handleSubmit}>
                     <label> I made a recipe called:</label>
                     <input 
                         type="text"
@@ -65,8 +74,8 @@ const msp = (state) => ({
 const mdp = (dispatch) => ({
     createRecipe: (recipe) => dispatch(createRecipe(recipe)),
     openModal: (modal) => dispatch(openModal(modal)),
-    closeModal: (modal) => dispatch(closeModal(modal))
+    closeModal: () => dispatch(closeModal())
 
 })
 
-export default connect(msp, mdp)(CreateRecipeForm)
+export default withRouter(connect(msp, mdp)(RecipeCreateForm));

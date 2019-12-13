@@ -62,15 +62,20 @@ class DropDown extends React.Component {
         const {logout} = this.props;
         // debugger
 
+        const component = (this.state.open) ? (
+            <div className="dropdown">
+                <div >
+                    <Link to="/"><p className="profile-link">Profile</p></Link>
+                    <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
+                    <Link to="/recipes/edit">Create Recipe</Link>
+                </div>
+            </div>
+        ): null;
+
         return (
             <div onBlur={() => this.handleDropdown()} onFocus={() => this.handleDropdown()}tabIndex = "0" >
-                <img className="user" src={window.user}/>
-                {this.state.open && 
-                (   <div className="dropdown">
-                        <Link to="/"><p className="profile-link">Profile</p></Link>
-                        <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
-                    </div>
-                )}
+                <img className="user" src={window.user} />
+                {component}
             </div>
         )
     }

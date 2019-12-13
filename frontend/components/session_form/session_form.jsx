@@ -24,10 +24,11 @@ class SessionForm extends React.Component {
     };
 
     handleSubmit (e) {
+        debugger
         e.preventDefault();
         this.props.submitForm(this.state)
             .then(() => this.props.history.push("/"), () => this.errorTimer());
-        
+        debugger
         
     };
 

@@ -7,14 +7,20 @@ import {NavLink, Link} from 'react-router-dom';
 import Splash from './splash/splash';
 import {Switch} from 'react-router-dom';
 import HeaderBottom from './header/header_bottom';
-import {AuthRoute} from '../util/route_utils';
+import { AuthRoute, ProtectedRoute} from '../util/route_utils';
 import RecipeIndexContainer from './recipes/recipe_index_container';
 import Modal from './modal';
+import { closeModal } from '../actions/modal_action';
+import store from '../store/store'
+import RecipeCreateFormContainer from './recipes/recipe_create_form container'
+import RecipeEdit from './recipes/recipe_edit_container';
+
 
 
 
 const App = () => (
     <div>
+        <Modal/>
         <header className ="header">
             <div className ="top-header">
                 <button className="home-button"><NavLink to="/"><img src={window.home} alt=""/></NavLink></button>
@@ -29,7 +35,7 @@ const App = () => (
             </div>
         </header>
         <Switch>
-            <Route path="/recipes/new" component={Modal}/>
+            <ProtectedRoute exact path="/recipes/edit" component={RecipeEdit}/>
             <Route path="/recipes" component={RecipeIndexContainer}/>
             <Route exact path="/" component={Splash}/>
             <AuthRoute  path="/login" component={LoginFormContainer}/>

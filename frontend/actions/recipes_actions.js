@@ -10,17 +10,17 @@ export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
 export const receiveAllRecipes = (recipes) => ({
     type: RECEIVE_ALL_RECIPES,
     recipes
-}) 
+});
 
-export const receiveRecipe = (recipe) => ({
+export const receiveRecipe = (payload) => ({
     type: RECEIVE_RECIPE,
-    recipe
-}) 
+    payload
+}); 
 
 export const removeRecipe = (recipeId) => ({
     type: REMOVE_RECIPE,
     recipeId
-}) 
+}); 
 
 export const receiveRecipeErrors = (errors) => ({
     type: RECEIVE_RECIPE_ERRORS,
@@ -41,24 +41,24 @@ export const grabRecipes = () => (dispatch) => (
 
 export const grabRecipe = (recipeId) => (dispatch) => (
     RecipesApiUtil.grabRecipe(recipeId)
-        .then(recipe => dispatch(receiveRecipe(recipe)))              
+        .then(payload => dispatch(receiveRecipe(payload)))              
 )
 
 export const createRecipe = (recipe) => (dispatch) => (
     RecipesApiUtil.createRecipe(recipe)
-        .then(recipe => dispatch(receiveRecipe(recipe)),
+        .then(payload => dispatch(receiveRecipe(payload)),
             error => dispatch(receiveRecipeErrors(error.responseJSON)))
 );
 
 export const editRecipe = (recipe) => (dispatch) => (
     RecipesApiUtil.editRecipe(recipe)
-        .then(recipe => dispatch(receiveRecipe(recipe)), 
+        .then(payload => dispatch(receiveRecipe(payload)), 
             error => dispatch(receiveRecipeErrors(error.responseJSON)))
 )
 
 export const deleteRecipe = (recipeId) => (dispatch) => (
     RecipesApiUtil.editRecipe(recipeId)
-        .then(recipe => dispatch(receiveRecipe(recipe)), 
+        .then(payload => dispatch(receiveRecipe(payload)), 
             error => dispatch(receiveRecipeErrors(errorresponseJSON)))
 )
 

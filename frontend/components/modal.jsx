@@ -1,6 +1,9 @@
 import React from 'react';
 import {closeModal} from '../actions/modal_action';
 import { connect } from 'react-redux';
+import RecipeCreateFormContainer from '../components/recipes/recipe_create_form container';
+import {Route} from 'react-router-dom';
+
 
 
 // class Modal extends React.Component {
@@ -14,32 +17,35 @@ import { connect } from 'react-redux';
 //     }
 // }
 
-function Modal({modal, closeModal}) {
+function Modal({modal}) {
 
     if(!modal) {
+        // debugger
         return null;
-    }
+    } 
 
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
+                <RecipeCreateFormContainer />
             </div>
         </div>
     );
 
-}
+  
+    
+
+   
+
+};
 
 const msp = (state) => {
+    // debugger
     return {
         modal: state.ui.modal
+
     }
 }
 
-const mdp = (dispatch) => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    }
-} 
 
-export default connect(msp, mdp)(Modal);
+export default connect(msp)(Modal);

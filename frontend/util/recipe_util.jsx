@@ -31,7 +31,7 @@ export const editRecipe = (recipe) => (
 export const deleteRecipe = (recipeId) => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/recipes/${recipe.id}`
+        url: `/api/recipes/${recipeId}`
     })
 )
 
