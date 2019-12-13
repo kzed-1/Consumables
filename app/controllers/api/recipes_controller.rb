@@ -9,7 +9,7 @@ class Api::RecipesController < ApplicationController
         if @recipe.save
             render :show
         else
-            render json: @recipe.errors.full_messages
+            render json: @recipe.errors.full_messages, status: 401
         end 
     end 
 
@@ -33,14 +33,14 @@ class Api::RecipesController < ApplicationController
         if @recipe.destroy 
             render :show
         else 
-            render @recipe.errors.full_messages, status: 422
+            render @recipe.errors.full_messages, status: 404
         end 
     end 
 
     private 
 
     def recipe_params 
-        params.require(:recipe).permit(:title, :body)
+        params.require(:recipe).permit(:title, :body, :author_id)
     end
 
 end

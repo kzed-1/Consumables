@@ -18,7 +18,7 @@
 .top-header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
     /* padding: 0px 2px 6px 2px; */
     padding: 5px;
     background: #555;
@@ -48,10 +48,14 @@
     padding-left: 20px
 }
 
+.home-button:hover {
+    color:white;
+}
+
 .bottom-border {
     display: flex;
     background: #eee;
-    height: 71px;
+    height: 72px;
     align-items: center;
     padding: 8px 20px;
     border-bottom: 1px solid #ccc;
@@ -133,24 +137,37 @@
     width: 40px;
     height: 40px;
     margin: auto 0;
-    // padding-left: 20px;
-    
-    
+    // padding-left: 20px;  
 }
+
 
 .logo-title {
     display: flex;
     justify-content: space-between;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .login {
+    text-decoration: underline;
 }
+
+.signup {
+    text-decoration: underline;
+}
+
+
+
 
 .user {
     height: 20px;
     width: 20px;
-    padding-right: 20px;
+    padding-right: 7px;
+}
+
+.user:hover {
+    cursor: pointer;
 }
 
 .session-form-box {
@@ -198,18 +215,42 @@
     border-radius: 4px;
     margin: 10px;
     position: relative;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
 }
 .input-wrapper {
     position: relative;
 }
 
 .or-line {
-    border-top: 1px solid white; 
-    margin: 20px 0;
-    width: 328px;
-    margin-left: 48px;
+    // border-top: 1px solid white; 
+    // margin: 20px 0;
+    // width: 328px;
+    // margin-left: 48px;
+       width: 168px; 
+   text-align: center; 
+   border-bottom: 1px solid #fff; 
+   line-height: 0.1em;
+//    margin: 10px 0 20px;
+
+//    padding-left: 10px;
     
 }
+.or-line-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 19px;
+}
+
+.ortext { 
+    padding:0 10px;
+    color: #fff;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
 
 .demo-button {
     background-color: #30B0D5;
@@ -225,7 +266,10 @@
     color: white;
     font-size: 17.5px;
     font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    // margin-bottom: 24px;
 }
+
 
 .button {
     border: 1px solid #e5991e;
@@ -241,10 +285,13 @@
     color: white;
     font-size: 17.5px;
     font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .bottom-p-line {
     text-align: center;
     color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 }
 
 .error-0 {
@@ -259,7 +306,7 @@
     font-size: 11px;
     color: white;
     text-align: center;
-    left: 298px;
+    left: 297px;
     padding: 6px;
     bottom: 55px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -280,31 +327,48 @@
     font-size: 11px;
     color: white;
     text-align: center;
-    left: 298px;
+    left: 297px;
     padding: 6px;
     bottom: 55px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .error-2 {
-    list-style-type: none;
+    // list-style-type: none;
+    // position: absolute;
+    // /* top: 100px; */
+    // /* left: 70px; */
+    // border: 1px solid #CE4126;
+    // background-color: #CE4126;
+    // border-radius: 5px;
+    // // overflow: hidden;
+
+    // display: block;
+    // width: 200px;
+    // font-size: 11px;
+    // color: white;
+    // text-align: center;
+    // bottom: 55px;
+    // text-overflow: ellipsis;
+    // left: 198px;
+    // padding: 6px;
+    // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      list-style-type: none;
     position: absolute;
-    /* top: 100px; */
-    /* left: 70px; */
+    /* left: 125px; */
     border: 1px solid #CE4126;
     background-color: #CE4126;
     border-radius: 5px;
-    // overflow: hidden;
-
+    /* top: 0; */
+    overflow: hidden;
     display: block;
-    width: 200px;
+    width: 125px;
     font-size: 11px;
     color: white;
     text-align: center;
-    bottom: 55px;
-    text-overflow: ellipsis;
-    left: 198px;
+    left: 272px;
     padding: 6px;
+    bottom: 55px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -334,8 +398,7 @@
     left: 353px;
 }
 .downarrow-2 {
-
-    height: 0; 
+     height: 0; 
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #CE4126;
@@ -343,7 +406,17 @@
     position: absolute;
     z-index: 0;
     bottom: 50px;
-    left: 300px;
+    left: 353px;
+
+    // height: 0; 
+    // border-left: 5px solid transparent;
+    // border-right: 5px solid transparent;
+    // border-top: 5px solid #CE4126;
+    // width: 1px;
+    // position: absolute;
+    // z-index: 0;
+    // bottom: 50px;
+    // left: 300px;
 }
 
 
@@ -366,6 +439,7 @@
     right: 15px;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .logoutbutton {
@@ -411,20 +485,20 @@
     border-bottom: 1px solid lightgray;
     position: relative;
     top: 183px;
-    width: 916px;
+    width: 1366px;
     height: 1px;
 }
 
 .recipes {
     background-color: #fff;
-    border: 1px solid transparent;
+    border: 1px solid #dedede;
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 400;
     padding: 6px 12px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: black;
+    color: #333;
 }
 
 .find {

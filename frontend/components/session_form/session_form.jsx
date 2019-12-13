@@ -90,7 +90,7 @@ class SessionForm extends React.Component {
                 <span className ="session-form-container">
                     <form className = "session-form-box" onSubmit={this.handleSubmit}>
                         <button className="demo-button" onClick={this.handleDemoUser}>Demo User</button>
-                        <div className ="or-line" ></div>
+                        <div className="or-line-container"><div className="or-line" ></div><span className="ortext">OR</span><div className="or-line" ></div></div>
                     
                         <span className="input-wrapper">{emailError}{emailBox}</span>
                         

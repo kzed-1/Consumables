@@ -13,7 +13,7 @@ const msp = (state) => ({
     },
     errors: state.errors.session,
     formType: "Sign Me Up !",
-    navLink: <Link to="/login">Login>></Link>
+    navLink: <Link className="login" to="/login">Login>></Link>
 });
 
 

@@ -3,11 +3,14 @@ import {Route} from 'react-router-dom'
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import HeaderTopContainer from './header/header_top_container';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import Splash from './splash/splash';
 import {Switch} from 'react-router-dom';
 import HeaderBottom from './header/header_bottom';
 import {AuthRoute} from '../util/route_utils';
+import RecipeIndexContainer from './recipes/recipe_index_container';
+import Modal from './modal';
+
 
 
 const App = () => (
@@ -19,13 +22,15 @@ const App = () => (
             </div>
             <div className ="bottom-border">
                 <span className="logo-title">
-                    <img className="logo" src={window.logo}/>
-                    <h2 className="title">edibles</h2>
+                    <Link className="logo" to="/"><img src={window.logo}/></Link> 
+                    <Link className="title" to="/"><h2>edibles</h2></Link> 
                 </span>
                 <HeaderBottom />
             </div>
         </header>
         <Switch>
+            <Route path="/recipes/new" component={Modal}/>
+            <Route path="/recipes" component={RecipeIndexContainer}/>
             <Route exact path="/" component={Splash}/>
             <AuthRoute  path="/login" component={LoginFormContainer}/>
             <AuthRoute  path="/signup" component={SignupFormContainer}/>
