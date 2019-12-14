@@ -15,7 +15,7 @@ class HeaderTop extends React.Component {
         const {currentUserId, logout} = this.props
 
         let display = (currentUserId) ? (
-            <div><DropDown logout={logout} /></div>
+            <div><DropDown logout={logout} history={this.props.history}/></div>
         )
             :
             (

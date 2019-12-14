@@ -36,12 +36,12 @@ const App = () => (
             </div>
         </header>
         <Switch>
+            <ProtectedRoute  path="/recipes/edit" component={RecipeEdit}/>
             <Route exact path="/recipes/:recipeId" component={RecipeShowContainer}/>
-            <ProtectedRoute exact path="/recipes/edit" component={RecipeEdit}/>
-            <Route path="/recipes" component={RecipeIndexContainer}/>
+            <Route exact path="/recipes" component={RecipeIndexContainer}/>
             <Route exact path="/" component={Splash}/>
-            <AuthRoute  path="/login" component={LoginFormContainer}/>
-            <AuthRoute  path="/signup" component={SignupFormContainer}/>
+            <AuthRoute  exact path="/login" component={LoginFormContainer}/>
+            <AuthRoute  exact path="/signup" component={SignupFormContainer}/>
         </Switch>
         <footer className="footer">
             <span className="footer-items">

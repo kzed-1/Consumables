@@ -1,6 +1,7 @@
 import React from 'react';
 import { logout } from '../../util/session_api_util';
 import { Link } from 'react-router-dom';
+import {connect, withRouter} from 'react-router-dom';
 
 // class DropDown extends React.Component {
 //     constructor(props){
@@ -57,6 +58,7 @@ class DropDown extends React.Component {
         this.setState({open: !this.state.open})
     }
 
+
     render () {
         // debugger
         const {logout} = this.props;
@@ -64,11 +66,11 @@ class DropDown extends React.Component {
 
         const component = (this.state.open) ? (
             <div className="dropdown">
-                <div >
+                <div className="logout-profile">
                     <Link to="/"><p className="profile-link">Profile</p></Link>
                     <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
-                    <Link to="/recipes/edit">Create Recipe</Link>
                 </div>
+                <div className="button-divider"><Link onMouseDown={() => this.props.history.push("/recipes/edit")}className="create-recipe-link" to="/recipes/edit">New Recipe</Link></div> 
             </div>
         ): null;
 

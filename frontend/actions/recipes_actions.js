@@ -40,7 +40,6 @@ export const grabRecipes = () => (dispatch) => (
 )
 
 export const grabRecipe = (recipeId) => (dispatch) => {
-    debugger
     return RecipesApiUtil.grabRecipe(recipeId)
         .then(recipe => dispatch(receiveRecipe(recipe)))              
 }
@@ -58,7 +57,6 @@ export const editRecipe = (recipe) => (dispatch) => (
 )
 
 export const deleteRecipe = (recipeId) => (dispatch) => {
-    debugger
     return RecipesApiUtil.deleteRecipe(recipeId)
         .then(recipe => dispatch(removeRecipe(recipe.id)), 
             error => dispatch(receiveRecipeErrors(error.responseJSON)))

@@ -32,9 +32,6 @@ function Modal({modal}) {
         </div>
     );
 
-  
-    
-
    
 
 };
@@ -43,7 +40,6 @@ const msp = (state) => {
     // debugger
     return {
         modal: state.ui.modal
-
     }
 }
 

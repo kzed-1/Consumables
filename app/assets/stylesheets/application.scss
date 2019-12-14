@@ -182,7 +182,7 @@
     padding: 14px;
     background-color: rgba(0,0,0,0.5);
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     // align-items: center;
     
@@ -258,11 +258,12 @@
     padding: 9px 11px;
     height: auto;
     line-height: 20px;
+    margin-top: 115px;
     width: 377px;
     // width: 100%;
     border-radius: 5px;
     text-align: center;
-    margin: 10px;
+    margin-left: 10px;
     color: white;
     font-size: 17.5px;
     font-weight: 400;
@@ -419,16 +420,16 @@
     // left: 300px;
 }
 
-
+//dropdown component
 
 .dropdown {
     width: 300px;
-    height: 100px; 
+    height: 300px;
+    min-height: 300px; 
     position: absolute;
     background: white;
     right: 0;
     padding: 10px;
-    display: block;
     left: auto;
     border-radius: 6px;
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
@@ -438,9 +439,17 @@
     top: 35px;
     right: 15px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 50;
 }
+
+.logout-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}   
 
 .logoutbutton {
     color: black;
@@ -453,6 +462,7 @@
     border-color: #d4d4d4;
     height: 15px;
     text-align: center;  
+    margin-right: 9px;
 }
 
 .logoutbutton:hover {
@@ -463,11 +473,42 @@
 .profile-link {
     color: darkgray;
     font-size: 14px;
+    padding-left: 9px;
 }
 
 .profile-link:hover {
     color: black;
     cursor: pointer;
+}
+
+.create-recipe-link{
+    color:white;
+    background-color: #faac18;
+    border-color: #e5991e;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 11px 19px;
+    margin-top: 32px;
+    margin-bottom: 22px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    z-index: 50;
+}
+.create-recipe-link:hover {
+    cursor: pointer;
+    background-color: #f0a428;
+    border-color: #e2961b;
+}
+
+.button-divider {
+    border-top: 1px solid black;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .img-link {

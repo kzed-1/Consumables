@@ -24,7 +24,7 @@ class RecipeIndex extends React.Component {
 
         return (
 
-            <div>
+            <div className="recipes-index">
                 {recipesList}
             </div>
         )

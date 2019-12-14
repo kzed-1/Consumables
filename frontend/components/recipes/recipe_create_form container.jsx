@@ -1,5 +1,5 @@
 import React from 'react';
-import {createRecipe} from '../../actions/recipes_actions'
+import {createRecipe, grabRecipes} from '../../actions/recipes_actions'
 import { connect } from 'react-redux';
 import {openModal, closeModal} from '../../actions/modal_action';
 import {withRouter} from 'react-router-dom';
@@ -19,12 +19,14 @@ class RecipeCreateForm extends React.Component {
 
     componentDidMount() {
         this.props.openModal("open")
+        this.props.grabRecipes();
     }
 
     redirectAndSubmit () {
-        debugger
+        const { recipes } = this.props
+        let lastRecipe = recipes[recipes.length - 1];
         this.props.closeModal.call(this)
-        this.props.history.push("/recipes")
+        this.props.history.push(`/recipes/${lastRecipe}`)
     }
  
 
@@ -43,6 +45,7 @@ class RecipeCreateForm extends React.Component {
     }
 
     render () {
+
         return (
             <div className ="recipe-create-form-container">
                 <form className= "recipe-create-form" onSubmit={this.handleSubmit}>
@@ -69,13 +72,14 @@ class RecipeCreateForm extends React.Component {
 
 const msp = (state) => ({
     currentUser: state.entities.users[state.session.currentUserId],
+    recipes: Object.keys(state.entities.recipes)
 })
 
 const mdp = (dispatch) => ({
     createRecipe: (recipe) => dispatch(createRecipe(recipe)),
+    grabRecipes: () => dispatch(grabRecipes()),
     openModal: (modal) => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
-
 })
 
 export default withRouter(connect(msp, mdp)(RecipeCreateForm));

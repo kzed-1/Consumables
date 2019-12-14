@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeIndexContainer from '../recipes/recipe_index_container'
 
 
 class Splash extends React.Component {
@@ -13,7 +14,9 @@ class Splash extends React.Component {
                     </div>
                     <img className="background-pic" src={window.splashBackground} />
                 </div>
+                <RecipeIndexContainer/>
             </div>
+
         )   
     }
 }
