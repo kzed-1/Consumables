@@ -4,12 +4,10 @@ import {Link} from 'react-router-dom';
 
 class RecipeIndexItem extends React.Component {
 
-    // componentDidMount() {
-
-    // }
-
     render () {
         // debugger;
+        const {recipe} = this.props
+
         return (
             <div className="recipe" >
                 <div className="recipe-pic">
@@ -17,7 +15,7 @@ class RecipeIndexItem extends React.Component {
                 </div>
                 
                 <div>
-                    <Link to="/">{this.props.recipe.title}</Link>
+                    <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
                 </div>
             </div>
         )

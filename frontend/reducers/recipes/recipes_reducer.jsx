@@ -7,10 +7,10 @@ export default (oldstate = {}, action) => {
         case RECEIVE_ALL_RECIPES:
             return action.recipes
         case RECEIVE_RECIPE:
-            return Object.assign({}, oldstate, {[action.payload.recipe.id]: action.payload.recipe})
+            return Object.assign({}, oldstate, {[action.recipe.id]: action.recipe})
         case REMOVE_RECIPE:
             let newState = Object.assign({}, oldstate);
-            delete newState[action.id]
+            delete newState[action.recipeId]
             return newState;
         default:
             return oldstate;

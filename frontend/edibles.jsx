@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     window.grabRecipes = grabRecipes
     window.grabRecipe = grabRecipe
     window.createRecipe = createRecipe
+    window.deleteRecipe = deleteRecipe
 
     // let recipe = {author_id: 28, title:"how to make bananacream pie", body:"This is how to make bananacream pie"}
 

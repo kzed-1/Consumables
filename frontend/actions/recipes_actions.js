@@ -10,11 +10,11 @@ export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
 export const receiveAllRecipes = (recipes) => ({
     type: RECEIVE_ALL_RECIPES,
     recipes
-});
+}) ;
 
-export const receiveRecipe = (payload) => ({
+export const receiveRecipe = (recipe) => ({
     type: RECEIVE_RECIPE,
-    payload
+    recipe
 }); 
 
 export const removeRecipe = (recipeId) => ({
@@ -39,28 +39,30 @@ export const grabRecipes = () => (dispatch) => (
         .then(recipes => dispatch(receiveAllRecipes(recipes)))
 )
 
-export const grabRecipe = (recipeId) => (dispatch) => (
-    RecipesApiUtil.grabRecipe(recipeId)
-        .then(payload => dispatch(receiveRecipe(payload)))              
-)
+export const grabRecipe = (recipeId) => (dispatch) => {
+    debugger
+    return RecipesApiUtil.grabRecipe(recipeId)
+        .then(recipe => dispatch(receiveRecipe(recipe)))              
+}
 
 export const createRecipe = (recipe) => (dispatch) => (
     RecipesApiUtil.createRecipe(recipe)
-        .then(payload => dispatch(receiveRecipe(payload)),
+        .then(recipe => dispatch(receiveRecipe(recipe)),
             error => dispatch(receiveRecipeErrors(error.responseJSON)))
 );
 
 export const editRecipe = (recipe) => (dispatch) => (
     RecipesApiUtil.editRecipe(recipe)
-        .then(payload => dispatch(receiveRecipe(payload)), 
+        .then(recipe => dispatch(receiveRecipe(recipe)), 
             error => dispatch(receiveRecipeErrors(error.responseJSON)))
 )
 
-export const deleteRecipe = (recipeId) => (dispatch) => (
-    RecipesApiUtil.editRecipe(recipeId)
-        .then(payload => dispatch(receiveRecipe(payload)), 
-            error => dispatch(receiveRecipeErrors(errorresponseJSON)))
-)
+export const deleteRecipe = (recipeId) => (dispatch) => {
+    debugger
+    return RecipesApiUtil.deleteRecipe(recipeId)
+        .then(recipe => dispatch(removeRecipe(recipe.id)), 
+            error => dispatch(receiveRecipeErrors(error.responseJSON)))
+}
 
 export const clearErrors = () => (dispatch) => (
     dispatch(clearRecipeErrors())

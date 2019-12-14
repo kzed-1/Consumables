@@ -2,6 +2,7 @@ class Api::RecipesController < ApplicationController
 
     def index
         @recipes = Recipe.all
+  
     end
 
     def create
@@ -29,7 +30,6 @@ class Api::RecipesController < ApplicationController
     
     def destroy 
         @recipe = Recipe.find(params[:id])
-
         if @recipe.destroy 
             render :show
         else 
