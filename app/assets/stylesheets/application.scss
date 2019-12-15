@@ -309,7 +309,7 @@
     text-align: center;
     left: 297px;
     padding: 6px;
-    bottom: 55px;
+    bottom: 60px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
@@ -382,7 +382,7 @@
     width: 1px;
     position: absolute;
     z-index: 0;
-    bottom: 50px;
+    bottom: 55px;
     left: 353px;
 }
 
@@ -691,7 +691,7 @@ input.title-input:focus {
 
 } 
 
-input[type=text], textarea {
+input.title-input[type=text], textarea {
     line-height: 1.5;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
 }
