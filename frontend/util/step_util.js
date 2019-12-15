@@ -11,3 +11,10 @@
 //         url: `/api/recipes/${recipeId}/steps`
 //     })
 // )
+
+// export const createStep = (step) => (
+//     $.ajax({
+//         method: 'GET',
+//         url: `/api/recipes/${recipeId}/steps`
+//     })
+// )

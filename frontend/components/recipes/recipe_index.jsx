@@ -23,10 +23,11 @@ class RecipeIndex extends React.Component {
         // debugger;
 
         return (
-
+           
             <div className="recipes-index">
                 {recipesList}
             </div>
+        
         )
     }
 }

@@ -12,7 +12,7 @@ const msp = (state) => ({
     },
     errors: state.errors.session,
     formType: "Login",
-    navLink: <Link className="signup" to="/signup">Sign Up</Link>
+    navLink: <Link className="signup" to="/signup">Sign Up »</Link>
 });
 
 const mdp = (dispatch) => ({

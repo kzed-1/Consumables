@@ -623,7 +623,7 @@
 
 .modal-child {
     position: absolute;
-    top: 50%;
+    top: 28%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -632,4 +632,155 @@
     height: 500px;
     width: 500px;
     background: white;
+    border: 1px solid black;
+    
+    // justify-content: space-between;
+}
+
+.new-header {
+    width: 455px;
+    height: 140px;
+    background-color: #15728C;
+    border-radius: 6px 6px 0px 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.new-header > h1 {
+    margin: 0 auto;
+    font-weight: 500;
+    color: white;
+    font-size: 25px;
+}
+
+.recipe-create-form {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 253px;
+}
+
+.new-title {
+    font-size: 18px;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.new-description {
+    font-size: 18px;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+input.title-input {
+    color: #aaa;
+    border-bottom: solid 1px #c9c9c9;
+    font-size: 18px;
+    width: 350px;
+    border-radius: 0;
+    transition: border 0.3s;
+}
+
+input.title-input:focus {
+    border-bottom: solid 1px #c9c9c9;
+    box-shadow: none;
+
+} 
+
+input[type=text], textarea {
+    line-height: 1.5;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
+}
+
+.description-input {
+     color: #aaa;
+    border-bottom: solid 1px #c9c9c9;
+    font-size: 18px;
+    width: 350px;
+    transition: border .3s;
+}
+
+.start-recipe-button {
+    padding: 11px 19px;
+    font-size: 17.5px;
+    background-color: #e86c00;
+    border-radius: 6px;
+    border-color: #cf6000;
+    color: #fff;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    width: 149px;
+    text-align: center;
+}
+
+.recipe-error-0 {
+    list-style-type: none;
+    position: absolute;
+    border: 1px solid #CE4126;
+    background-color: #CE4126;
+    border-radius: 5px;
+    overflow: hidden;
+    display: block;
+    width: 100px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    left: 235px;
+    padding: 6px;
+    bottom: 55px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+.recipe-error-1 {
+    list-style-type: none;
+    position: absolute;
+    border: 1px solid #CE4126;
+    background-color: #CE4126;
+    border-radius: 5px;
+    overflow: hidden;
+    display: block;
+    width: 100px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    left: 235px;
+    padding: 6px;
+    bottom: 65px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.input-wrapper-create-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-downarrow-0{
+
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #CE4126;
+    width: 1px;
+    position: absolute;
+    z-index: 0;
+    bottom: 50px;
+    left: 290px;
+}
+.recipe-downarrow-1{
+
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #CE4126;
+    width: 1px;
+    position: absolute;
+    z-index: 0;
+    bottom: 60px;
+    left: 290px;
 }

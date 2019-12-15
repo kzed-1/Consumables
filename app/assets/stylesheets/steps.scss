@@ -1,3 +1,37 @@
 // Place all the styles related to the Steps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.step-title {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.step-container {
+    color: #333;
+    font-size: 14px;
+    font-family: Nunito,helvetica,arial,sans-serif;    
+    font-size: 20px;
+    line-height: 32px;
+    text-align: left;
+    color: #555;
+    padding: 0px 20px 0px 20px;
+    font-weight: 300;
+    max-width: 770px;
+    // width: 100%;
+
+}
+
+.step-photo {
+    width: 100%;
+    height: 493.67px;
+    border-radius: 4px;
+    background-image: asset-data-url("step_1_image.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}

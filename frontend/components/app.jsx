@@ -13,8 +13,9 @@ import Modal from './modal';
 import { closeModal } from '../actions/modal_action';
 import store from '../store/store'
 import RecipeCreateFormContainer from './recipes/recipe_create_form container'
-import RecipeEdit from './recipes/recipe_edit_container';
+import RecipeNew from './recipes/recipe_new_container';
 import RecipeShowContainer from '../components/recipes/recipe_show_container';
+import RecipeEditFormContainer from '../components/recipes/recipe_edit_form_container';
 
 
 
@@ -36,7 +37,8 @@ const App = () => (
             </div>
         </header>
         <Switch>
-            <ProtectedRoute  path="/recipes/edit" component={RecipeEdit}/>
+            <ProtectedRoute exact path="/recipes/:recipeId/edit" component={RecipeEditFormContainer} />
+            <ProtectedRoute  exact path="/recipes/new" component={RecipeNew}/>
             <Route exact path="/recipes/:recipeId" component={RecipeShowContainer}/>
             <Route exact path="/recipes" component={RecipeIndexContainer}/>
             <Route exact path="/" component={Splash}/>

@@ -1,0 +1,55 @@
+//recipe-actions
+
+import * as RecipesApiUtil from '../util/recipe_util.jsx'
+
+export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
+export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
+export const REMOVE_RECIPE = "REMOVE_RECIPE";
+export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS";
+export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
+
+
+export const receiveAllRecipes = (recipes) => ({
+    type: RECEIVE_ALL_RECIPES,
+    recipes
+}) ;
+
+export const receiveRecipe = (recipe) => ({
+    type: RECEIVE_RECIPE,
+    recipe
+}); 
+
+export const removeRecipe = (recipeId) => ({
+    type: REMOVE_RECIPE,
+    recipeId
+}); 
+
+export const receiveRecipeErrors = (errors) => ({
+    type: RECEIVE_RECIPE_ERRORS,
+    errors
+});
+
+export const clearRecipeErrors = () => ({
+    type: CLEAR_RECIPE_ERRORS
+});
+
+//recipe reducer
+import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE} from '../../actions/recipes_actions'
+
+
+export default (oldstate = {}, action) => {
+    Object.freeze(oldstate)
+    switch (action.type) {
+        case RECEIVE_ALL_RECIPES:
+            return action.recipes
+        case RECEIVE_RECIPE:
+            return Object.assign({}, oldstate, {[action.recipe.id]: action.recipe})
+        case REMOVE_RECIPE:
+            let newState = Object.assign({}, oldstate);
+            delete newState[action.recipeId]
+            return newState;
+        default:
+            return oldstate;
+    }
+} 
+

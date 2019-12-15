@@ -3,12 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //recipes index
+
+.recipe-index-container {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    // margin: 0 auto;
+    // align-self: center;
+}
+
 .recipe-container {
-    display: block;
+    // display: block;
     height: 367px;
+    width: 306px;
     min-width: 306px;
     border: 1px solid black;
-    float: left;
+    // float: left;
     background: white;
     margin: 10px 10px 20px;
     border: 1px solid #ddd;
@@ -16,21 +27,32 @@
     box-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 
-.recipes-wrapper {
-    margin-top: 90px;
-    margin-bottom: 900px;
-    display: block;
-    margin: 80px;
-    align-content: center;
-}
-
-
-// .recipe-index {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: center;
+// .recipes-wrapper {
+//     margin-top: 90px;
+//     margin-bottom: 900px;
+//     display: block;
+//     margin: 80px;
+//     align-content: center;
 // }
+
+
+.recipes-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 95px;
+    margin-bottom: 60px;
+    // justify-content: center;
+    // min-width: 1610px;
+    // margin: 0 auto;
+    // padding: 0px 136px 0px 136px ;
+    // align-self: center;
+    // display: block;
+    // margin-left: 100px;
+    // margin-bottom: 5000px;
+    
+}
 
 .bottom-space-provider {
 }
@@ -42,7 +64,7 @@
     height: 50px;
     margin-bottom: 10px;
     font-size: 13px;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .recipe-footer {
@@ -55,6 +77,7 @@
     height: 15px;
     border-top: 1px solid #e7e7e7;
     padding: 7px 8px 8px;
+    width: 290px;
 }
 
 .vertical-line {
@@ -85,14 +108,13 @@
 .eye {
     height: 15px;
     width: 15px;
-    margin-left: 20px;
-    margin-right: 6;
 }
 
 .heart-eye {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
 }
 
 .recipe-pic {
@@ -176,9 +198,32 @@
 }
 
 .usericon {
-    height: 80px;
+    // height: 80px;
+    // width: 80px;
+    // margin-right: 15px;
+    display: inline;
+    margin: 0 auto;
+    margin-left: -25%; 
+    height: 100%;
+    width: auto;
+}
+
+.crop {
     width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
     margin-right: 15px;
+}
+
+.crop2 {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 4px;
+    
 }
 
 .author-icon-name {
@@ -196,6 +241,9 @@
     border: 1px solid #ddd;
     background-color: #f6f6f6;
     color: #777;
+    min-width: 770px;
+    box-sizing: border-box;
+    // width: 770px;
 }
 
 .username {
@@ -206,15 +254,23 @@
 }
 
 .author-recipe-pic {
-    height: 80px;
-    width: 80px;
+    // height: 80px;
+    // width: 80px;
+    // height: auto;
+    // width: auto;
+    display: inline;
+    margin: 0 auto;
+    margin-left: 0%; 
+    height: 100%;
+    width: auto;
+    
 }
 
 .pics-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     width: 50%;
 }
 
@@ -224,8 +280,10 @@
     font-weight: 400;
     font-size: 14px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    width: 70px;
+    width: 78px;
     overflow-wrap: normal;
+    margin-right:8px;
+    line-height: 20px;
     
 }
 
@@ -236,10 +294,12 @@
     color: #555555;
     margin-top: 23px;
     margin-bottom: 20px;
+    line-height: 32px;
 }
 
 .intro-container {
     padding: 0px 20px 0px 20px;
+        max-width: 770px;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
@@ -261,9 +321,16 @@
     border-bottom: 1px solid #d6d6d6;
     width: 100px;
     margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     
+}
+
+.delete-recipe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-button {
@@ -271,16 +338,11 @@
     border-color: #e5991e;
     color: #fff;
     border-radius: 4px;
-    max-height: 50px;
+    height: 50px;
     font-size: 18px;
-    padding: 13px;
-    font-weight: 400;
-    width: 105px;
-    margin: 0 auto;
+    width: 146px;
     text-align: center;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .delete-button:hover {
@@ -288,6 +350,53 @@
     border-color: #e2961b;
 
 }
+
+.edit-button {
+    background-color: #faac18;
+    border-color: #e5991e;
+    color: #fff;
+    border-radius: 4px;
+    height: 50px;
+    font-size: 18px;
+    width: 146px;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-left: 50px;
+}
+
+.edit-button:hover {
+    background-color: #f0a428;
+    border-color: #e2961b;
+
+}
+
+.entire-show-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.delete-edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+// new form
+
+.recipe-create-form-container {
+    height: 392px !important;
+    width: 455px !important;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    border-radius: 6px;
+
+}
+
+
 
 
 

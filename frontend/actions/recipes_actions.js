@@ -12,9 +12,9 @@ export const receiveAllRecipes = (recipes) => ({
     recipes
 }) ;
 
-export const receiveRecipe = (recipe) => ({
+export const receiveRecipe = (payload) => ({
     type: RECEIVE_RECIPE,
-    recipe
+    payload
 }); 
 
 export const removeRecipe = (recipeId) => ({
