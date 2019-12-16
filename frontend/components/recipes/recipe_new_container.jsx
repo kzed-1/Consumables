@@ -19,7 +19,7 @@ class RecipeNew extends React.Component {
     render () {
         return (
             <div>
-                <RecipeEditFormContainer/>
+                {/* <RecipeEditFormContainer/> */}
             </div>
         )
     }

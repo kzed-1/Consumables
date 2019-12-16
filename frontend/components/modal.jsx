@@ -21,7 +21,7 @@ import UpdateErrorContainer from '../components/modal_errors/update_error_contai
 function Modal({modal, closeModal}) {
 
     if(!modal) {
-        // debugger
+       
         return null;
     } 
 
@@ -52,7 +52,7 @@ function Modal({modal, closeModal}) {
 };
 
 const msp = (state) => {
-    // debugger
+
     return {
         modal: state.ui.modal,
         doNothing: () => doNothing()

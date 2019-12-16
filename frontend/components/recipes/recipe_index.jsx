@@ -9,18 +9,18 @@ class RecipeIndex extends React.Component {
 
     render () {
 
-        // debugger
+    
         const {recipes} = this.props;
-        // debugger
+   
         if (!recipes) {
             return null;
         }
 
-        // debugger;
+
         let recipesList = recipes.map((recipe) => (
             <RecipeIndexItem recipe={recipe} key={recipe.id}/>
         ))
-        // debugger;
+  
 
         return (
            

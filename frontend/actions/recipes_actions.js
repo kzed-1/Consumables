@@ -57,7 +57,6 @@ export const editRecipe = (recipe) => (dispatch) => (
 )
 
 export const deleteRecipe = (recipeId) => (dispatch) => {
-    debugger
     return RecipesApiUtil.deleteRecipe(recipeId)
         .then(payload => { 
             return dispatch(removeRecipe(payload.recipe.id))

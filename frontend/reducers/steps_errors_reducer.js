@@ -8,9 +8,7 @@ const stepsErrorsReducer = (oldState = [], action) => {
         case CLEAR_STEP_ERRORS:
             return [];
         case RECEIVE_STEP_ERRORS:
-            debugger
             return action.errors;
-            debugger
         default:
             return [];
     }

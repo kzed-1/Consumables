@@ -16,7 +16,7 @@ class RecipeEditForm extends React.Component {
     }
 
     setStateRecipe () {
-        // debugger
+  
         const {id, author_id, title, body} = this.props.recipe
         this.setState({id: id, author_id: author_id, title: title, body: body })
     }

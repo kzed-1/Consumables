@@ -18,13 +18,13 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
-    # debugger
+
     current_user.reset_session_token!
-    # debugger
+
     session[:session_token] = nil
-    # debugger
+
     @current_user = nil 
-    # debugger
+
   end
 
   def require_login

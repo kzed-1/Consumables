@@ -10,10 +10,8 @@ export default (oldstate = {}, action) => {
         case RECEIVE_STEP:
             return Object.assign({}, oldstate, {[action.step.id]: action.step})
         case REMOVE_STEP:
-            debugger
             let newState = Object.assign({}, oldstate);
             delete newState[action.stepId]
-            debugger
             return newState;
         default:
             return oldstate;

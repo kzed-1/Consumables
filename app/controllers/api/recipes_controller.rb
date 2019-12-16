@@ -30,10 +30,8 @@ class Api::RecipesController < ApplicationController
     
     def destroy 
         @recipe = Recipe.find(params[:id])
-        if @recipe.destroy 
-            debugger
+        if @recipe.destroy           
             render :show
-            debugger
         else 
             render @recipe.errors.full_messages, status: 404
         end 

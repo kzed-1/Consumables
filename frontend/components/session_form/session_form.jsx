@@ -24,11 +24,9 @@ class SessionForm extends React.Component {
     };
 
     handleSubmit (e) {
-        // debugger
         e.preventDefault();
         this.props.submitForm(this.state)
             .then(() => this.props.history.push("/"), () => this.errorTimer());
-        // debugger
         
     };
 
@@ -39,7 +37,6 @@ class SessionForm extends React.Component {
     };
 
     componentWillUnmount () {
-        // debugger;
         this.props.clearErrors();
     }
 
@@ -62,7 +59,7 @@ class SessionForm extends React.Component {
         
         
         for (let i = 0; i < errors.length; i++) {
-            // debugger
+        
             if (errors[i].includes("Email")) {
                 emailError = errorslist[i]
             } else if (errors[i].includes("Username")) {
@@ -79,10 +76,10 @@ class SessionForm extends React.Component {
         if (formType === "Sign Me Up !") {
             textBox = "Already a member? ";
             emailBox = <input  className="input" onChange={this.handleInput('email')} value={this.state.email} type="emailf" placeholder="Email" />
-            // debugger
+        
         }
         
-        // debugger
+    
         
         return (
 

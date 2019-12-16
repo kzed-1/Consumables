@@ -60,9 +60,9 @@ class DropDown extends React.Component {
 
 
     render () {
-        // debugger
+    
         const {logout} = this.props;
-        // debugger
+    
 
         const component = (this.state.open) ? (
             <div className="dropdown">

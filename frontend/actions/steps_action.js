@@ -43,7 +43,6 @@ export const editStep = (recipeId, step) => (dispatch) => (
 );
 
 export const deleteStep = (recipeId, stepId) => (dispatch) => {
-    debugger
     return StepsAPiUtil.deleteStep(recipeId, stepId)
         .then(step => dispatch(removeStep(step.id)),
             error => dispatch(receiveStepErrors(error.responseJSON)))
