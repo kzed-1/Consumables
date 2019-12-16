@@ -25,13 +25,13 @@ class RecipeIndexItem extends React.Component {
                     </div>
                     <div className="recipe-footer">
                         {/* <span className="star-line"> */}
-                            <img className="star" src={window.star}/>
-                            <span className="vertical-line"></span>
+                            {/* <img className="star" src={window.star}/> */}
+                            {/* <span className="vertical-line"></span> */}
                         {/* </span> */}
-                        <div className="heart-eye">
-                            <img className="heart" src={window.heart} />
+                        {/* <div className="heart-eye"> */}
+                            {/* <img className="heart" src={window.heart} /> */}
                             {/* <img className="eye" src={window.eye} /> */}
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
            

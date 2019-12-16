@@ -75,9 +75,9 @@ class RecipeShow extends React.Component {
                 <header className="recipe-show-header">
                     <h1 className="recipe-title-show">{recipe.title}</h1>
                     <h2 className="author">
-                        By
+                        {"By "}
                         <Link to={`/recipes/${recipe.id}`}>
-                            <span className="author-name">{` ${recipe.author_name}`}</span>
+                            <span className="author-name">{`${recipe.author_name}`}</span>
                         </Link>
                     </h2>
                     <div className="publish-cc">

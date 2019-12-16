@@ -142,6 +142,14 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.author-name:hover {
+    text-decoration: underline;
+    color: #555555;
+    // font-size: 13px;
+    line-height: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 
 //recipes show
 
@@ -248,6 +256,14 @@
 }
 
 .username {
+    font-weight: 700;
+    font-size: 16px;
+    color: #555;
+    margin-left: 4px;
+}
+
+.username:hover {
+    text-decoration: underline;
     font-weight: 700;
     font-size: 16px;
     color: #555;

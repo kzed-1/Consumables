@@ -34,7 +34,7 @@ class RecipeCreateForm extends React.Component {
         const { recipes } = this.props
         let lastRecipe = recipes[recipes.length - 1];
         this.props.closeModal.call(this)
-        this.props.history.push(`/recipes/${lastRecipe}`)
+        this.props.history.push(`/recipes/${lastRecipe}/edit`)
     }
  
 
