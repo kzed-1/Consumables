@@ -16,11 +16,11 @@ class RecipeIndexItem extends React.Component {
                     
                     <div className="description-box">
                         <Link to={`/recipes/${recipe.id}`}>
-                            <span className="recipe-title">{`${recipe.title} `}</span>
+                            <span className="recipe-title">{`${recipe.title}`}</span>
                         </Link>
-                            by
-                            <Link to={`/recipes/${recipe.id}`}>   
-                            <span className="author-name">{` ${recipe.author_name}`}</span>
+                        <div className="by">by</div>  
+                        <Link to={`/recipes/${recipe.id}`}>   
+                            <span className="author-name">{`${recipe.author_name}`}</span>
                         </Link>
                     </div>
                     <div className="recipe-footer">
