@@ -10,7 +10,7 @@ export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
 export const receiveAllRecipes = (recipes) => ({
     type: RECEIVE_ALL_RECIPES,
     recipes
-}) ;
+});
 
 export const receiveRecipe = (payload) => ({
     type: RECEIVE_RECIPE,
@@ -57,8 +57,11 @@ export const editRecipe = (recipe) => (dispatch) => (
 )
 
 export const deleteRecipe = (recipeId) => (dispatch) => {
+    debugger
     return RecipesApiUtil.deleteRecipe(recipeId)
-        .then(recipe => dispatch(removeRecipe(recipe.id)), 
+        .then(payload => { 
+            return dispatch(removeRecipe(payload.recipe.id))
+        }, 
             error => dispatch(receiveRecipeErrors(error.responseJSON)))
 }
 

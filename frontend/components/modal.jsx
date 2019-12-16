@@ -3,6 +3,7 @@ import {closeModal} from '../actions/modal_action';
 import { connect } from 'react-redux';
 import RecipeCreateFormContainer from '../components/recipes/recipe_create_form container';
 import {Route} from 'react-router-dom';
+import UpdateErrorContainer from '../components/modal_errors/update_error_container';
 
 
 
@@ -24,10 +25,22 @@ function Modal({modal}) {
         return null;
     } 
 
+    let component;
+    switch (modal) {
+        case 'open':
+            component = <RecipeCreateFormContainer />
+            break;
+        case "update":
+            component = <UpdateErrorContainer />
+            break;
+        default:
+            return null;
+    }
+
     return (
         <div className="modal-background" >
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-                <RecipeCreateFormContainer />
+            <div className={`modal-child-${modal}`} onClick={e => e.stopPropagation()}>
+                {component}
             </div>
         </div>
     );

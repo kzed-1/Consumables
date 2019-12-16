@@ -7,11 +7,18 @@ export default (oldstate = {}, action) => {
         case RECEIVE_ALL_RECIPES:
             return action.recipes
         case RECEIVE_RECIPE:
+            // debugger
             let recipe = action.payload.recipe
-            return Object.assign({}, oldstate, {[recipe.id]: recipe})
+            // debugger
+            let newS = Object.assign({}, oldstate, {[recipe.id]: recipe})
+            // debugger
+            return newS
+            // debugger
         case REMOVE_RECIPE:
+            // debugger
             let newState = Object.assign({}, oldstate);
             delete newState[action.recipeId]
+            // debugger
             return newState;
         default:
             return oldstate;

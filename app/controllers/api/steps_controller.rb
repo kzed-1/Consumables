@@ -33,14 +33,14 @@ class Api::StepsController < ApplicationController
         if @step.destroy 
             render :show
         else 
-            render @recipe.errors.full_messages, status: 404 
+            render @step.errors.full_messages, status: 404 
         end 
     end 
 
     private 
 
     def step_params 
-        params.require(:step).permit(:title, :body)
+        params.require(:step).permit(:title, :body, :recipe_id)
     end
     
 end

@@ -30,7 +30,7 @@ class RecipeIndexItem extends React.Component {
                         {/* </span> */}
                         <div className="heart-eye">
                             <img className="heart" src={window.heart} />
-                            <img className="eye" src={window.eye} />
+                            {/* <img className="eye" src={window.eye} /> */}
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ const msp = (state) => ({
 })
 
 const mdp = (dispatch) => ({
-    closeModal: (modal) => dispatch(closeModal(modal)),
+    closeModal: () => dispatch(closeModal()),
     openModal: (modal) => dispatch(openModal(modal)),
 })
 

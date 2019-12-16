@@ -4,15 +4,27 @@ import React from 'react';
 class RecipeEditForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.recipe;
-        this.handleSubmit= this.handleSubmit.bind(this)
+        this.state = { 
+            id: "",
+            author_id: "",
+            title: "",
+            body: ""
+        }
+        this.handleSubmit= this.handleSubmit.bind(this);
+        this.setStateRecipe = this.setStateRecipe.bind(this);
         
+    }
+
+    setStateRecipe () {
+        // debugger
+        const {id, author_id, title, body} = this.props.recipe
+        this.setState({id: id, author_id: author_id, title: title, body: body })
     }
 
     componentDidMount () {
         this.props.grabRecipe(this.props.match.params.recipeId)
+            .then(() => this.setStateRecipe())   
     }
-
 
     handleInput (type) {
         return (e) => {
@@ -23,12 +35,13 @@ class RecipeEditForm extends React.Component {
     handleSubmit (e) {
         const {history, recipe } = this.props
         e.preventDefault();
+
         this.props.editRecipe(this.state)
-            .then(() => history.push(`/recipes/${recipe.id}`), )
-    }
-    
+            .then(() => history.push(`/recipes/${recipe.id}`), () => this.props.openModal("update"))
+    }    
 
     render () {
+
 
         const {recipe, errors} = this.props;
 
@@ -41,21 +54,32 @@ class RecipeEditForm extends React.Component {
 
         return (
             <div>   
-                <form onSubmit={this.handleSubmit}>
+                <form  className="edit-form" onSubmit={this.handleSubmit}>
+                    <div className="form-header">
+                        <div className="pic-box">
+
+                        </div>
+                        <div className="bottom-pic-bar">
+                            <input className="edit-submit-button" type="submit" value="Publish" />
+                        </div>
+
+                    </div>
                     {errorslist}
-                    <label>Title:</label>
-                    <input 
-                        onChange={this.handleInput('title')}
-                        value={this.state.title}
-                        placeholder="Type your title..."
-                        type="text"
-                    />
-                    <label>Description:</label>
-                    <textarea 
-                        onChange={this.handleInput('body')}
-                        value={this.state.body}
-                    />
-                    <input type="submit" value="Publish"/>
+                    <div className ="title-body-container">
+                        <div className="pic-box-2"></div>
+                        <input 
+                            onChange={this.handleInput('title')}
+                            value={this.state.title}
+                            placeholder="Type your title..."
+                            type="text"
+                            className="edit-title-box"
+                        />
+                        <textarea 
+                            className="edit-body-box"
+                            onChange={this.handleInput('body')}
+                            value={this.state.body}
+                        />
+                    </div>
                 </form>
 
             </div>

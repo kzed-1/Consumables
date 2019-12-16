@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from './store/store'
-import Root from './components/root'
-import {signup, login, logout} from './actions/session_actions'
-import { grabRecipes, grabRecipe, createRecipe, editRecipe, deleteRecipe } from './actions/recipes_actions'
+import configureStore from './store/store';
+import Root from './components/root';
+import {signup, login, logout} from './actions/session_actions';
+import { grabRecipes, grabRecipe, createRecipe, editRecipe, deleteRecipe } from './actions/recipes_actions';
+import {grabStep, createStep, editStep, deleteStep} from './actions/steps_action';
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const root = document.getElementById("root");
@@ -30,6 +31,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
     window.createRecipe = createRecipe
     window.deleteRecipe = deleteRecipe
     window.editRecipe = editRecipe
+    window.grabStep = grabStep
+    window.createStep = createStep
+    window.editStep = editStep
+    window.deleteStep = deleteStep
 
 
     // let recipe = {author_id: 28, title:"how to make bananacream pie", body:"This is how to make bananacream pie"}

@@ -101,7 +101,7 @@ class RecipeShow extends React.Component {
                         </div>
                     </div>
 
-                    <p className="description">In a small saucepan over medium heat, melt butter. Add garlic and cook, stirring, until fragrant, about 1 minute. Pour cream into garlic butter and bring to a simmer. Reduce heat to medium-low and continue to simmer, stirring occasionally, until liquid is reduced by half, about 15 minutes.{recipe.body}</p>
+                    <p className="description">{recipe.body}</p>
                 </div>
                     <div className="bottom-line"></div>
 
