@@ -11,3 +11,6 @@ export const closeModal = () => ({
     type: CLOSE_MODAL,
 })
 
+export const doNothing = () => {
+    return console.log("hello")
+}

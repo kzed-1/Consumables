@@ -1,5 +1,5 @@
 import React from 'react';
-import {closeModal} from '../actions/modal_action';
+import {closeModal, doNothing} from '../actions/modal_action';
 import { connect } from 'react-redux';
 import RecipeCreateFormContainer from '../components/recipes/recipe_create_form container';
 import {Route} from 'react-router-dom';
@@ -18,27 +18,29 @@ import UpdateErrorContainer from '../components/modal_errors/update_error_contai
 //     }
 // }
 
-function Modal({modal}) {
+function Modal({modal, closeModal}) {
 
     if(!modal) {
         // debugger
         return null;
     } 
 
-    let component;
+    let component, modalAction;
     switch (modal) {
         case 'open':
             component = <RecipeCreateFormContainer />
+            modalAction = doNothing
             break;
         case "update":
             component = <UpdateErrorContainer />
+            modalAction = closeModal
             break;
         default:
             return null;
     }
 
     return (
-        <div className="modal-background" >
+        <div className="modal-background" onClick={()=> modalAction()}>
             <div className={`modal-child-${modal}`} onClick={e => e.stopPropagation()}>
                 {component}
             </div>
@@ -52,9 +54,16 @@ function Modal({modal}) {
 const msp = (state) => {
     // debugger
     return {
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        doNothing: () => doNothing()
     }
 }
+const mdp = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal()),
+        openModal: (modal) => dispatch(closeModal(modal)),
+    };
+};
 
 
-export default connect(msp)(Modal);
+export default connect(msp, mdp)(Modal);
