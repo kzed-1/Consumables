@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link}from 'react-router-dom';
+import StepsIndexContainer from '../steps/steps_index_container';
 
 class RecipeShow extends React.Component {
     constructor(props){
@@ -43,7 +44,7 @@ class RecipeShow extends React.Component {
 
     render () {
 
-        const {recipe, currentUserId} = this.props
+        const {recipe, currentUserId, grabRecipe} = this.props
         
         let deleteRecipeButton = null;
 
@@ -105,7 +106,8 @@ class RecipeShow extends React.Component {
                 </div>
                     <div className="bottom-line"></div>
 
-                <div className="step-container">
+                <StepsIndexContainer recipe={recipe} grabRecipe={grabRecipe} />
+                {/* <div className="step-container">
                     <h2 className="step-title">Step 1: supplies</h2>
                     <ul>
                         1 tbsp. butter
@@ -161,7 +163,9 @@ class RecipeShow extends React.Component {
                     <h2 className="step-title">Step 7</h2>
                     <p>Garnish with green onions and more red pepper flakes and serve immediately. </p>
                     <div className="bottom-line"></div>
-                </div >
+                </div > */}
+                
+
                 {deleteRecipeButton}
             </div>
         )

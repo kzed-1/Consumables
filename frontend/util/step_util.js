@@ -5,33 +5,33 @@
 //     })
 // )
 
-export const grabStep = (recipeId, stepId) => (
-    $.ajax({
-        method: 'GET',
-        url: `/api/recipes/${recipeId}/steps/${stepId}`
-    })
-)
+// export const grabStep = (recipeId, stepId) => (
+//     $.ajax({
+//         method: 'GET',
+//         url: `/api/recipes/${recipeId}/steps/${stepId}`
+//     })
+// )
 
-export const createStep = (recipeId, step) => (
+export const createStep = (step) => (
     $.ajax({
         method: 'POST',
-        url: `/api/recipes/${recipeId}/steps`,
+        url: `/api/steps/`,
         data: {step}
     })
 )
 
-export const editStep = (recipeId, step) => (
+export const editStep = (step) => (
     $.ajax({
         method: 'PATCH',
-        url: `/api/recipes/${recipeId}/steps/${step.id}`,
+        url: `/api/steps/${step.id}`,
         data: {step}
     })
 )
 
-export const deleteStep = (recipeId, stepId) => (
+export const deleteStep = (stepId) => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/recipes/${recipeId}/steps/${stepId}`
+        url: `/api/steps/${stepId}`
     })
 )
 

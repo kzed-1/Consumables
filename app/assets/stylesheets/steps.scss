@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.step-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
 .step-title {
     font-weight: 700;
     font-size: 24px;
@@ -20,9 +27,8 @@
     color: #555;
     padding: 0px 20px 0px 20px;
     font-weight: 300;
-    max-width: 770px;
-    // width: 100%;
-
+    min-width: 770px;
+    width: 100%;
 }
 
 .step-photo {

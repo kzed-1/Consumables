@@ -22,7 +22,7 @@ class Splash extends React.Component {
                                 </div>
                                 <div className="content-2">
                                     <h1 className="content-header">MADE BY YOU</h1>
-                                    <p className="paragraph">Come one, come all, this is a open community to share recipes created by you. Please join us to share your creations. </p>
+                                    <p className="paragraph">Come one, come all, this is an open community to share recipes created by you. Please join us to share your creations. </p>
                                 </div>
                                 <div className="content-3">
                                     <h1 className="content-header">A HAPPY PLACE</h1>

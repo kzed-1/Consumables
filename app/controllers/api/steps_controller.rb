@@ -1,8 +1,8 @@
 class Api::StepsController < ApplicationController
 
-    def index 
-        @steps = Step.all
-    end
+    # def index 
+    #     @steps = Step.all
+    # end
 
     def create 
         @step = Step.new(step_params)
@@ -14,9 +14,9 @@ class Api::StepsController < ApplicationController
         end 
     end
 
-    def show 
-        @step = Step.find(params[:id])
-    end 
+    # def show 
+    #     @step = Step.find(params[:id])
+    # end 
 
     def update 
         @step = Step.find(params[:id])

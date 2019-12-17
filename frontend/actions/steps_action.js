@@ -11,9 +11,9 @@ export const receiveStep = (step) => ({
 });
 
 
-export const removeStep = (stepId) => ({
+export const removeStep = (step) => ({
     type: REMOVE_STEP,
-    stepId
+    step,
 });
 
 export const receiveStepErrors = (errors) => ({
@@ -25,26 +25,26 @@ export const clearStepErrors = () => ({
     type: CLEAR_STEP_ERRORS
 })
 
-export const grabStep = (recipeId, stepId) => (dispatch) => (
-    StepsAPiUtil.grabStep(recipeId, stepId)
-        .then(step => dispatch(receiveStep(step)))
-);
+// export const grabStep = (recipeId, stepId) => (dispatch) => (
+//     StepsAPiUtil.grabStep(recipeId, stepId)
+//         .then(step => dispatch(receiveStep(step)))
+// );
 
-export const createStep = (recipeId, step) => (dispatch) => (
-    StepsAPiUtil.createStep(recipeId, step)
+export const createStep = (step) => (dispatch) => (
+    StepsAPiUtil.createStep(step)
         .then(step => dispatch(receiveStep(step)), 
             error => dispatch(receiveStepErrors(error.responseJSON)))
 );
 
-export const editStep = (recipeId, step) => (dispatch) => (
-    StepsAPiUtil.editStep(recipeId, step)
+export const editStep = (step) => (dispatch) => (
+    StepsAPiUtil.editStep(step)
         .then(step => dispatch(receiveStep(step)),
             error => dispatch(receiveStepErrors(error.responseJSON)))
 );
 
-export const deleteStep = (recipeId, stepId) => (dispatch) => {
-    return StepsAPiUtil.deleteStep(recipeId, stepId)
-        .then(step => dispatch(removeStep(step.id)),
+export const deleteStep = (stepId) => (dispatch) => {
+    return StepsAPiUtil.deleteStep(stepId)
+        .then(step => dispatch(removeStep(step)),
             error => dispatch(receiveStepErrors(error.responseJSON)))
 };
 

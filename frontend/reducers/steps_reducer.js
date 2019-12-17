@@ -11,7 +11,7 @@ export default (oldstate = {}, action) => {
             return Object.assign({}, oldstate, {[action.step.id]: action.step})
         case REMOVE_STEP:
             let newState = Object.assign({}, oldstate);
-            delete newState[action.stepId]
+            delete newState[action.step.id]
             return newState;
         default:
             return oldstate;
