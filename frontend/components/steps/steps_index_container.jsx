@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import StepIndexItem from './step_index_item';
+import { getAllSteps } from '../../reducers/selectors';
 
 
 
@@ -33,11 +34,12 @@ class StepsIndex extends React.Component {
 }
 
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
     // debugger;
     return {
     // recipe: state.entities.recipe,
     steps: Object.values(state.entities.steps)
+    // steps: getAllSteps(state, ownProps),
 }};
 
 

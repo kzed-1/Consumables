@@ -29,7 +29,10 @@ class RecipeEditForm extends React.Component {
 
     componentDidMount () {
         this.props.grabRecipe(this.props.match.params.recipeId)
-            .then(() => this.setStateRecipe())   
+            .then(() => this.setStateRecipe());
+        this.props.closeModal();       
+
+        
     }
 
     handleInput (type) {

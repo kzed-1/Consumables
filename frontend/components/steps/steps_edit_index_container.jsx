@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import StepEditIndexItem from './step_edit_index_item';
 import {createStep, editStep, deleteStep} from '../../actions/steps_action';
 import {openModal} from '../../actions/modal_action';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import { getAllSteps } from '../../reducers/selectors';
 
 class StepEditIndex extends React.Component {
 
@@ -37,9 +38,10 @@ class StepEditIndex extends React.Component {
     }
 }
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
     return {
         steps: Object.values(state.entities.steps)
+        // steps: getAllSteps(state, ownProps),
     }
 }
 

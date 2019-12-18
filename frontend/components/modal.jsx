@@ -25,19 +25,20 @@ function Modal({modal, closeModal}) {
         return null;
     } 
 
-    let stepId, modalString;
+    let stepId
+    let modalString = modal
 
     if (modal.includes("deleteStep")) {
-        debugger
+        // debugger
         stepId = parseInt(modal.split("-")[1]);
         modalString = modal.split("-")[0]
     }
 
-    debugger
+    // debugger
 
     let component, modalAction;
 
-    debugger
+    // debugger
     switch (modal) {
         case 'open':
             component = <RecipeCreateFormContainer />
@@ -48,10 +49,10 @@ function Modal({modal, closeModal}) {
             modalAction = closeModal
             break;
         case (modal):
-            debugger
+            // debugger
 
             component = <ConfirmDeleteContainer stepId={stepId}/>
-            modalAction =closeModal
+            modalAction = doNothing
             break;
         default:
             return null;
@@ -59,7 +60,7 @@ function Modal({modal, closeModal}) {
 
     return (
         <div className="modal-background" onClick={()=> modalAction()}>
-            <div className={`modal-child-${modal}`} onClick={e => e.stopPropagation()}>
+            <div className={`modal-child-${modalString}`} onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>

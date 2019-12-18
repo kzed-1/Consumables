@@ -27,9 +27,11 @@
     color: #555;
     padding: 0px 20px 0px 20px;
     font-weight: 300;
-    min-width: 770px;
-    box-sizing: border-box;
     width: 100%;
+}
+
+.step-body {
+    width: 770px;
 }
 
 .step-photo {
@@ -56,7 +58,7 @@
     background-color: #f6f6f6;
     width: 970px;
     height: 147px;
-    margin: 18px 0 18px 0;
+    margin: 0 0 18px 0;
     display: flex;
     align-items: center;
 }
@@ -73,7 +75,7 @@
     background-color: #f6f6f6;
     width: 970px;
     height: 147px;
-    margin: 18px 0 18px 0;
+    margin: 0 0 18px 0;
 }
 
 .step-segment-inactive {
