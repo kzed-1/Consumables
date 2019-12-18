@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import RecipeCreateFormContainer from '../components/recipes/recipe_create_form container';
 import {Route} from 'react-router-dom';
 import UpdateErrorContainer from '../components/modal_errors/update_error_container';
+import ConfirmDeleteContainer from '../components/modal_errors/confirm_delete_modal';
 
 
 
@@ -21,11 +22,22 @@ import UpdateErrorContainer from '../components/modal_errors/update_error_contai
 function Modal({modal, closeModal}) {
 
     if(!modal) {
-       
         return null;
     } 
 
+    let stepId, modalString;
+
+    if (modal.includes("deleteStep")) {
+        debugger
+        stepId = parseInt(modal.split("-")[1]);
+        modalString = modal.split("-")[0]
+    }
+
+    debugger
+
     let component, modalAction;
+
+    debugger
     switch (modal) {
         case 'open':
             component = <RecipeCreateFormContainer />
@@ -34,6 +46,12 @@ function Modal({modal, closeModal}) {
         case "update":
             component = <UpdateErrorContainer />
             modalAction = closeModal
+            break;
+        case (modal):
+            debugger
+
+            component = <ConfirmDeleteContainer stepId={stepId}/>
+            modalAction =closeModal
             break;
         default:
             return null;

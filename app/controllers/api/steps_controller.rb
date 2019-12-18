@@ -14,9 +14,9 @@ class Api::StepsController < ApplicationController
         end 
     end
 
-    # def show 
-    #     @step = Step.find(params[:id])
-    # end 
+    def show 
+        @step = Step.find(params[:id])
+    end 
 
     def update 
         @step = Step.find(params[:id])

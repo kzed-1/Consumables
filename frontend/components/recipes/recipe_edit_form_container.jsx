@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import RecipeEditForm from './recipe_edit_form';
 import React from 'react';
 import {openModal} from '../../actions/modal_action';
+import { createStep } from '../../actions/steps_action';
 
 // class RecipeEditFormWrapper extends React.Component {
 
@@ -36,13 +37,16 @@ import {openModal} from '../../actions/modal_action';
 
 const msp = (state, ownProps) => ({
     recipe: state.entities.recipes[ownProps.match.params.recipeId],
+    steps: Object.values(state.entities.steps),
     errors: state.errors.recipes
 })
 
 const mdp = (dispatch) => ({
     grabRecipe: (recipeId) => dispatch(grabRecipe(recipeId)),
     editRecipe: (recipe) => dispatch(editRecipe(recipe)),
-    openModal: (modal) => dispatch(openModal(modal))
+    createStep: (step) => dispatch(createStep(step)),
+    openModal: (modal) => dispatch(openModal(modal)),
+    createStep: (step) => dispatch(createStep(step))
 
 })
 

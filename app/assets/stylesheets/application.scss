@@ -14,6 +14,20 @@
  *= require_self
  */
 
+ .publish-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+ .publish {
+    margin-right: 24px;
+    font-size: 13px;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 0.75px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+ }
 
 .top-header {
     display: flex;
@@ -164,6 +178,8 @@
     padding: 5px;
 }
 
+//footer
+
 .footer {
     background: #555;
     height: 249px;
@@ -182,6 +198,19 @@
     justify-content: center;
 }
 
+
+.line {
+    border-bottom: 1px solid lightgray;
+    position: relative;
+    top: 183px;
+    // width: 1366px;
+    // height: 1px;
+    // width: 85%;
+}
+
+.footer-items {
+    width: 95%;
+}
 
 
 
@@ -516,12 +545,11 @@
 
 .dropdown {
     width: 300px;
-    height: 300px;
-    min-height: 300px; 
+    min-height: 295px; 
     position: absolute;
     background: white;
     right: 0;
-    padding: 10px;
+    padding: 10px 0 0 0;
     left: auto;
     border-radius: 6px;
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
@@ -534,6 +562,7 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 50;
+    box-sizing: border-box;
 }
 
 .logout-profile {
@@ -541,6 +570,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 5px 0 5px
 }   
 
 .logoutbutton {
@@ -552,7 +582,8 @@
     padding: 6px 12px;
     background-color: #f6f6f6;
     border-color: #d4d4d4;
-    height: 15px;
+    height: 34px;
+    width: 90px;
     text-align: center;  
     margin-right: 9px;
 }
@@ -563,7 +594,7 @@
 }
 
 .profile-link {
-    color: darkgray;
+    color:  #777;
     font-size: 14px;
     padding-left: 9px;
 }
@@ -581,7 +612,7 @@
     display: flex;
     justify-content: center;
     vertical-align: middle;
-    margin: 10px;
+    margin: 10px 15px 10px 15px;
     font-size: 18px;
     font-weight: 300;
     padding: 11px 19px;
@@ -614,13 +645,6 @@
     // left: 600px;
 }
 
-.line {
-    border-bottom: 1px solid lightgray;
-    position: relative;
-    top: 183px;
-    width: 1366px;
-    height: 1px;
-}
 
 .recipes {
     background-color: #fff;

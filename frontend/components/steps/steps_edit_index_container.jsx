@@ -1,26 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import StepEditIndexItem from './step_edit_item';
+import StepEditIndexItem from './step_edit_index_item';
 import {createStep, editStep, deleteStep} from '../../actions/steps_action';
+import {openModal} from '../../actions/modal_action';
+import {withRouter} from 'react-router-dom'
 
 class StepEditIndex extends React.Component {
 
 
     render () {
 
-        const {steps} = this.props;
+        const {steps, createStep, deleteStep, openModal} = this.props;
 
         if(!steps){
             return null;
         }
         
-        let stepsList = steps.map((step) =>(
+        let stepsList = steps.map((step, i) =>(
             <StepEditIndexItem 
                 key={`edit-step-${i}`} 
                 createStep={createStep} 
                 editStep={editStep}
-                deletStep={deleteStep}
+                deleteStep={deleteStep}
+                history={this.props.history}
                 step={step} 
+                openModal = {openModal}
                 i={i}
             />
         ))
@@ -42,7 +46,8 @@ const msp = (state) => {
 const mdp = (dispatch) => ({
     createStep: (step) => dispatch(createStep(step)),
     editStep: (step) => dispatch(editStep(step)),
-    deleteStep: (stepId) => dispatch(deletStep(stepId))
+    deleteStep: (stepId) => dispatch(deleteStep(stepId)),
+    openModal: (modal) => dispatch(openModal(modal))
 })
 
-export default connect(msp,mdp)(StepEditIndex);
+export default withRouter(connect(msp,mdp)(StepEditIndex));

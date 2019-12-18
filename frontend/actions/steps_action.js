@@ -25,10 +25,10 @@ export const clearStepErrors = () => ({
     type: CLEAR_STEP_ERRORS
 })
 
-// export const grabStep = (recipeId, stepId) => (dispatch) => (
-//     StepsAPiUtil.grabStep(recipeId, stepId)
-//         .then(step => dispatch(receiveStep(step)))
-// );
+export const grabStep = (stepId) => (dispatch) => (
+    StepsAPiUtil.grabStep(stepId)
+        .then(step => dispatch(receiveStep(step)))
+);
 
 export const createStep = (step) => (dispatch) => (
     StepsAPiUtil.createStep(step)

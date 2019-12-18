@@ -16,6 +16,8 @@ import RecipeCreateFormContainer from './recipes/recipe_create_form container'
 import RecipeNew from './recipes/recipe_new_container';
 import RecipeShowContainer from '../components/recipes/recipe_show_container';
 import RecipeEditFormContainer from '../components/recipes/recipe_edit_form_container';
+import RecipeEditStepZeroContainer from '../components/recipes/recipe_edit_step_zero_container';
+import StepEditFormContainer from '../components/steps/step_edit_form_container';
 
 
 
@@ -37,6 +39,8 @@ const App = () => (
             </div>
         </header>
         <Switch>
+            <ProtectedRoute exact path="/steps/:stepId/edit" component={StepEditFormContainer} />
+            <ProtectedRoute exact path="/recipes/:recipeId/edit/stepZero" component={RecipeEditStepZeroContainer} />
             <ProtectedRoute exact path="/recipes/:recipeId/edit" component={RecipeEditFormContainer} />
             <ProtectedRoute  exact path="/recipes/new" component={RecipeNew}/>
             <Route exact path="/recipes/:recipeId" component={RecipeShowContainer}/>

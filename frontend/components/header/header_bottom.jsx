@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 class HeaderBottom extends React.Component {
     constructor(props) {
@@ -11,10 +12,13 @@ class HeaderBottom extends React.Component {
         return (
             <div className="bottom-header">
                 <NavLink className = "recipes" exact to="/recipes">Recipes</NavLink>
-                <span className="search-find">
-                    <input className="search-box"  type="text" placeholder="Let's Make... "/> 
-                    <img className="find" src={window.find}/>
-                </span>
+                <div className="publish-search">
+                    <Link className = "publish" to="/recipes/new">PUBLISH</Link>
+                    <span className="search-find">
+                        <input className="search-box"  type="text" placeholder="Let's Make... "/> 
+                        <img className="find" src={window.find}/>
+                    </span>
+                </div>
             </div>
         )
     }

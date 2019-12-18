@@ -68,7 +68,7 @@ class DropDown extends React.Component {
             <div className="dropdown">
                 <div className="logout-profile">
                     <Link to="/"><p className="profile-link">Profile</p></Link>
-                    <button className="logoutbutton" onMouseDown={() => logout()}>Logout</button>
+                    <button className="logoutbutton" onMouseDown={() => logout()}>Log Out</button>
                 </div>
                 <div className="button-divider"><Link onMouseDown={() => this.props.history.push("/recipes/new")}className="create-recipe-link" to="/recipes/new">New Recipe</Link></div> 
             </div>

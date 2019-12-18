@@ -5,12 +5,12 @@
 //     })
 // )
 
-// export const grabStep = (recipeId, stepId) => (
-//     $.ajax({
-//         method: 'GET',
-//         url: `/api/recipes/${recipeId}/steps/${stepId}`
-//     })
-// )
+export const grabStep = (stepId) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/steps/${stepId}`
+    })
+}
 
 export const createStep = (step) => (
     $.ajax({
