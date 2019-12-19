@@ -48,8 +48,12 @@ class StepEditForm extends React.Component {
         const { history, step} = this.props
         e.preventDefault();
 
-        this.props.editStep(this.state)
-            .then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
+        if (this.state.title.length === 0 || this.state.body.length === 0){
+            this.props.openModal("update")
+        }else {
+            this.props.editStep(this.state)
+                .then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
+        }
     }
 
     

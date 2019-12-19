@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_action';
 
 
 
-class UpdateError extends React.Component {
+class UpdateStepError extends React.Component {
 
 
     render () {
@@ -23,8 +23,8 @@ const mdp = (dispatch) => ({
     closeModal: () => dispatch(closeModal())
 })
 
-const UpdateErrorContainer = connect(null, mdp)(UpdateError);
+const UpdateStepErrorContainer = connect(null, mdp)(UpdateStepError);
 
-export default UpdateErrorContainer;
+export default UpdateStepErrorContainer;
 
 

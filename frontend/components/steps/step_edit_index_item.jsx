@@ -33,10 +33,10 @@ class StepEditIndexItem extends React.Component {
 
     emptyBody() {
         const { step } = this.props
-        if (step.body.length === 0) {
-            return "inactive"
-        } else {
+        if (step.body.length > 0 || step.title.length >0) {
             return "active"
+        } else {
+            return "inactive"
         }
     }
 
@@ -54,10 +54,10 @@ class StepEditIndexItem extends React.Component {
 
         let clickToEdit;
 
-        if (step.body.length === 0) {
-            clickToEdit = "(click to edit)"
+        if (step.body.length > 0 || step.title.length > 0) {
+            clickToEdit = ""
         } else {
-            clickToEdit = "";
+            clickToEdit = "(click to edit)";
         }
 
         return (

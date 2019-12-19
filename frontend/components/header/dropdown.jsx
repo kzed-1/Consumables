@@ -53,10 +53,20 @@ class DropDown extends React.Component {
             open: false
         };
         this.handleDropdown = this.handleDropdown.bind(this)
+        this.showDropDown = this.showDropDown.bind(this)
+        this.hideDropDown = this.hideDropDown.bind(this)
     }
 
     handleDropdown () {
         this.setState({open: !this.state.open})
+    }
+
+    showDropDown () {
+        this.setState({open: true})
+    }
+
+    hideDropDown () {
+        this.setState({open: false})
     }
 
 
@@ -76,8 +86,8 @@ class DropDown extends React.Component {
         ): null;
 
         return (
-            <div onBlur={this.handleDropdown} onFocus={this.handleDropdown} tabIndex="0" >
-                <img className="user" src={window.user} />
+            <div onBlur={this.hideDropDown} onFocus={this.showDropDown} tabIndex="0"  >
+                <img className="user" src={window.user} onMouseDown={this.handleDropdown}/>
                 {component}
             </div>
         )
