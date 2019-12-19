@@ -1,5 +1,5 @@
 {
-  "name": "Edibles",
+  "name": "Consumables",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.7.5",

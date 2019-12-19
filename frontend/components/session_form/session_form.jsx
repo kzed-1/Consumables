@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
 
         const {formType, navLink, errors} = this.props
         let emailBox = null;
-        let textBox = "New to Edibles? ";
+        let textBox = "New to Consumables? ";
 
 
         let errorslist = errors.map((error, i) => (
