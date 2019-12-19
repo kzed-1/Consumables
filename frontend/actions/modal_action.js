@@ -12,5 +12,5 @@ export const closeModal = () => ({
 })
 
 export const doNothing = () => {
-    return console.log("hello")
+    return null;
 }
