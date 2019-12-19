@@ -73,6 +73,7 @@ class StepEditForm extends React.Component {
                         </div>
                         <div className="edit-step-bottom-pic-bar">
                             {/* <input className="-button" type="submit" value="Publish" /> */}
+                            <button className="view-all-button"><Link to={`/recipes/${step.recipe_id}/edit`}>📢  View all</Link></button>
                             <button className="edit-step-submit-button"><Link  to={`/recipes/${step.recipe_id}`}>Publish</Link></button>
                         </div>
 

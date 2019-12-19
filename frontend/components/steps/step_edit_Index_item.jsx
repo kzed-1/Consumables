@@ -68,9 +68,13 @@ class StepEditIndexItem extends React.Component {
                     <p className="edit-step-body" >{step.body}</p>
                 </div>
                 <div className="step-buttons">
-                    <div className="drag-icon">☰</div>
+                        <div className="drag-icon">☰</div>
+                        <div onClick={this.handleOpenModal} className="close-icon">✕</div>
+                </div>
+                <div className="arrow-wrapper">
+                    <div className="placeholder"></div>
                     <img src={window.carat} className="arrow-icon"></img>
-                    <div onClick={this.handleOpenModal} className="close-icon">✕</div>
+                    <div className="placeholder"></div>
                 </div>
             </div>
         )

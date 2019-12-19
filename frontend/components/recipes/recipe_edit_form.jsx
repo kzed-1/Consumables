@@ -92,6 +92,8 @@ class RecipeEditForm extends React.Component {
                         </div>
                         <div className="bottom-pic-bar">
                             {/* <input className="edit-submit-button" type="submit" value="Publish" /> */}
+                            {/* <button className="plus-add-button"><Link to={`/recipes/${recipe.id}/edit`}>➕Add ▾</Link></button>  */}
+                            <button className="plus-add-button"><div onClick={this.handleCreateStep}>➕Add</div></button> 
                             <button className="edit-submit-button"><Link  to={`/recipes/${recipe.id}`}>Publish</Link></button> 
                         </div>
 
@@ -105,8 +107,11 @@ class RecipeEditForm extends React.Component {
                         </div>
                         <div className="intro-step-button">
                             <div className="drag-icon">☰</div>
+                        </div>
+                        <div className="arrow-wrapper">
+                            <div className="placeholder"></div>
                             <img src={window.carat} className="arrow-icon"></img>
-                            <div className="close-icon">✕</div>
+                            <div className="placeholder"></div>
                         </div>
                     </div>
                     <StepEditIndexContainer />

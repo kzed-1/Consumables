@@ -94,14 +94,37 @@
 // }
 
 .step-buttons {
-    // border: 1px solid black;
-    width: 37px;
+    // // border: 1px solid black;
+    // width: 37px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    // margin-right: 5px;
+    // height: 147px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+ 
     margin-right: 5px;
+    position: absolute;
     height: 147px;
+    // z-index: 1000;
+    left: 730px;
+    opacity: 0;
+    transition: opacity 0.75s;
+}
+
+.step-buttons:hover {
+
+    width: 400px;
+    margin-right: 5px;
+    position: absolute;
+    height: 147px;
+    // z-index: 1000;
+    opacity: 1;
 }
 
 .edit-step-form {
@@ -163,8 +186,72 @@
     background-color: #f6f6f6;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+.view-all-button {
+    background-color: #f6f6f6;
+    border: 1px solid #dedede;
+    color: #333;    
+    border-radius: 4px;
+    line-height: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 12px;
+    width: 73px;
+    height: 33px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+.view-all-button:hover {
+    background-color: #eee;
+    border:1px solid #d4d4d4;
+    color: #333;  
+    border-radius: 4px;
+    line-height: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 12px;
+    width: 73px;
+    height: 33px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
+.plus-add-button {
+    background-color: #f6f6f6;
+    border: 1px solid #dedede;
+    color: #333;    
+    border-radius: 4px;
+    line-height: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 12px;
+    width: 73px;
+    height: 33px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.plus-add-button:hover {
+    background-color: #eee;
+    border:1px solid #d4d4d4;
+    color: #333;  
+    border-radius: 4px;
+    line-height: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 12px;
+    width: 73px;
+    height: 33px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+    text-align: center;
 }
 
 .edit-step-submit-button {
@@ -294,12 +381,11 @@
 
 .drag-icon {
     margin-top: 7px;
-    // visibility: hidden;
 }
 
-// .drag-icon:hover {
-//     visibility: visible;
-// }
+.drag-icon:hover {
+    cursor: pointer;
+}
 
 
 
@@ -313,10 +399,10 @@
 
 .close-icon {
     margin-bottom: 10px;
-    //   visibility: hidden;
 }
 
 .close-icon:hover {
+    // opacity: 1;
     cursor: pointer;
     color: red;
 }

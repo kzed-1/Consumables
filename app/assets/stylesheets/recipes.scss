@@ -465,6 +465,7 @@
     margin-bottom: 18px;
     position: sticky;
     top: 0;
+    z-index: 5;
 }
 
 button.edit-submit-button {
@@ -559,7 +560,8 @@ button.edit-submit-button:hover {
     background-color: #f6f6f6;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 2px 0 rgba(0,0,0,0.15);
 }
 
@@ -661,14 +663,54 @@ button.edit-submit-button:hover {
 // }
 
 .intro-step-button {
-    width: 37px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+ 
     margin-right: 5px;
+    position: absolute;
+    height: 147px;
+    // z-index: 1000;
+    left: 730px;
+    opacity: 0;
+    transition: opacity 0.75s;
+
+    // left: 1200px;
+    // height: 150px;
+}
+.intro-step-button:hover {
+    width: 400px;
+    margin-right: 5px;
+    position: absolute;
+    height: 147px;
+    // z-index: 1000;
+    opacity: 1;
+
+    // left: 1200px;
+    // height: 150px;
 }
 
+.placeholder {
+    // height: 20px;
+    // width: 20px;
+}
+
+.arrow-icon {
+    // position: absolute;
+    width: 25px;
+    height: 40px;
+    top: 50px;
+    padding-right: 5px;
+
+}
+
+.arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .add-step-button:hover {

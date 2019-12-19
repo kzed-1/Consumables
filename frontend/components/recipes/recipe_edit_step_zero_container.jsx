@@ -66,6 +66,7 @@ class RecipeEditStepZero extends React.Component {
                         
                         </div>
                         <div className="bottom-pic-bar">
+                            <button className="view-all-button"><Link to={`/recipes/${recipe.id}/edit`}>View all</Link></button> 
                             <button className="edit-submit-button"><Link to={`/recipes/${recipe.id}`}>Publish</Link></button> 
                             {/* <input className="edit-submit-button" type="submit" value="Publish" /> */}
                         </div>
