@@ -23,6 +23,7 @@ class Recipe < ApplicationRecord
         primary_key: :id,
         foreign_key: :recipe_id,
         class_name: :Step
+
     
 
 end
