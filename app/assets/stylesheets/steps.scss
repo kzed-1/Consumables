@@ -61,6 +61,7 @@
     margin: 0 0 18px 0;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .step-segment-active {
@@ -76,6 +77,7 @@
     width: 970px;
     height: 147px;
     margin: 0 0 18px 0;
+    position: relative;
 }
 
 .step-segment-inactive {
@@ -112,7 +114,7 @@
     position: absolute;
     height: 147px;
     // z-index: 1000;
-    left: 730px;
+    left: 560px;
     opacity: 0;
     transition: opacity 0.75s;
 }
@@ -125,6 +127,7 @@
     height: 147px;
     // z-index: 1000;
     opacity: 1;
+    left: 560px;
 }
 
 .edit-step-form {

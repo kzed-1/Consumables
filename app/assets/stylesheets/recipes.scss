@@ -581,6 +581,7 @@ button.edit-submit-button:hover {
 }
 
 .intro-step-segment-active  {
+    position: relative;
     display: block;
     color: #333;
     font-size: 14px;
@@ -597,6 +598,7 @@ button.edit-submit-button:hover {
 
 }
 .intro-step-segment-inactive  {
+    position: relative;
     display: block;
     color: #333;
     font-size: 14px;
@@ -673,7 +675,7 @@ button.edit-submit-button:hover {
     position: absolute;
     height: 147px;
     // z-index: 1000;
-    left: 730px;
+    left: 560px;
     opacity: 0;
     transition: opacity 0.75s;
 
@@ -685,6 +687,7 @@ button.edit-submit-button:hover {
     margin-right: 5px;
     position: absolute;
     height: 147px;
+    left: 560px;
     // z-index: 1000;
     opacity: 1;
 
