@@ -18,16 +18,16 @@ class StepEditIndex extends React.Component {
         }
         
         let stepsList = steps.map((step, i) =>(
-            <StepEditIndexItem 
-                key={`edit-step-${i}`} 
-                createStep={createStep} 
-                editStep={editStep}
-                deleteStep={deleteStep}
-                history={this.props.history}
-                step={step} 
-                openModal = {openModal}
-                i={i}
-            />
+            // <StepEditIndexItem 
+            //     key={`edit-step-${i}`} 
+            //     createStep={createStep} 
+            //     editStep={editStep}
+            //     deleteStep={deleteStep}
+            //     history={this.props.history}
+            //     step={step} 
+            //     openModal = {openModal}
+            //     i={i}
+            // />
         ))
 
         return (
