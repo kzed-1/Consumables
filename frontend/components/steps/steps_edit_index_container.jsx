@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import StepEditIndexItem from './step_edit_index_item'
+import StepEditIndexItem from './step_edit_index_item';
 import {createStep, editStep, deleteStep} from '../../actions/steps_action';
 import {openModal} from '../../actions/modal_action';
 import {withRouter} from 'react-router-dom';
