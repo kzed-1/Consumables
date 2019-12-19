@@ -7,6 +7,10 @@ class RecipeIndex extends React.Component {
         this.props.grabRecipes();
     }
 
+    componentWillUnmount () {
+        this.props.clearSteps();
+    }
+
     render () {
 
     

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {grabRecipe, deleteRecipe} from '../../actions/recipes_actions';
 import RecipeShow from './recipe_show';
 import {withRouter} from 'react-router-dom';
+import {clearSteps} from '../../actions/steps_action';
 
 const msp = (state, ownProps) => ({
     recipe: state.entities.recipes[ownProps.match.params.recipeId],
@@ -11,7 +12,8 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     grabRecipe: (recipeId) => dispatch(grabRecipe(recipeId)),
-    deleteRecipe: (recipeId) => dispatch(deleteRecipe(recipeId))
+    deleteRecipe: (recipeId) => dispatch(deleteRecipe(recipeId)),
+    clearSteps: () => dispatch(clearSteps())
 
 })
 

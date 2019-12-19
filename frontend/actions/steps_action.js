@@ -4,6 +4,7 @@ export const RECEIVE_STEP = "RECEIVE_STEP";
 export const REMOVE_STEP = "REMOVE_STEP";
 export const RECEIVE_STEP_ERRORS = "RECEIVE_STEP_ERRORS";
 export const CLEAR_STEP_ERRORS = "CLEAR_STEP_ERRORS";
+export const CLEAR_STEPS = "CLEAR_STEPS";
 
 export const receiveStep = (step) => ({
     type: RECEIVE_STEP,
@@ -23,6 +24,10 @@ export const receiveStepErrors = (errors) => ({
 
 export const clearStepErrors = () => ({
     type: CLEAR_STEP_ERRORS
+})
+
+export const clearSteps = () => ({
+    type: CLEAR_STEPS
 })
 
 export const grabStep = (stepId) => (dispatch) => (

@@ -18,6 +18,10 @@ class RecipeShow extends React.Component {
             .then(() => this.props.history.push("/"))
     }
 
+    componentWillUnmount () {
+        this.props.clearSteps();
+    }
+
 
 
     date(date) {
