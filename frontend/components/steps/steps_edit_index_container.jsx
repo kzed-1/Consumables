@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import StepEditIndexItem from './step_edit_index_item';
 import {createStep, editStep, deleteStep} from '../../actions/steps_action';
 import {openModal} from '../../actions/modal_action';
 import {withRouter} from 'react-router-dom';
 import { getAllSteps } from '../../reducers/selectors';
+import StepEditIndexItem from './step_edit_index_item';
 
 class StepEditIndex extends React.Component {
 
@@ -18,16 +18,16 @@ class StepEditIndex extends React.Component {
         }
         
         let stepsList = steps.map((step, i) =>(
-            // <StepEditIndexItem 
-            //     key={`edit-step-${i}`} 
-            //     createStep={createStep} 
-            //     editStep={editStep}
-            //     deleteStep={deleteStep}
-            //     history={this.props.history}
-            //     step={step} 
-            //     openModal = {openModal}
-            //     i={i}
-            // />
+            <StepEditIndexItem 
+                key={`edit-step-${i}`} 
+                createStep={createStep} 
+                editStep={editStep}
+                deleteStep={deleteStep}
+                history={this.props.history}
+                step={step} 
+                openModal = {openModal}
+                i={i}
+            />
         ))
 
         return (
