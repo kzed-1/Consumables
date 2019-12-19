@@ -22,22 +22,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         store = configureStore();
     }
 
-    window.store = store 
-    window.signup = signup
-    window.login = login
-    window.logout = logout
-    window.grabRecipes = grabRecipes
-    window.grabRecipe = grabRecipe
-    window.createRecipe = createRecipe
-    window.deleteRecipe = deleteRecipe
-    window.editRecipe = editRecipe
-    window.createStep = createStep
-    window.editStep = editStep
-    window.deleteStep = deleteStep
-
-
-    // let recipe = {author_id: 28, title:"how to make bananacream pie", body:"This is how to make bananacream pie"}
-
     
 
     ReactDOM.render(<Root store={store}/>, root)

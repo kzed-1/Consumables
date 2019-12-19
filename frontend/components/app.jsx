@@ -33,7 +33,7 @@ const App = () => (
             <div className ="bottom-border">
                 <span className="logo-title">
                     <Link className="logo" to="/"><img src={window.logo}/></Link> 
-                    <Link className="title" to="/"><h2>edibles</h2></Link> 
+                    <Link className="title" to="/"><h2>consumables</h2></Link> 
                 </span>
                 <HeaderBottom />
             </div>
