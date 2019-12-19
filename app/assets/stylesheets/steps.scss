@@ -384,10 +384,12 @@
 
 .drag-icon {
     margin-top: 7px;
+    font-size: large;
 }
 
 .drag-icon:hover {
     cursor: pointer;
+    font-size: large;
 }
 
 
@@ -402,12 +404,14 @@
 
 .close-icon {
     margin-bottom: 10px;
+    font-size: large;
 }
 
 .close-icon:hover {
     // opacity: 1;
     cursor: pointer;
     color: red;
+    font-size: large;
 }
 
 
