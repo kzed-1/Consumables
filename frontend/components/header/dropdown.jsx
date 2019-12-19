@@ -52,6 +52,7 @@ class DropDown extends React.Component {
         this.state={
             open: false
         };
+        this.handleDropdown = this.handleDropdown.bind(this)
     }
 
     handleDropdown () {
@@ -75,7 +76,7 @@ class DropDown extends React.Component {
         ): null;
 
         return (
-            <div onBlur={() => this.handleDropdown()} onFocus={() => this.handleDropdown()}tabIndex = "0" >
+            <div onBlur={this.handleDropdown} onFocus={this.handleDropdown} tabIndex="0" >
                 <img className="user" src={window.user} />
                 {component}
             </div>
