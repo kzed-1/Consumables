@@ -20,13 +20,13 @@ export const createRecipe = (recipe) => (
     })
 )
 
-export const editRecipe = (recipe) => (
-    $.ajax({
+export const editRecipe = (recipe) => {
+    return $.ajax({
         method: 'PATCH',
         url: `/api/recipes/${recipe.id}`,
         data: {recipe}
     })
-)
+}
 
 export const deleteRecipe = (recipeId) => (
     $.ajax({

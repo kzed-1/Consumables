@@ -14,5 +14,6 @@ end
 json.steps do 
     @recipe.steps.each do |step|
         json.set! step.id, step
+        json.photosUrls step.photos.map { |file| url_for(file) }
     end
 end 

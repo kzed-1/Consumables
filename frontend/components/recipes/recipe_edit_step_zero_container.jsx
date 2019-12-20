@@ -14,17 +14,19 @@ class RecipeEditStepZero extends React.Component {
             id: "",
             author_id: "",
             title: "",
-            body: ""
+            body: "", 
+            photos: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setStateRecipe = this.setStateRecipe.bind(this);
+        this.handleFile = this.handleFile.bind(this);
 
     }
 
     setStateRecipe() {
 
         const { id, author_id, title, body } = this.props.recipe
-        this.setState({ id: id, author_id: author_id, title: title, body: body })
+        this.setState({ id: id, author_id: author_id, title: title, body: body, photos: [] })
     }
 
     componentDidMount() {
@@ -41,9 +43,30 @@ class RecipeEditStepZero extends React.Component {
     handleSubmit(e) {
         const { history, recipe } = this.props
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('recipe[title]', this.state.title)
+        formData.append('recipe[body]', this.state.body)
+        formData.append('recipe[author_id]', this.state.author_id)
 
-        this.props.editRecipe(this.state)
-            .then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"))
+        for (let i = 0; i <this.state.photos.length; i++){
+            // debugger
+            formData.append('recipe[photos][]', this.state.photos[i])
+        }
+        // debugger
+        $.ajax({
+            method: 'PATCH',
+            url: `/api/recipes/${this.state.id}`,
+            data: formData,
+            contentType: false,
+            processData: false
+        }).then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"));
+
+        // this.props.editRecipe(this.state)
+        //     .then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"))
+    }
+
+    handleFile (e) {
+        return this.setState({photos: e.currentTarget.files })
     }
 
     render() {
@@ -63,7 +86,7 @@ class RecipeEditStepZero extends React.Component {
                 <form className="edit-form" >
                     <div className="form-header">
                         <div className="pic-box">
-                        
+                            <input multiple onChange={this.handleFile} type="file"/>
                         </div>
                         <div className="bottom-pic-bar">
                             <button className="view-all-button"><Link to={`/recipes/${recipe.id}/edit`}>📢 View all</Link></button> 

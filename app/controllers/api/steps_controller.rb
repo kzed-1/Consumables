@@ -15,7 +15,7 @@ class Api::StepsController < ApplicationController
     end
 
     def show 
-        @step = Step.find(params[:id])
+        @step = Step.with_attached_photos.find(params[:id])
     end 
 
     def update 
@@ -40,7 +40,7 @@ class Api::StepsController < ApplicationController
     private 
 
     def step_params 
-        params.require(:step).permit(:title, :body, :recipe_id)
+        params.require(:step).permit(:title, :body, :recipe_id, photos: [])
     end
     
 end

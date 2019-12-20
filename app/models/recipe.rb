@@ -24,6 +24,7 @@ class Recipe < ApplicationRecord
         foreign_key: :recipe_id,
         class_name: :Step
 
+    has_many_attached :photos
     
 
 end

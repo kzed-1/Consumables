@@ -14,16 +14,18 @@ class StepEditForm extends React.Component {
             id: "",
             recipe_id: "",
             title: "",
-            body: ""
+            body: "",
+            photos: []
         }
 
         this.setStateStep = this.setStateStep.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     setStateStep () {
         const {id, recipe_id, title, body} = this.props.step
-        this.setState({id: id, recipe_id: recipe_id, title: title, body: body})
+        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: []})
     }
 
     componentDidMount() {
@@ -37,6 +39,9 @@ class StepEditForm extends React.Component {
     //     if (prevState.recipes.entities.recipes)
     // }
 
+    handleFile(e) {
+        return this.setState({ photos: e.currentTarget.files })
+    }
 
     handleInput(type) {
         return (e) => {
@@ -47,12 +52,32 @@ class StepEditForm extends React.Component {
     handleSubmit(e) {
         const { history, step} = this.props
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('step[title]', this.state.title)
+        formData.append('step[body]', this.state.body)
+        formData.append('step[recipe_id]', this.state.recipe_id)
+        debugger
+        for (let i = 0; i < this.state.photos.length; i++) {
+            // debugger
+            formData.append('step[photos][]', this.state.photos[i])
+        }
+
+
+
 
         if (this.state.title.length === 0 || this.state.body.length === 0){
             this.props.openModal("update")
         }else {
-            this.props.editStep(this.state)
-                .then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
+
+            $.ajax({
+                method: 'PATCH',
+                url: `/api/steps/${this.state.id}`,
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
+            // this.props.editStep(this.state)
+            //     .then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
         }
     }
 
@@ -73,7 +98,7 @@ class StepEditForm extends React.Component {
                 <form className="edit-step-form" >
                     <div className="edit-step-form-header">
                         <div className="edit-step-pic-box">
-
+                            <input multiple onChange={this.handleFile} type="file" />
                         </div>
                         <div className="edit-step-bottom-pic-bar">
                             {/* <input className="-button" type="submit" value="Publish" /> */}

@@ -24,7 +24,7 @@ class RecipeIndex extends React.Component {
         let recipesList = recipes.map((recipe) => (
             <RecipeIndexItem recipe={recipe} key={recipe.id}/>
         ))
-  
+            
 
         return (
            

@@ -6,8 +6,11 @@ export default (oldstate = {}, action) => {
     switch (action.type) {
         case RECEIVE_RECIPE:
             let steps = action.payload.steps;
+            debugger
             return Object.assign({}, oldstate, steps)
+
         case RECEIVE_STEP:
+            debugger
             return Object.assign({}, oldstate, {[action.step.id]: action.step})
         case REMOVE_STEP:
             let newState = Object.assign({}, oldstate);

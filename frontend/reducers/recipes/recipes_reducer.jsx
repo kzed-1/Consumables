@@ -6,10 +6,12 @@ export default (oldstate = {}, action) => {
     Object.freeze(oldstate)
     switch (action.type) {
         case RECEIVE_ALL_RECIPES:
+            debugger
             return action.recipes
         case RECEIVE_RECIPE:
             let recipe = action.payload.recipe
             let newS = Object.assign({}, oldstate, {[recipe.id]: recipe})
+            debugger
             return newS
         case REMOVE_RECIPE:
             let newState = Object.assign({}, oldstate);
