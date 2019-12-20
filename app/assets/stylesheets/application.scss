@@ -706,13 +706,20 @@
     padding: 25px 0px;
     display: block;
     top: 150px;
-    left: 190px;
+    left: 145px;
+    width:520px;
+    height: 203px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
 .motto-text {
     text-shadow: 2px 2px 1px black;
     font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
-    font-size: 60px;
+    font-size: 45px;
     width:470;
     margin-bottom: 15px;
     font-weight: 700;
@@ -720,7 +727,7 @@
 }
 
 .motto-statement {
-    text-align: center;
+    text-align: left;
     text-shadow: 2px 2px 1px black;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 3px 0 10px;
