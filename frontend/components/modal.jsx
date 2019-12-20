@@ -29,16 +29,12 @@ function Modal({modal, closeModal}) {
     let modalString = modal
 
     if (modal.includes("deleteStep")) {
-        // debugger
         stepId = parseInt(modal.split("-")[1]);
         modalString = modal.split("-")[0]
     }
 
-    // debugger
-
     let component, modalAction;
 
-    // debugger
     switch (modal) {
         case 'open':
             component = <RecipeCreateFormContainer />
@@ -49,8 +45,6 @@ function Modal({modal, closeModal}) {
             modalAction = closeModal
             break;
         case (modal):
-            // debugger
-
             component = <ConfirmDeleteContainer stepId={stepId}/>
             modalAction = doNothing
             break;
