@@ -11,15 +11,39 @@ class StepIndexItem extends React.Component {
             return null
         }
 
-        let picture;
+        let picture = null
 
         if (!step.photosUrls) {
-            // debugger
-            picture = window.pancakes
+            
         } else {
-            picture = step.photosUrls[0]
+            picture = step.photosUrls[1]
         }
+
         let component;
+        let imageContainer;
+
+        let imagesList = step.photosUrls.map((url, i) => {
+
+            const flexStyle1 = {
+                flex: 1.33
+            }
+
+            const flexStyle2 = {
+                flex: .64
+            }
+
+            if (i === 0) {
+                return <div key={i}  style={flexStyle1} className="image-wrapper"><img className="step-photo-item" src={url} /></div>
+            }else {
+                return <div key={i} style= {flexStyle2} className={`image-wrapper ${i}`}><img className="step-photo-item" src={url}/></div>
+            }
+        })
+
+        if (step.photosUrls.length > 1) {
+            imageContainer = <div className="image-box-container">
+                {imagesList}
+            </div>
+        }
 
         if(step.title.length === 0 || step.body.length === 0){
             component = null
@@ -27,11 +51,14 @@ class StepIndexItem extends React.Component {
             // debugger
             component = <div className="step-container">
                 <h2 className="step-title">{`Step ${num_step + 1}: ${step.title}`}</h2>
-                <img className="step-photo" src={picture} alt="" />
+                {/* <img className="step-photo" src={picture} alt="" /> */}
+                {imageContainer}
                 <p className="step-body" >{step.body}</p>
                 <div className="bottom-line"></div>
             </div>
         }
+
+
 
         return (
             <div>

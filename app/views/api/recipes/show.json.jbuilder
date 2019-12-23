@@ -13,7 +13,15 @@ end
 
 json.steps do 
     @recipe.steps.each do |step|
-        json.set! step.id, step
-        json.photosUrls step.photos.map { |file| url_for(file) }
+        json.set! step.id do 
+            json.id step.id
+            json.recipe_id step.recipe_id
+            json.title step.title
+            json.body step.body
+            json.created_at step.created_at
+            json.updated_at step.updated_at
+            json.photosUrls step.photos.map { |file| url_for(file) }
+        end
     end
 end 
+

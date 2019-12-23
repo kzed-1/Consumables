@@ -15,12 +15,14 @@ class StepEditForm extends React.Component {
             recipe_id: "",
             title: "",
             body: "",
-            photos: []
+            photos: [],
+            photoUrls: [null]
+            // photoUrl: null
         }
 
         this.setStateStep = this.setStateStep.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        this.handleFiles = this.handleFiles.bind(this);
     }
 
     setStateStep () {
@@ -39,8 +41,34 @@ class StepEditForm extends React.Component {
     //     if (prevState.recipes.entities.recipes)
     // }
 
-    handleFile(e) {
-        return this.setState({ photos: e.currentTarget.files })
+
+    // handleFiles(e) {
+    //     const file = e.currentTarget.files[0]
+    //     const fileReader = new FileReader();
+    //     fileReader.onloadend = () => {
+    //         this.setState({ photos: file, photoUrl: fileReader.result})
+    //     }
+
+
+    //     if (file){
+    //         fileReader.readAsDataURL(file);
+    //     }else {
+    //         this.setState({photos: [], photoUrl: null })
+    //     }
+    // }
+
+    handleFiles(e) {
+        const files = Object.values(e.currentTarget.files)
+        const filesArray = []
+
+        if (files.length > 0) {
+            for (let i = 0; i < files.length; i++) {
+                filesArray.push(URL.createObjectURL(files[i]))
+            }
+        } else {
+            this.setState({ photos: [], photoUrls: [null] })
+        }
+        this.setState({ photos: Object.values(e.currentTarget.files), photoUrls: filesArray })
     }
 
     handleInput(type) {
@@ -56,13 +84,10 @@ class StepEditForm extends React.Component {
         formData.append('step[title]', this.state.title)
         formData.append('step[body]', this.state.body)
         formData.append('step[recipe_id]', this.state.recipe_id)
-        debugger
-        for (let i = 0; i < this.state.photos.length; i++) {
-            // debugger
+        
+        for (let i = 0; i < this.state.photos.length; i++) {        
             formData.append('step[photos][]', this.state.photos[i])
         }
-
-
 
 
         if (this.state.title.length === 0 || this.state.body.length === 0){
@@ -86,19 +111,30 @@ class StepEditForm extends React.Component {
 
 
     render () {
-        // debugger;
+        ;
         const {step} = this.props
-
+        const preview = this.state.photoUrls.length > 0 ? 
+            <div className="multi-preview">
+                {(this.state.photoUrls || []).map((url,i) => (
+                    // <img src={url} alt="..." />
+                    <img key ={i} className="preview-pic" src={url} /> 
+                ))}
+            </div>
+            : null;
+        // const preview = this.state.photoUrl ? <img  className="preview-pic" src={this.state.photoUrl} alt="..." /> : null;
         if (!step) {
             return null;
         }
+
+        
 
         return (
             <div>
                 <form className="edit-step-form" >
                     <div className="edit-step-form-header">
                         <div className="edit-step-pic-box">
-                            <input multiple onChange={this.handleFile} type="file" />
+                            <input multiple onChange={this.handleFiles} type="file" />
+                            {preview}
                         </div>
                         <div className="edit-step-bottom-pic-bar">
                             {/* <input className="-button" type="submit" value="Publish" /> */}
