@@ -6,7 +6,7 @@ export default (oldstate = {}, action) => {
     Object.freeze(oldstate)
     switch (action.type) {
         case RECEIVE_ALL_RECIPES:
-            return action.recipes
+            return action.recipes || {}
         case RECEIVE_RECIPE:
             let recipe = action.payload.recipe
             let newS = Object.assign({}, oldstate, {[recipe.id]: recipe})

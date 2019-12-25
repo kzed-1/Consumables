@@ -17,12 +17,18 @@ class StepEditForm extends React.Component {
             body: "",
             photos: [],
             photoUrls: [null]
+            // highlighted: false
             // photoUrl: null
         }
 
         this.setStateStep = this.setStateStep.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFiles = this.handleFiles.bind(this);
+        this.openFileInputWindow = this.openFileInputWindow.bind(this);
+        this.fileInputRef = React.createRef();
+        // this.onDragOver = this.onDragOver.bind(this);
+        // this.onDragLeave = this.onDragLeave.bind(this);
+        // this.onDrop = this.onDrop.bind(this);
     }
 
     setStateStep () {
@@ -31,10 +37,8 @@ class StepEditForm extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
         this.props.grabStep(this.props.match.params.stepId)
             .then(()=> this.setStateStep())
-        // debugger
     }
 
     // componentDidUpdate (prevProps, prevState) {
@@ -68,6 +72,7 @@ class StepEditForm extends React.Component {
         } else {
             this.setState({ photos: [], photoUrls: [null] })
         }
+        debugger
         this.setState({ photos: Object.values(e.currentTarget.files), photoUrls: filesArray })
     }
 
@@ -84,7 +89,7 @@ class StepEditForm extends React.Component {
         formData.append('step[title]', this.state.title)
         formData.append('step[body]', this.state.body)
         formData.append('step[recipe_id]', this.state.recipe_id)
-        
+
         for (let i = 0; i < this.state.photos.length; i++) {        
             formData.append('step[photos][]', this.state.photos[i])
         }
@@ -106,12 +111,32 @@ class StepEditForm extends React.Component {
         }
     }
 
-    
+    openFileInputWindow () {
+        this.fileInputRef.current.click();
+    }
+
+    // onDragOver(e) {
+    //     e.preventDefault();
+
+    //     this.setState({highlighted: true})
+    // }
+
+    // onDragLeave(e) {
+    //     this.setState({highlighted: false})
+    // }    
+
+    // onDrop(e) {
+    //     e.preventDefault();
+
+    //     (e) => this.handleFiles(e)
+        
+    //     this.setState({highlighted: false})
+
+    // }
 
 
 
     render () {
-        ;
         const {step} = this.props
         const preview = this.state.photoUrls.length > 0 ? 
             <div className="multi-preview">
@@ -132,8 +157,14 @@ class StepEditForm extends React.Component {
             <div>
                 <form className="edit-step-form" >
                     <div className="edit-step-form-header">
-                        <div className="edit-step-pic-box">
-                            <input multiple onChange={this.handleFiles} type="file" />
+                        <div 
+                            className={`edit-step-pic-box dropzone ${this.state.highlighted? 'highlighted': ""}`} 
+                            onClick={this.openFileInputWindow}
+                            // onDragOver={this.onDragOver}
+                            // onDragLeave={this.onDragLeave}
+                            // onDrop={this.onDrop}
+                        > <p className={`add-images ${this.state.photoUrls[0]? "picture-present": ""}`}>➕Click To Add Images</p>
+                            <input ref ={this.fileInputRef} className = "fileInput" multiple onChange={this.handleFiles} type="file" />
                             {preview}
                         </div>
                         <div className="edit-step-bottom-pic-bar">

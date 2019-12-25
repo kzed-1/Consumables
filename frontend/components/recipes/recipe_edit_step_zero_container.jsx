@@ -15,11 +15,14 @@ class RecipeEditStepZero extends React.Component {
             author_id: "",
             title: "",
             body: "", 
-            photos: []
+            photos: [],
+            photoUrls: [null]
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setStateRecipe = this.setStateRecipe.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        this.handleFiles = this.handleFiles.bind(this);
+        this.openFileInputWindow = this.openFileInputWindow.bind(this);
+        this.fileInputRef = React.createRef();
 
     }
 
@@ -65,8 +68,26 @@ class RecipeEditStepZero extends React.Component {
         //     .then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"))
     }
 
-    handleFile (e) {
-        return this.setState({photos: e.currentTarget.files })
+    // handleFile (e) {
+    //     return this.setState({photos: e.currentTarget.files })
+    // }
+
+    handleFiles(e) {
+        const files = Object.values(e.currentTarget.files)
+        const filesArray = []
+
+        if (files.length > 0) {
+            for (let i = 0; i < files.length; i++) {
+                filesArray.push(URL.createObjectURL(files[i]))
+            }
+        } else {
+            this.setState({ photos: [], photoUrls: [null] })
+        }
+        this.setState({ photos: Object.values(e.currentTarget.files), photoUrls: filesArray })
+    }
+
+    openFileInputWindow() {
+        this.fileInputRef.current.click();
     }
 
     render() {
@@ -81,12 +102,23 @@ class RecipeEditStepZero extends React.Component {
             <li className={`error-${i}`} key={i}>{error}</li>
         ))
 
+        const preview = this.state.photoUrls.length > 0 ?
+            <div className="multi-preview">
+                {(this.state.photoUrls || []).map((url, i) => (
+                    // <img src={url} alt="..." />
+                    <img key={i} className="preview-pic" src={url} />
+                ))}
+            </div>
+            : null;
+
         return (
             <div>
                 <form className="edit-form" >
                     <div className="form-header">
-                        <div className="pic-box">
-                            <input multiple onChange={this.handleFile} type="file"/>
+                        <div className="pic-box dropzone" onClick={this.openFileInputWindow}>
+                            <p className={`add-images ${this.state.photoUrls[0] ? "picture-present" : ""}`}>➕Click To Add Images</p>
+                            <input ref={this.fileInputRef} multiple onChange={this.handleFiles} className="fileInput" type="file"/>
+                            {preview}
                         </div>
                         <div className="bottom-pic-bar">
                             <button className="view-all-button"><Link to={`/recipes/${recipe.id}/edit`}>📢 View all</Link></button> 

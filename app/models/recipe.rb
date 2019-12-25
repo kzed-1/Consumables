@@ -25,6 +25,10 @@ class Recipe < ApplicationRecord
         class_name: :Step
 
     has_many_attached :photos
+
+    def self.search_by_title(input_search)
+        Recipe.where("title ILIKE :search", search: "%#{input_search}%").to_a
+    end
     
 
 end
