@@ -29,11 +29,21 @@ class Api::StepsController < ApplicationController
     end
 
     def destroy 
+        debugger
         @step = Step.find(params[:id])
-        if @step.destroy 
-            render :show
+        debugger
+        if params[:attachment_id]
+            debugger
+            if @step.photos.find_by_id(params[:attachment_id]).purge
+                debugger
+                render :show
+            end 
         else 
-            render @step.errors.full_messages, status: 404 
+            if @step.destroy 
+                render :show
+            else 
+                render @step.errors.full_messages, status: 404 
+            end 
         end 
     end 
 

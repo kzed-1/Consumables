@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { openModal } from '../../actions/modal_action';
 import { grabStep, editStep} from '../../actions/steps_action';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 
 
@@ -25,6 +25,8 @@ class StepEditForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFiles = this.handleFiles.bind(this);
         this.openFileInputWindow = this.openFileInputWindow.bind(this);
+        this.removePreviewPic = this.removePreviewPic.bind(this);
+        this.deleteImage = this.deleteImage.bind(this);
         this.fileInputRef = React.createRef();
         // this.onDragOver = this.onDragOver.bind(this);
         // this.onDragLeave = this.onDragLeave.bind(this);
@@ -32,8 +34,8 @@ class StepEditForm extends React.Component {
     }
 
     setStateStep () {
-        const {id, recipe_id, title, body} = this.props.step
-        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: []})
+        const {id, recipe_id, title, body, photosUrls} = this.props.step
+        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: [], photoUrls: photosUrls})
     }
 
     componentDidMount() {
@@ -62,6 +64,7 @@ class StepEditForm extends React.Component {
     // }
 
     handleFiles(e) {
+        debugger
         const files = Object.values(e.currentTarget.files)
         const filesArray = []
 
@@ -111,6 +114,24 @@ class StepEditForm extends React.Component {
         }
     }
 
+    deleteImage (e, attachment_id) {
+        const {step, images} = this.props
+        e.stopPropagation();
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('attachment_id', attachment_id)
+
+
+        $.ajax({
+            method: 'DELETE',
+            url: `/api/steps/${this.state.id}`,
+            data: formData,
+            contentType: false,
+            processData: false
+        }).then(() => history.push(`/recipes/${step.recipe_id}/edit`))
+    }
+
     openFileInputWindow () {
         this.fileInputRef.current.click();
     }
@@ -134,16 +155,34 @@ class StepEditForm extends React.Component {
 
     // }
 
+    removePreviewPic (event, photoUrlIndex) {
+        event.stopPropagation();
+        // console.log("hello")
+        debugger
+        const photoUrlsArray = this.state.photoUrls;
+        const photosArray = this.state.photos;
+        photosArray.splice(photoUrlIndex, 1)
+        photoUrlsArray.splice(photoUrlIndex, 1)
+        this.setState({photoUrls: photoUrlsArray, photos: photosArray})
+   
+    }
+
 
 
     render () {
         const {step} = this.props
-        const preview = this.state.photoUrls.length > 0 ? 
+   
+        const preview = this.state.photoUrls[0] ? 
             <div className="multi-preview">
-                {(this.state.photoUrls || []).map((url,i) => (
+                {(this.state.photoUrls || []).map((url,i) => {
                     // <img src={url} alt="..." />
-                    <img key ={i} className="preview-pic" src={url} /> 
-                ))}
+                    const {images} = this.props
+                    return <div key ={i} className="preview-pic-wrapper">
+                        <img key={i} className="preview-pic" src={url} />
+                        <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button>
+                        <button onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button>
+                    </div>
+                })}
             </div>
             : null;
         // const preview = this.state.photoUrl ? <img  className="preview-pic" src={this.state.photoUrl} alt="..." /> : null;
@@ -151,6 +190,9 @@ class StepEditForm extends React.Component {
             return null;
         }
 
+        debugger
+
+     
         
 
         return (
@@ -163,8 +205,9 @@ class StepEditForm extends React.Component {
                             // onDragOver={this.onDragOver}
                             // onDragLeave={this.onDragLeave}
                             // onDrop={this.onDrop}
-                        > <p className={`add-images ${this.state.photoUrls[0]? "picture-present": ""}`}>➕Click To Add Images</p>
-                            <input ref ={this.fileInputRef} className = "fileInput" multiple onChange={this.handleFiles} type="file" />
+                        > 
+                            <p className={`add-images ${this.state.photoUrls[0]? "picture-present": ""}`}>➕Click To Add Images</p>
+                            <input ref ={this.fileInputRef} className = "fileInput" multiple onChange={this.handleFiles} type="file" value=""/>
                             {preview}
                         </div>
                         <div className="edit-step-bottom-pic-bar">
@@ -201,7 +244,8 @@ class StepEditForm extends React.Component {
 
 
 const msp = (state, ownProps) => ({
-    step: state.entities.steps[ownProps.match.params.stepId]
+    step: state.entities.steps[ownProps.match.params.stepId],
+    images: state.entities.images
 })
 
 const mdp = (dispatch) => ({

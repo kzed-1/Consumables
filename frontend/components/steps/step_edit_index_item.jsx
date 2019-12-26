@@ -6,29 +6,29 @@ import { Link } from 'react-router-dom';
 class StepEditIndexItem extends React.Component {
     constructor(props) {
         super(props)
-        this.handledelete = this.handledelete.bind(this);
+        // this.handledelete = this.handledelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        // this.handleDelete = this.handleDelete.bind(this);
         this.emptyBody = this.emptyBody.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
     }
 
 
-    handledelete() {
-        event.stopPropagation();
-        const { deleteStep, step } = this.props
-        deleteStep(step.id)
-    }
+    // handledelete() {
+    //     event.stopPropagation();
+    //     const { deleteStep, step } = this.props
+    //     deleteStep(step.id)
+    // }
 
     handleEdit() {
         const { history, step } = this.props
         history.push(`/steps/${step.id}/edit`)
     }
 
-    handleDelete(event) {
-        event.stopPropagation();
-        this.props.deleteStep(this.props.step.id)
-    }
+    // handleDelete(event) {
+    //     event.stopPropagation();
+    //     this.props.deleteStep(this.props.step.id)
+    // }
 
 
     emptyBody() {

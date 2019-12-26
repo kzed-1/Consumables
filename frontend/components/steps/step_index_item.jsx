@@ -11,19 +11,20 @@ class StepIndexItem extends React.Component {
             return null
         }
 
-        let picture = null
+        // let picture = null
 
-        if (!step.photosUrls) {
+        // if (!step.photosUrls) {
             
-        } else {
-            picture = step.photosUrls[1]
-        }
+        // } else {
+        //     picture = step.photosUrls[0]
+        // }
 
         let component;
         let imageContainer;
 
+        // debugger
         let imagesList = step.photosUrls.map((url, i) => {
-
+            // debugger
             const flexStyle1 = {
                 flex: 1.33
             }
@@ -43,6 +44,8 @@ class StepIndexItem extends React.Component {
             imageContainer = <div className="image-box-container">
                 {imagesList}
             </div>
+        }else {
+            imageContainer = imagesList
         }
 
         if(step.title.length === 0 || step.body.length === 0){

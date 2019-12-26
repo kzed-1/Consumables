@@ -21,6 +21,7 @@ json.steps do
             json.created_at step.created_at
             json.updated_at step.updated_at
             json.photosUrls step.photos.map { |file| url_for(file) }
+            json.stepImages step.photos.map {|file| file.id }
         end
     end
 end 
