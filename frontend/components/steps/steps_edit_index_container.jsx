@@ -8,7 +8,6 @@ import StepEditIndexItem from './step_edit_index_item';
 
 class StepEditIndex extends React.Component {
 
-
     render () {
 
         const {steps, createStep, deleteStep, openModal} = this.props;

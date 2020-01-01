@@ -16,7 +16,8 @@ class StepEditForm extends React.Component {
             title: "",
             body: "",
             photos: [],
-            photoUrls: [null]
+            photoUrls: [null], 
+            savedPhotoUrls: [null]
             // highlighted: false
             // photoUrl: null
         }
@@ -35,7 +36,7 @@ class StepEditForm extends React.Component {
 
     setStateStep () {
         const {id, recipe_id, title, body, photosUrls} = this.props.step
-        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: [], photoUrls: photosUrls})
+        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls})
     }
 
     componentDidMount() {
@@ -64,7 +65,7 @@ class StepEditForm extends React.Component {
     // }
 
     handleFiles(e) {
-        debugger
+        // debugger
         const files = Object.values(e.currentTarget.files)
         const filesArray = []
 
@@ -75,7 +76,7 @@ class StepEditForm extends React.Component {
         } else {
             this.setState({ photos: [], photoUrls: [null] })
         }
-        debugger
+        // debugger
         this.setState({ photos: Object.values(e.currentTarget.files), photoUrls: filesArray })
     }
 
@@ -158,7 +159,7 @@ class StepEditForm extends React.Component {
     removePreviewPic (event, photoUrlIndex) {
         event.stopPropagation();
         // console.log("hello")
-        debugger
+        // debugger
         const photoUrlsArray = this.state.photoUrls;
         const photosArray = this.state.photos;
         photosArray.splice(photoUrlIndex, 1)
@@ -180,17 +181,32 @@ class StepEditForm extends React.Component {
                     return <div key ={i} className="preview-pic-wrapper">
                         <img key={i} className="preview-pic" src={url} />
                         <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button>
-                        <button onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button>
+                        {/* <button onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
                     </div>
                 })}
             </div>
             : null;
         // const preview = this.state.photoUrl ? <img  className="preview-pic" src={this.state.photoUrl} alt="..." /> : null;
+        
+        const savedPreview = this.state.savedPhotoUrls[0] ?
+            <div className="multi-preview">
+                {(this.state.savedPhotoUrls || []).map((url, i) => {
+                    // <img src={url} alt="..." />
+                    const { images } = this.props
+                    return <div key={i} className="preview-pic-wrapper">
+                        <img key={i} className="preview-pic" src={url} />
+                        {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
+                        <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button>
+                    </div>
+                })}
+            </div>
+            : null;
+        
         if (!step) {
             return null;
         }
 
-        debugger
+        // debugger
 
      
         
@@ -218,7 +234,9 @@ class StepEditForm extends React.Component {
 
                     </div>
                     <div className ="edit-step-title-body-container">
-                        <div className="edit-step-pic-smaller-box"></div>
+                        <div className="edit-step-pic-smaller-box">
+                            {savedPreview}
+                        </div>
                         <input 
                             onChange={this.handleInput('title')}
                             value={this.state.title}

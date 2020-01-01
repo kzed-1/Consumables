@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
+
 
 class HeaderBottom extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            search: ""
+            search: "",
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -23,6 +23,7 @@ class HeaderBottom extends React.Component {
     handleEnterKeyDown (e) {
         if (e.key === "Enter") {
             this.props.history.push(`/recipes/search/?query=${this.state.search}`)
+            this.props.grabSearchedRecipes(this.state.search)
         }
     }
 
@@ -46,4 +47,5 @@ class HeaderBottom extends React.Component {
 
 }
 
-export default withRouter(HeaderBottom);
+export default HeaderBottom;
+

@@ -29,13 +29,13 @@ class Api::StepsController < ApplicationController
     end
 
     def destroy 
-        debugger
+        # debugger
         @step = Step.find(params[:id])
-        debugger
+        # debugger
         if params[:attachment_id]
-            debugger
+            # debugger
             if @step.photos.find_by_id(params[:attachment_id]).purge
-                debugger
+                # debugger
                 render :show
             end 
         else 

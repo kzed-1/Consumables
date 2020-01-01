@@ -107,6 +107,7 @@
     width: auto;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
 }
 
 .preview-pic {
@@ -115,7 +116,16 @@
     width: auto;
     z-index: 10;
     border-radius: 10px;
-    margin-right: 5px;
+    // margin-right: 5px;
+}
+
+.preview-pic-wrapper {
+    // max-width: initial;
+    // max-height: initial;
+}
+
+.delete-pic-button {
+    
 }
 
 .picture-present {

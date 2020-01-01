@@ -25,13 +25,16 @@ function Modal({modal, closeModal}) {
         return null;
     } 
 
-    let stepId
-    let modalString = modal
+    let stepId;
+    let picId;
+    let modalDeleteStepString = null
+    let modalString
 
     if (modal.includes("deleteStep")) {
         // debugger
         stepId = parseInt(modal.split("-")[1]);
         modalString = modal.split("-")[0]
+        modalDeleteStepString = modal
     }
 
     // debugger
@@ -48,7 +51,7 @@ function Modal({modal, closeModal}) {
             component = <UpdateErrorContainer />
             modalAction = closeModal
             break;
-        case (modal):
+        case (modalDeleteStepString):
             // debugger
 
             component = <ConfirmDeleteContainer stepId={stepId}/>

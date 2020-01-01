@@ -6,7 +6,7 @@ import HeaderTopContainer from './header/header_top_container';
 import {NavLink, Link} from 'react-router-dom';
 import Splash from './splash/splash';
 import {Switch} from 'react-router-dom';
-import HeaderBottom from './header/header_bottom';
+import HeaderBottomContainer from './header/header_bottom_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_utils';
 import RecipeIndexContainer from './recipes/recipe_index_container';
 import Modal from './modal';
@@ -36,7 +36,7 @@ const App = () => (
                     <Link className="logo" to="/"><img src={window.logo}/></Link> 
                     <Link className="title" to="/"><h2>consumables</h2></Link> 
                 </span>
-                <HeaderBottom />
+                <HeaderBottomContainer />
             </div>
         </header>
         <Switch>

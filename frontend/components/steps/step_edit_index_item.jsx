@@ -40,8 +40,8 @@ class StepEditIndexItem extends React.Component {
         }
     }
 
-    handleOpenModal() {
-        // debugger
+    handleOpenModal(e) {
+        e.stopPropagation();
         const { step } = this.props
         this.props.openModal(`deleteStep-${step.id}`)
     }
