@@ -116,16 +116,36 @@
     width: auto;
     z-index: 10;
     border-radius: 10px;
+    // box-shadow:  1px 5px rgba(0,0,0,.3);
     // margin-right: 5px;
 }
 
 .preview-pic-wrapper {
-    // max-width: initial;
-    // max-height: initial;
+    width: auto;
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow:  1px 5px rgba(0,0,0,.3);
 }
 
+.preview-pic-wrapper:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+
 .delete-pic-button {
-    
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:-8px;
+    left: -8px;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.delete-pic-button:hover {
+    cursor: pointer;
 }
 
 .picture-present {
@@ -246,7 +266,9 @@
     margin-bottom: 18px;
     position: sticky;
     top: 0;
+    z-index: 50;
 }
+
 
 .edit-step-pic-box {
     background-color: #eeeeee;
@@ -407,6 +429,8 @@
     width: 776px;
     height: 89px;
     margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
     //   background-color: #eeeeee;
     // width: 990px;
     // height: 115px;
@@ -416,6 +440,13 @@
     // margin: 10px 10px 10px 10px;
 
 }
+
+.present {
+    background-color: #f6f6f6;
+    box-shadow: none;
+    border: none;
+}
+
 
 .edit-step-title-box {
     width: 765px;

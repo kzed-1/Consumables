@@ -170,6 +170,8 @@ class StepEditForm extends React.Component {
 
 
 
+
+
     render () {
         const {step} = this.props
    
@@ -180,7 +182,8 @@ class StepEditForm extends React.Component {
                     const {images} = this.props
                     return <div key ={i} className="preview-pic-wrapper">
                         <img key={i} className="preview-pic" src={url} />
-                        <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button>
+                        {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
+                        <img src={window.deleteButton} className="remove-preview-button image-present delete-pic-button" onClick={(event) => this.removePreviewPic(event, i)}></img>
                         {/* <button onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
                     </div>
                 })}
@@ -196,7 +199,8 @@ class StepEditForm extends React.Component {
                     return <div key={i} className="preview-pic-wrapper">
                         <img key={i} className="preview-pic" src={url} />
                         {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
-                        <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button>
+                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, step.stepImages[i])}alt=""/>
+                        {/* <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
                     </div>
                 })}
             </div>
@@ -206,9 +210,8 @@ class StepEditForm extends React.Component {
             return null;
         }
 
-        // debugger
+        let previewPresent = savedPreview ? "edit-step-pic-smaller-box present" : "edit-step-pic-smaller-box"
 
-     
         
 
         return (
@@ -216,7 +219,8 @@ class StepEditForm extends React.Component {
                 <form className="edit-step-form" >
                     <div className="edit-step-form-header">
                         <div 
-                            className={`edit-step-pic-box dropzone ${this.state.highlighted? 'highlighted': ""}`} 
+                            // className={`edit-step-pic-box dropzone ${this.state.highlighted? 'highlighted': ""}`} 
+                            className={`edit-step-pic-box dropzone ${preview? 'present': ""}`} 
                             onClick={this.openFileInputWindow}
                             // onDragOver={this.onDragOver}
                             // onDragLeave={this.onDragLeave}
@@ -234,7 +238,7 @@ class StepEditForm extends React.Component {
 
                     </div>
                     <div className ="edit-step-title-body-container">
-                        <div className="edit-step-pic-smaller-box">
+                        <div className={previewPresent}>
                             {savedPreview}
                         </div>
                         <input 
