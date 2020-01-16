@@ -16,20 +16,22 @@ class RecipeEditStepZero extends React.Component {
             title: "",
             body: "", 
             photos: [],
-            photoUrls: [null]
+            photoUrls: [null],
+            savedPhotoUrls: [null]
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setStateRecipe = this.setStateRecipe.bind(this);
         this.handleFiles = this.handleFiles.bind(this);
         this.openFileInputWindow = this.openFileInputWindow.bind(this);
         this.fileInputRef = React.createRef();
+        this.removePreviewPic = this.removePreviewPic.bind(this);
 
     }
 
     setStateRecipe() {
 
-        const { id, author_id, title, body } = this.props.recipe
-        this.setState({ id: id, author_id: author_id, title: title, body: body, photos: [] })
+        const { id, author_id, title, body, photosUrls } = this.props.recipe
+        this.setState({ id: id, author_id: author_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls })
     }
 
     componentDidMount() {
@@ -90,11 +92,41 @@ class RecipeEditStepZero extends React.Component {
         this.fileInputRef.current.click();
     }
 
+    removePreviewPic(event, photoUrlIndex) {
+        event.stopPropagation();
+        // console.log("hello")
+        // debugger
+        const photoUrlsArray = this.state.photoUrls;
+        const photosArray = this.state.photos;
+        photosArray.splice(photoUrlIndex, 1)
+        photoUrlsArray.splice(photoUrlIndex, 1)
+        this.setState({ photoUrls: photoUrlsArray, photos: photosArray })
+    }
+
+    deleteImage(e, attachment_id) {
+        // debugger
+        const {history} = this.props
+        e.stopPropagation();
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('attachment_id', attachment_id)
+
+
+        $.ajax({
+            method: 'DELETE',
+            url: `/api/recipes/${this.state.id}`,
+            data: formData,
+            contentType: false,
+            processData: false
+        }).then(() => history.push(`/recipes/${this.state.id}/edit/stepZero`))
+    }
+
     render() {
 
 
         const { recipe, errors } = this.props;
-
+        // debugger;
         if (!recipe) {
             return null;
         }
@@ -102,12 +134,43 @@ class RecipeEditStepZero extends React.Component {
             <li className={`error-${i}`} key={i}>{error}</li>
         ))
 
-        const preview = this.state.photoUrls.length > 0 ?
+        // const preview = this.state.photoUrls.length > 0 ?
+        //     <div className="multi-preview">
+        //         {(this.state.photoUrls || []).map((url, i) => (
+        //             // <img src={url} alt="..." />
+        //             <img key={i} className="preview-pic" src={url} />
+        //         ))}
+        //     </div>
+        //     : null;
+
+        const preview = this.state.photoUrls[0] ?
             <div className="multi-preview">
-                {(this.state.photoUrls || []).map((url, i) => (
+                {(this.state.photoUrls || []).map((url, i) => {
                     // <img src={url} alt="..." />
-                    <img key={i} className="preview-pic" src={url} />
-                ))}
+                    const { images } = this.props
+                    return <div key={i} className="preview-pic-wrapper">
+                        <img key={i} className="preview-pic" src={url} />
+                        {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
+                        <img src={window.deleteButton} className="remove-preview-button image-present delete-pic-button" onClick={(event) => this.removePreviewPic(event, i)}></img>
+                        {/* <button onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
+                    </div>
+                })}
+            </div>
+            : null;
+
+
+        const savedPreview = this.state.savedPhotoUrls[0] ?
+            <div className="multi-preview">
+                {(this.state.savedPhotoUrls || []).map((url, i) => {
+                    // <img src={url} alt="..." />
+                    const { images } = this.props
+                    return <div key={i} className="preview-pic-wrapper">
+                        <img key={i} className="preview-pic" src={url} />
+                        {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
+                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, recipe.recipeImages[i])} alt="" />
+                        {/* <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
+                    </div>
+                })}
             </div>
             : null;
 
@@ -129,7 +192,9 @@ class RecipeEditStepZero extends React.Component {
                     </div>
                     {errorslist}
                     <div className ="title-body-container">
-                        <div className="pic-box-2"></div>
+                        <div className="pic-box-2">
+                            {savedPreview}
+                        </div>
                         <input 
                             onChange={this.handleInput('title')}
                             value={this.state.title}

@@ -116,7 +116,7 @@ class StepEditForm extends React.Component {
     }
 
     deleteImage (e, attachment_id) {
-        const {step, images} = this.props
+        const {step, history} = this.props
         e.stopPropagation();
         e.preventDefault();
 
@@ -174,6 +174,7 @@ class StepEditForm extends React.Component {
 
     render () {
         const {step} = this.props
+        debugger
    
         const preview = this.state.photoUrls[0] ? 
             <div className="multi-preview">
@@ -221,7 +222,7 @@ class StepEditForm extends React.Component {
                         <div 
                             // className={`edit-step-pic-box dropzone ${this.state.highlighted? 'highlighted': ""}`} 
                             className={`edit-step-pic-box dropzone ${preview? 'present': ""}`} 
-                            onClick={this.openFileInputWindow}
+                            onClick={ preview ?  null : this.openFileInputWindow}
                             // onDragOver={this.onDragOver}
                             // onDragLeave={this.onDragLeave}
                             // onDrop={this.onDrop}

@@ -26,3 +26,12 @@ json.steps do
     end
 end 
 
+json.images do 
+    @recipe.photos.each do |file|
+        json.set! file.id do 
+            json.attachment_id file.id
+            json.name file.name 
+            json.blob_id file.blob_id
+        end 
+    end
+end

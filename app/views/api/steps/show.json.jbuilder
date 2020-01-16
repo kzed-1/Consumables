@@ -10,5 +10,4 @@ json.images do
             json.blob_id file.blob_id
         end
     end
-
 end 

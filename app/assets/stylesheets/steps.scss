@@ -400,6 +400,10 @@
     margin-bottom: 12px;
 }
 
+.edit-step-submit-button:hover {
+    background-color: #e86c00;
+}
+
 .edit-step-title-body-container {
 
     width: 800px;
@@ -445,6 +449,10 @@
     background-color: #f6f6f6;
     box-shadow: none;
     border: none;
+}
+
+.present:hover {
+    cursor: auto;
 }
 
 
