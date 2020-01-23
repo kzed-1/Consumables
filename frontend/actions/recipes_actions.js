@@ -5,6 +5,7 @@ export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const REMOVE_RECIPE = "REMOVE_RECIPE";
 export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS";
 export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
+export const CLEAR_RECIPES = "CLEAR_RECIPES";
 
 
 export const receiveAllRecipes = (recipes) => ({
@@ -30,6 +31,12 @@ export const receiveRecipeErrors = (errors) => ({
 export const clearRecipeErrors = () => ({
     type: CLEAR_RECIPE_ERRORS
 });
+
+export const clearRecipes = () => ({
+    type: CLEAR_RECIPES
+});
+
+
 
 
 
@@ -67,5 +74,6 @@ export const deleteRecipe = (recipeId) => (dispatch) => {
 export const clearErrors = () => (dispatch) => (
     dispatch(clearRecipeErrors())
 );
+
 
 

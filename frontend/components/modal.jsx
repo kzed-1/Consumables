@@ -8,30 +8,22 @@ import ConfirmDeleteContainer from '../components/modal_errors/confirm_delete_mo
 
 
 
-// class Modal extends React.Component {
-
-//     render () {
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-// }
-
 function Modal({modal, closeModal}) {
 
     if(!modal) {
         return null;
     } 
 
-    let stepId
+    let stepId;
+    let picId;
+    let modalDeleteStepString = null
     let modalString = modal
 
     if (modal.includes("deleteStep")) {
         stepId = parseInt(modal.split("-")[1]);
         modalString = modal.split("-")[0]
-    }
+        modalDeleteStepString = modal
+    }   
 
     let component, modalAction;
 
@@ -44,7 +36,7 @@ function Modal({modal, closeModal}) {
             component = <UpdateErrorContainer />
             modalAction = closeModal
             break;
-        case (modal):
+        case (modalDeleteStepString):
             component = <ConfirmDeleteContainer stepId={stepId}/>
             modalAction = doNothing
             break;

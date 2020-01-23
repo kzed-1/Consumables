@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <% if logged_in? %>
       <script type="text/javascript">
       window.currentUser =
@@ -76,6 +80,36 @@
     </script>
     <script type="text/javascript">
       window.carat = "<%= image_url("carat.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.search = "<%= image_url("search.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.close = "<%= image_url("close.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.magGlass = "<%= image_url("magnifying-glass.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.deleteButton = "<%= image_url("delete-button.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.angellist = "<%= image_url("AngelList_Black_Victory_Hand.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.github = "<%= image_url("GitHub-Mark-64px.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.linkedin = "<%= image_url("LI-In-Bug.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.favicon = "<%= image_url("apple-touch-icon.png")  %>"
+    </script>
+    <script type="text/javascript">
+      window.classpic = "<%= image_url("classpic.jpg")  %>"
+    </script>
+    <script type="text/javascript">
+      window.bag = "<%= image_url("bag.png")  %>"
     </script>
   </head>
 

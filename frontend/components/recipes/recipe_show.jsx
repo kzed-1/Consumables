@@ -56,6 +56,14 @@ class RecipeShow extends React.Component {
             return null;
         }
 
+        let picture;
+
+        if (!recipe.photosUrls) {
+            picture = window.panacakes
+        } else {
+            picture = recipe.photosUrls[0]
+        }
+
         if (currentUserId === recipe.author_id) {
             deleteRecipeButton = 
             <div className= "delete-recipe-container">
@@ -91,7 +99,7 @@ class RecipeShow extends React.Component {
                     </div>
                 </header>
                 <div className="intro-container">
-                    <img className="main-recipe-pic" alt=""/>
+                    <img className="main-recipe-pic" src = {picture} alt=""/>
                     <div className="author-info">
                         <div className="author-icon-name">
                             <div className="crop"><img className="usericon" src={window.user2} alt="" /></div>

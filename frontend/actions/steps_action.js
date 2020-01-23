@@ -6,9 +6,9 @@ export const RECEIVE_STEP_ERRORS = "RECEIVE_STEP_ERRORS";
 export const CLEAR_STEP_ERRORS = "CLEAR_STEP_ERRORS";
 export const CLEAR_STEPS = "CLEAR_STEPS";
 
-export const receiveStep = (step) => ({
+export const receiveStep = (payload) => ({
     type: RECEIVE_STEP,
-    step
+    payload
 });
 
 
@@ -56,3 +56,5 @@ export const deleteStep = (stepId) => (dispatch) => {
 export const clearErrors = () => (dispatch) => (
     dispatch(clearStepErrors())
 );
+
+

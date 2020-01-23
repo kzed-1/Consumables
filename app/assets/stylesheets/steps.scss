@@ -25,26 +25,154 @@
     line-height: 32px;
     text-align: left;
     color: #555;
-    padding: 0px 20px 0px 20px;
+    // padding: 0px 20px 0px 20px;
     font-weight: 300;
     width: 100%;
 }
 
 .step-body {
     width: 770px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .step-photo {
+    min-width: 100%;
     width: 100%;
-    height: 493.67px;
+    height: 100%;
     border-radius: 4px;
-    background-image: asset-data-url("step_1_image.jpg");
     background-size: cover;
     background-position: center;
     margin: 0 auto;
     margin-bottom: 40px;
 }
 
+.step-photo-item {
+    // min-width: 100%;
+    // width: 100%;
+    // height: 100%;
+    // margin: 5px;
+    // // max-width: 100%;
+    // width: 50%;
+    // height: 25%;
+    border-radius: 4px;
+    // max-width: 100%;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.step-photo-item-one-only {
+      max-height: 693.33px;
+    // max-width: 520px;
+    max-width: 700px;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 33px;
+}
+
+
+.image-wrapper {
+    margin: 3px;
+}
+
+
+.fileInput {
+    display:none;
+}
+
+
+// .highlighted {
+//     background-color: darkgray;
+// }
+
+
+
+// .image-wrapper-2{
+//     margin: 5px;
+//     flex: .77;
+// }
+// .image-wrapper-1{
+//     margin: 5px;
+//     flex: 1.6;
+// }
+
+.image-box-container {
+    min-width: auto;
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-height: 25%;
+}
+
+.multi-preview {
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.preview-pic {
+    max-width: 100%;
+    height: 100%;
+    //     max-height: auto;
+    // max-width: 1000px;
+    width: 117px;
+    overflow: hidden;
+    object-fit: cover;
+    image-orientation: center;
+    // background-size: cover;
+    
+    
+    z-index: 10;
+    border-radius: 10px;
+    // box-shadow:  1px 5px rgba(0,0,0,.3);
+    // margin-right: 5px;
+}
+
+.preview-pic-wrapper {
+    width: auto;
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow:  1px 5px rgba(0,0,0,.3);
+}
+
+.preview-pic-wrapper:hover {
+    transform: scale(2);
+    z-index: 10;
+}
+
+
+.delete-pic-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:-8px;
+    left: -8px;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.delete-pic-button:hover {
+    cursor: pointer;
+}
+
+.picture-present {
+    display: none;
+}
 
 .step-segment-inactive {
     color: #333;
@@ -160,7 +288,9 @@
     margin-bottom: 18px;
     position: sticky;
     top: 0;
+    z-index: 50;
 }
+
 
 .edit-step-pic-box {
     background-color: #eeeeee;
@@ -170,7 +300,25 @@
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.15);
     margin: 10px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
     // height: 85%;
+}
+
+.edit-step-pic-box:hover {
+    cursor: pointer;
+}   
+
+.add-images {
+    position: absolute;
+    font-size: 20px;
+    color: #aaa;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    left: 400px
 }
 
 .edit-step-pic-second-box {
@@ -274,6 +422,10 @@
     margin-bottom: 12px;
 }
 
+.edit-step-submit-button:hover {
+    background-color: #e86c00;
+}
+
 .edit-step-title-body-container {
 
     width: 800px;
@@ -303,6 +455,8 @@
     width: 776px;
     height: 89px;
     margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
     //   background-color: #eeeeee;
     // width: 990px;
     // height: 115px;
@@ -312,6 +466,17 @@
     // margin: 10px 10px 10px 10px;
 
 }
+
+.present {
+    background-color: #f6f6f6;
+    box-shadow: none;
+    border: none;
+}
+
+.present:hover {
+    cursor: auto;
+}
+
 
 .edit-step-title-box {
     width: 765px;
@@ -444,4 +609,8 @@
     height: 33px;
     text-align: center;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.remove-preview-button {
+    z-index: 100;
 }

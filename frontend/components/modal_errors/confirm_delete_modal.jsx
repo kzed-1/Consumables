@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_action';
 import {withRouter} from 'react-router-dom';
-import {deleteStep} from '../../actions/steps_action';
-import { grabStep } from '../../actions/steps_action';
+import { deleteStep, grabStep, clearSteps} from '../../actions/steps_action';
+import { grabRecipe } from '../../actions/recipes_actions';
 
 
 
@@ -12,6 +12,7 @@ class ConfirmDelete extends React.Component {
         super(props)
 
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleHistory = this.handleHistory.bind(this);
         // this,this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
@@ -20,11 +21,27 @@ class ConfirmDelete extends React.Component {
         this.props.grabStep(stepId)
     }
 
-    handleDelete() {
+    componentWillUnmount () {
+        const {step} = this.props
+        this.props.clearSteps();
+        this.props.grabRecipe(step.recipe_id)
+    }
 
+    handleDelete() {
+        // debugger
         const {stepId, step} = this.props
         this.props.deleteStep(stepId)
-            .then(() => this.props.history.push(`/recipes/${step.recipe_id}/edit`))
+            .then(this.handleHistory) 
+                // debugger
+                // return this.props.history.push(`/recipes/${step.recipe_id}/edit`)})
+            // .then(this.props.closeModal)
+    }
+
+    handleHistory () {
+        // debugger
+        const { stepId, step } = this.props
+        this.props.history.push(`/recipes/${step.recipe_id}/edit`)
+        this.props.closeModal()
     }
 
     // handleCloseModal() {
@@ -50,6 +67,7 @@ class ConfirmDelete extends React.Component {
 
 const msp = (state, myProps, ownProps) => {
     return {
+        recipe: state.entities.recipe,
         step: state.entities.steps[myProps.stepId],
         stepId: myProps.stepId
     }
@@ -60,6 +78,8 @@ const mdp = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
     deleteStep: (stepId) => dispatch(deleteStep(stepId)),
     grabStep: (stepId) => dispatch(grabStep(stepId)),
+    grabRecipe: (recipeId) => dispatch(grabRecipe(recipeId)),
+    clearSteps: () => dispatch(clearSteps())
 
 })
 

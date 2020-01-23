@@ -7,12 +7,19 @@ class RecipeIndexItem extends React.Component {
     render () {
       
         const {recipe} = this.props
+        let picture;
+
+        if (!recipe.photosUrls) {
+            picture = window.pancakes
+        }else {
+            picture = recipe.photosUrls[0]
+        }
 
         return (
         
             
                 <div className="recipe-container" >
-                    <Link to={`/recipes/${recipe.id}`}><img src={window.pancakes} className="recipe-pic" /></Link>
+                <div className="recipe-pic-wrapper"><Link to={`/recipes/${recipe.id}`}><img src={picture} className="recipe-pic" /></Link></div>
                     
                     <div className="description-box">
                         <Link to={`/recipes/${recipe.id}`}>
