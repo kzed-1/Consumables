@@ -8,17 +8,6 @@ import ConfirmDeleteContainer from '../components/modal_errors/confirm_delete_mo
 
 
 
-// class Modal extends React.Component {
-
-//     render () {
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-// }
-
 function Modal({modal, closeModal}) {
 
     if(!modal) {
@@ -28,20 +17,17 @@ function Modal({modal, closeModal}) {
     let stepId;
     let picId;
     let modalDeleteStepString = null
-    let modalString
+    let modalString = modal
 
     if (modal.includes("deleteStep")) {
-        // debugger
         stepId = parseInt(modal.split("-")[1]);
         modalString = modal.split("-")[0]
         modalDeleteStepString = modal
-    }
+    }   
 
-    // debugger
 
     let component, modalAction;
 
-    // debugger
     switch (modal) {
         case 'open':
             component = <RecipeCreateFormContainer />
@@ -52,8 +38,6 @@ function Modal({modal, closeModal}) {
             modalAction = closeModal
             break;
         case (modalDeleteStepString):
-            // debugger
-
             component = <ConfirmDeleteContainer stepId={stepId}/>
             modalAction = doNothing
             break;

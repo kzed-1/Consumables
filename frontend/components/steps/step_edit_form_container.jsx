@@ -174,7 +174,6 @@ class StepEditForm extends React.Component {
 
     render () {
         const {step} = this.props
-        debugger
    
         const preview = this.state.photoUrls[0] ? 
             <div className="multi-preview">

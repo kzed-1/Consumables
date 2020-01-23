@@ -43,6 +43,7 @@
     flex-wrap: wrap;
     margin-top: 30px;
     margin-bottom: 60px;
+    min-height: 660px;
     // justify-content: center;
     // min-width: 1610px;
     // margin: 0 auto;
@@ -343,11 +344,13 @@
 }
 
 .main-recipe-pic {
-    height: 693.33px;
-    width: 520px;
+    max-height: 693.33px;
+    // max-width: 520px;
+    max-width: 700px;
+    height: 100%;
+    width: 100%;
     border-radius: 4px;
-    // background-image: asset-data-url("recipe_main_pic.jpg");
-    background-size: cover;
+    object-fit: cover;
     background-position: center;
     margin: 0 auto;
     margin-bottom: 33px;
@@ -413,6 +416,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
+    height: 100%;
+    min-height: 750px;
 }
 
 .delete-edit {
@@ -594,7 +599,6 @@ button.edit-submit-button:hover {
     width: 776px;
     height: 89px;
     margin-top: 10px;
-
 }
 
 .intro-step-segment-active  {

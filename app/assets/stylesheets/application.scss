@@ -185,9 +185,8 @@
 .footer {
     background: #555;
     height: 249px;
-    // position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     // display: grid;
     // grid-template-rows: 1fr 1fr;
@@ -195,16 +194,49 @@
     z-index: 5;
     border: none;
     position: relative;
+    bottom: 0;
     border-color: #555;
     display: flex;
     justify-content: center;
 }
 
+.footer-icons-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 50px;
+}
 
-.line {
-    border-bottom: 1px solid lightgray;
-    position: relative;
-    top: 183px;
+.link-wrappers-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 50px;
+    width: auto;
+}
+
+.favicon {
+    height: 100px;
+    width: 100px;
+
+}
+
+.find-us-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+.footer-line {
+    // border-bottom: 1px solid lightgray;
+    height: 1px;
+    width: 100%;
+    background-color: lightgray;
+    // position: relative;
+    // top: 183px;
     // width: 1366px;
     // height: 1px;
     // width: 85%;
@@ -212,7 +244,46 @@
 
 .footer-items {
     width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
+
+.about-consumable, .find-us-title, .sources {
+    height: 10px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 18px;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.about-us-link, .photo-source{
+    color: #bbb;
+    line-height: 21px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}   
+
+.about-us-link:hover {
+    color: white;
+}
+
+.upsplash-link:hover {
+    color: white;
+
+}
+
+.classpic {
+    width: 40%;
+    height: 100%;
+    background: transparent no-repeat center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+
 
 
 
@@ -637,13 +708,15 @@
 }
 
 .img-link {
-    position: relative;
-    top: 207px;
+    // position: relative;
+    // top: 207px;
     color: #bbb;
     margin: 0 auto;
     text-align: center;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     // left: 600px;
 }
 
@@ -1207,4 +1280,84 @@ input.title-input:focus {
     max-width: 100%;
     height: 100%;
     border-radius: 4px;
+}
+
+//footer 
+
+.about-us-title {
+    font-size: 42px;
+    font-weight: 700;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+    width: 50%;
+    text-align: center;
+}
+
+.about-us-wrapper, .sources-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us-container {
+    min-height: 660px;
+    height: 100%;
+    margin-bottom: 100px;
+
+}
+
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 80px;
+
+}
+
+.about-us-divider {
+    height: 1px;
+    background-color: #E6E6E6;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.our-story {
+    width: 50%;
+}
+
+.our-story-heading, .follow-me-heading {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+    margin: 10px 0px;
+}
+
+.our-story-description {
+    column-count: 2;
+    column-gap: 30px;
+    font-size: 14px;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+}
+
+.follow-me {
+    width: 50%;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.link-wrappers {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.linkedin-logo, .github-logo, .angellist-logo, .portfolio-logo{
+    height: 100%;
+    width: auto
+}
+
+.follow-me-link {
+    width: 69.61px;
 }

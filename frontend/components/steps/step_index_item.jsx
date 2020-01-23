@@ -34,7 +34,7 @@ class StepIndexItem extends React.Component {
             }
 
             if (i === 0) {
-                return <div key={i}  style={flexStyle1} className="image-wrapper"><img className="step-photo-item" src={url} /></div>
+                return <div key={i} style={flexStyle1} className="image-wrapper"><img className={step.photosUrls.length === 1 ? `step-photo-item-one-only` : "step-photo-item"} src={url} /></div>
             }else {
                 return <div key={i} style= {flexStyle2} className={`image-wrapper ${i}`}><img className="step-photo-item" src={url}/></div>
             }

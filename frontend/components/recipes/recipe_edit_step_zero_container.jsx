@@ -178,7 +178,7 @@ class RecipeEditStepZero extends React.Component {
             <div>
                 <form className="edit-form" >
                     <div className="form-header">
-                        <div className="pic-box dropzone" onClick={this.openFileInputWindow}>
+                        <div className={`pic-box dropzone ${preview ? "present" : ""}`} onClick={ preview ? null : this.openFileInputWindow}>
                             <p className={`add-images ${this.state.photoUrls[0] ? "picture-present" : ""}`}>➕Click To Add Images</p>
                             <input ref={this.fileInputRef} multiple onChange={this.handleFiles} className="fileInput" type="file"/>
                             {preview}
@@ -192,7 +192,7 @@ class RecipeEditStepZero extends React.Component {
                     </div>
                     {errorslist}
                     <div className ="title-body-container">
-                        <div className="pic-box-2">
+                        <div className={`pic-box-2 ${this.state.savedPhotoUrls[0] ? "present" : ""}`}>
                             {savedPreview}
                         </div>
                         <input 

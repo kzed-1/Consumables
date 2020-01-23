@@ -19,6 +19,8 @@ import RecipeEditFormContainer from '../components/recipes/recipe_edit_form_cont
 import RecipeEditStepZeroContainer from '../components/recipes/recipe_edit_step_zero_container';
 import StepEditFormContainer from '../components/steps/step_edit_form_container';
 import SearchIndexContainer from '../components/search/search_index_container';
+import FooterContainer from './footer/footer_container';
+import AboutUs from '../components/about/about_us';
 
 
 
@@ -40,6 +42,7 @@ const App = () => (
             </div>
         </header>
         <Switch>
+            <Route path="/about" component={AboutUs}/>
             <Route path="/recipes/search" component={SearchIndexContainer}/>
             <ProtectedRoute exact path="/steps/:stepId/edit" component={StepEditFormContainer} />
             <ProtectedRoute exact path="/recipes/:recipeId/edit/stepZero" component={RecipeEditStepZeroContainer} />
@@ -51,12 +54,7 @@ const App = () => (
             <AuthRoute  exact path="/login" component={LoginFormContainer}/>
             <AuthRoute  exact path="/signup" component={SignupFormContainer}/>
         </Switch>
-        <footer className="footer">
-            <span className="footer-items">
-                <div className="line"></div>
-                <div className="img-link" >Icons made by <a  href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </span>
-        </footer>
+        <FooterContainer/>
     </div>
 )
 
