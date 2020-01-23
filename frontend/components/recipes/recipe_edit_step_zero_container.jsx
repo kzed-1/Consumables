@@ -54,10 +54,8 @@ class RecipeEditStepZero extends React.Component {
         formData.append('recipe[author_id]', this.state.author_id)
 
         for (let i = 0; i <this.state.photos.length; i++){
-            // debugger
             formData.append('recipe[photos][]', this.state.photos[i])
         }
-        // debugger
         $.ajax({
             method: 'PATCH',
             url: `/api/recipes/${this.state.id}`,
@@ -94,8 +92,6 @@ class RecipeEditStepZero extends React.Component {
 
     removePreviewPic(event, photoUrlIndex) {
         event.stopPropagation();
-        // console.log("hello")
-        // debugger
         const photoUrlsArray = this.state.photoUrls;
         const photosArray = this.state.photos;
         photosArray.splice(photoUrlIndex, 1)
@@ -104,7 +100,6 @@ class RecipeEditStepZero extends React.Component {
     }
 
     deleteImage(e, attachment_id) {
-        // debugger
         const {history} = this.props
         e.stopPropagation();
         e.preventDefault();
@@ -126,7 +121,6 @@ class RecipeEditStepZero extends React.Component {
 
 
         const { recipe, errors } = this.props;
-        // debugger;
         if (!recipe) {
             return null;
         }

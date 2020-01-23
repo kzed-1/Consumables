@@ -65,7 +65,6 @@ class StepEditForm extends React.Component {
     // }
 
     handleFiles(e) {
-        // debugger
         const files = Object.values(e.currentTarget.files)
         const filesArray = []
 
@@ -76,7 +75,6 @@ class StepEditForm extends React.Component {
         } else {
             this.setState({ photos: [], photoUrls: [null] })
         }
-        // debugger
         this.setState({ photos: Object.values(e.currentTarget.files), photoUrls: filesArray })
     }
 
@@ -158,8 +156,6 @@ class StepEditForm extends React.Component {
 
     removePreviewPic (event, photoUrlIndex) {
         event.stopPropagation();
-        // console.log("hello")
-        // debugger
         const photoUrlsArray = this.state.photoUrls;
         const photosArray = this.state.photos;
         photosArray.splice(photoUrlIndex, 1)

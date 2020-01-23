@@ -16,7 +16,6 @@ export default (oldstate = {}, action) => {
             delete newState[action.recipeId]
             return newState;
         case CLEAR_RECIPES:
-            debugger
             return {};
         // case RECEIVE_STEP: 
         //     let newSta = Object.assign({}, oldstate)

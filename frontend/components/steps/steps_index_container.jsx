@@ -35,7 +35,6 @@ class StepsIndex extends React.Component {
 
 
 const msp = (state, ownProps) => {
-    // debugger;
     return {
     // recipe: state.entities.recipe,
     steps: Object.values(state.entities.steps)

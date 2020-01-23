@@ -22,9 +22,7 @@ class StepIndexItem extends React.Component {
         let component;
         let imageContainer;
 
-        // debugger
         let imagesList = step.photosUrls.map((url, i) => {
-            // debugger
             const flexStyle1 = {
                 flex: 1.33
             }
@@ -51,7 +49,6 @@ class StepIndexItem extends React.Component {
         if(step.title.length === 0 || step.body.length === 0){
             component = null
         }else {
-            // debugger
             component = <div className="step-container">
                 <h2 className="step-title">{`Step ${num_step + 1}: ${step.title}`}</h2>
                 {/* <img className="step-photo" src={picture} alt="" /> */}

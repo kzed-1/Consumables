@@ -28,17 +28,14 @@ class ConfirmDelete extends React.Component {
     }
 
     handleDelete() {
-        // debugger
         const {stepId, step} = this.props
         this.props.deleteStep(stepId)
             .then(this.handleHistory) 
-                // debugger
                 // return this.props.history.push(`/recipes/${step.recipe_id}/edit`)})
             // .then(this.props.closeModal)
     }
 
     handleHistory () {
-        // debugger
         const { stepId, step } = this.props
         this.props.history.push(`/recipes/${step.recipe_id}/edit`)
         this.props.closeModal()

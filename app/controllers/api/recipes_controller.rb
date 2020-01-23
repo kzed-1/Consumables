@@ -20,7 +20,6 @@ class Api::RecipesController < ApplicationController
 
     def update
         @recipe = Recipe.find(params[:id])
-        # debugger
         if @recipe.update_attributes(recipe_params)
             render :show
         else 
