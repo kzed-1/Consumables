@@ -528,6 +528,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding-top: 13px;
     padding-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    height: 60%;
 }
 
 .edit-step-body:hover {
