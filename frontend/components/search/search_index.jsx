@@ -5,7 +5,7 @@ class SearchIndex extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            query: this.props.location.search.slice(7),
+            query: this.props.query.replace(/%20/g," ")
         }
         this.clearSearch = this.clearSearch.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -15,7 +15,13 @@ class SearchIndex extends React.Component {
 
     componentDidMount() {
         this.props.grabSearchedRecipes(this.state.query)
-    }    
+    }  
+
+   componentDidUpdate(prevProps) {
+        if (this.props.query !== prevProps.query){
+            this.setState({ query: this.props.query.replace(/%20/g, " ")})
+        }
+   }
 
     clearSearch () {
         this.setState({query: ""})
@@ -33,7 +39,7 @@ class SearchIndex extends React.Component {
     }
 
     enterKeyPressed (e) {
-        if (e.key === "Enter"){
+        if (e.key === "Enter" && this.state.query.length > 0){
             this.props.history.push(`/recipes/search/?query=${this.state.query}`)
             this.props.grabSearchedRecipes(this.state.query)
         }
@@ -60,8 +66,6 @@ class SearchIndex extends React.Component {
         } else {
             resultIndex = recipesList
         }
-
-
 
         return (
             <div>

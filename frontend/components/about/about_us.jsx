@@ -25,16 +25,16 @@ class AboutUs extends React.Component {
                     <h1 className="follow-me-heading">Follow Me</h1>
 
                     <div className="link-wrappers">
-                        <a className = "follow-me-link" href="https://www.linkedin.com/in/kenel-zhao-961575165/">
+                        <a className = "follow-me-link" target="_blank" href="https://www.linkedin.com/in/kenel-zhao-961575165/">
                             <img className="linkedin-logo" src={window.linkedin} alt=""/>
                             </a>
-                        <a className="follow-me-link" href="https://github.com/kzed-1">
+                        <a className="follow-me-link" target="_blank" href="https://github.com/kzed-1">
                             <img className="github-logo" src={window.github} alt=""/>
                         </a>
-                        <a className = "follow-me-link" href="https://angel.co/kenel-zhao">
+                        <a className = "follow-me-link" target="_blank" href="https://angel.co/kenel-zhao">
                             <img className="angellist-logo" src={window.angellist} alt=""/>
                         </a>
-                        <a className="follow-me-link" href="https://kzed-1.github.io/">
+                        <a className="follow-me-link" target="_blank" href="https://kzed-1.github.io/">
                             <img className="portfolio-logo" src={window.bag} alt=""/>
                         </a>
                     </div>

@@ -10,21 +10,23 @@ class RecipeEditForm extends React.Component {
             id: "",
             author_id: "",
             title: "",
-            body: ""
+            body: "",
+            photosUrls: [null]
         }
         this.handleSubmit= this.handleSubmit.bind(this);
         this.setStateRecipe = this.setStateRecipe.bind(this);
         this.handleCreateStep = this.handleCreateStep.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
         this.emptyBody = this.emptyBody.bind(this);
+        this.renderPreview = this.renderPreview.bind(this);
         // this.handleLog = this.handleLog.bind(this);
         
     }
 
     setStateRecipe () {
   
-        const {id, author_id, title, body} = this.props.recipe
-        this.setState({id: id, author_id: author_id, title: title, body: body })
+        const {id, author_id, title, body, photosUrls} = this.props.recipe
+        this.setState({id: id, author_id: author_id, title: title, body: body, photosUrls: photosUrls})
     }
 
     componentDidMount () {
@@ -39,9 +41,6 @@ class RecipeEditForm extends React.Component {
         }
     }
 
-    // handleLog () {
-    //     console.log("hello")
-    // }
 
     emptyBody () {
         const {recipe} = this.props
@@ -60,13 +59,35 @@ class RecipeEditForm extends React.Component {
         const {history, recipe } = this.props
         e.preventDefault();
 
-        this.props.editRecipe(this.state)
+        const newRecipe = {
+            id: this.state.id,
+            author_id: this.state.author_id,
+            title: this.state.title,
+            body: this.state.body
+        }
+
+        this.props.editRecipe(newRecipe)
             .then(() => history.push(`/recipes/${recipe.id}`), () => this.props.openModal("update"))
     }   
     
     handleEdit () {
         const {recipe} = this.props
         this.props.history.push(`/recipes/${recipe.id}/edit/stepZero`)
+    }
+
+    renderPreview () {
+        const preview = this.state.photosUrls[0] ?
+            <div className="multi-preview">
+                {(this.state.photosUrls || []).map((url, i) => {
+                    // <img src={url} alt="..." />
+                    const { images } = this.props
+                    return <div key={i} className="preview-pic-wrapper">
+                        <img key={i} className="preview-pic" src={url} />
+                    </div>
+                })}
+            </div>
+            : null;
+        return preview;
     }
 
     render () {
@@ -80,6 +101,8 @@ class RecipeEditForm extends React.Component {
         let errorslist = errors.map((error, i) => (
             <li className={`error-${i}`} key={i}>{error}</li>
         ))
+
+        const photopresent = (this.state.photosUrls[0]) ? "picture-present-recipe-edit" : ""
 
         return (
             <div>   
@@ -98,7 +121,9 @@ class RecipeEditForm extends React.Component {
                     </div>
                     {errorslist}
                     <div className={`intro-step-segment-${this.emptyBody()}`} onClick={this.handleEdit}>
-                        <div className="intro-pic-box"></div>
+                        <div className={`intro-pic-box ${photopresent}`}>
+                            {this.renderPreview()}
+                        </div>
                         <div className="title-description-wrapper">
                             <Link to={`/recipes/${recipe.id}/edit/stepZero`}className="link-to-edit-recipe-title-description">{`Intro + Description: ${recipe.title}`}</Link>
                             <p className="edit-step-body">{recipe.body}</p>

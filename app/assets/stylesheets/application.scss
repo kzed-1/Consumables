@@ -78,6 +78,12 @@
 
 .search-box {
     width: 100px;
+    
+}
+
+.search-box:focus {
+    //  border-color: #66afe9;
+    // box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #66afe9;
 }
 
 .splash-content-middle {
@@ -184,7 +190,7 @@
 
 .footer {
     background: #555;
-    height: 249px;
+    height: auto;
     left: 0;
     bottom: 0px;
     width: 100%;
@@ -197,22 +203,25 @@
     bottom: 0;
     border-color: #555;
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .footer-icons-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-flow: row wrap;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .link-wrappers-footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 50px;
+    height: 36px;
     width: auto;
 }
 
@@ -249,6 +258,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+        flex-flow: wrap;
 }
 
 .about-consumable, .find-us-title, .sources {
@@ -260,8 +270,15 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.about-us-link, .photo-source{
+.photo-source{
     color: #bbb;
+    line-height: 21px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}   
+
+.about-us-link {
+    color: #bbb;
+    font-size: 16px;
     line-height: 21px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }   
@@ -756,7 +773,11 @@
     background-color: #fff;
     font-size: 14px;
     color: #555;
+}
 
+.focused {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #66afe9;
 }
 
 .login-signout {
@@ -1174,9 +1195,6 @@ input.title-input:focus {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-
-
-
 .search-bar[type=text], textarea {
     color: #555;
     background-color: #fff;
@@ -1284,7 +1302,7 @@ input.title-input:focus {
     overflow: hidden;
     background-position: center;
     object-fit: cover;
-    max-width: 100%;
+    width: 200px;
     height: 100%;
     border-radius: 4px;
 }
@@ -1302,7 +1320,10 @@ input.title-input:focus {
 .about-us-wrapper, .sources-wrapper {
     display: flex;
     flex-direction: column;
+    font-size: 12px;
 }
+
+
 
 .about-us-container {
     min-height: 660px;
@@ -1366,5 +1387,5 @@ input.title-input:focus {
 }
 
 .follow-me-link {
-    width: 69.61px;
+    width: 50px;
 }

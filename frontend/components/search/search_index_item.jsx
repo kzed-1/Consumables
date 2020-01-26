@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 class SearchIndexItem extends React.Component {
 
+
     render () {
 
         const { recipe } = this.props
