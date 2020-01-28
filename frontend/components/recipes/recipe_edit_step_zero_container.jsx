@@ -114,7 +114,7 @@ class RecipeEditStepZero extends React.Component {
         this.setState({ photoUrls: photoUrlsArray, photos: photosArray })
     }
 
-    deleteImage(e, attachment_id) {
+    deleteImage(e, attachment_id, photoIndex) {
         const {history} = this.props
         e.stopPropagation();
         e.preventDefault();
@@ -122,14 +122,16 @@ class RecipeEditStepZero extends React.Component {
         const formData = new FormData();
         formData.append('attachment_id', attachment_id)
 
-
         $.ajax({
             method: 'DELETE',
             url: `/api/recipes/${this.state.id}`,
             data: formData,
             contentType: false,
             processData: false
-        }).then(() => history.push(`/recipes/${this.state.id}/edit/stepZero`))
+        })
+        const dupArray = this.state.savedPhotoUrls.slice()
+        dupArray.splice(photoIndex, 1)
+        this.setState({ savedPhotoUrls: dupArray})
     }
 
     renderLoader () {
@@ -186,7 +188,7 @@ class RecipeEditStepZero extends React.Component {
                     return <div key={i} className="preview-pic-wrapper">
                         <img key={i} className="preview-pic" src={url} />
                         {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
-                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, recipe.recipeImages[i])} alt="" />
+                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, recipe.recipeImages[i], i)} alt="" />
                         {/* <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
                     </div>
                 })}

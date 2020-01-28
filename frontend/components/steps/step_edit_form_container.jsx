@@ -50,6 +50,13 @@ class StepEditForm extends React.Component {
         this.setState({loader: ""})
     }
 
+    // componentDidUpdate(prevProps, prevState) {
+    //     debugger
+    //     if (prevState.savedPhotoUrls !== this.state.savedPhotoUrls) {
+    //         this.setState({savedPhotoUrls: this.state.savedPhotoUrls})
+    //     }
+    // }
+
     // componentDidUpdate (prevProps, prevState) {
     //     if (prevState.recipes.entities.recipes)
     // }
@@ -126,7 +133,7 @@ class StepEditForm extends React.Component {
         }
     }
 
-    deleteImage (e, attachment_id) {
+    deleteImage (e, attachment_id, photoIndex) {
         const {step, history} = this.props
         e.stopPropagation();
         e.preventDefault();
@@ -141,7 +148,11 @@ class StepEditForm extends React.Component {
             data: formData,
             contentType: false,
             processData: false
-        }).then(() => history.push(`/recipes/${step.recipe_id}/edit`))
+        })
+
+        const dupArray = this.state.savedPhotoUrls.slice()
+        dupArray.splice(photoIndex, 1)
+        this.setState({ savedPhotoUrls: dupArray})
     }
 
     openFileInputWindow () {
@@ -208,7 +219,7 @@ class StepEditForm extends React.Component {
                     return <div key={i} className="preview-pic-wrapper">
                         <img key={i} className="preview-pic" src={url} />
                         {/* <button className="remove-preview-button image-present" onClick={(event) => this.removePreviewPic(event, i)}>remove pic</button> */}
-                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, step.stepImages[i])}alt=""/>
+                        <img className="delete-pic-button" src={window.deleteButton} onClick={(e) => this.deleteImage(e, step.stepImages[i], i)}alt=""/>
                         {/* <button className="delete-pic-button" onClick={(e) => this.deleteImage(e, step.stepImages[i])} >delete pic from backend</button> */}
                     </div>
                 })}
