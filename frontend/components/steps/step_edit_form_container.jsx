@@ -17,7 +17,8 @@ class StepEditForm extends React.Component {
             body: "",
             photos: [],
             photoUrls: [null], 
-            savedPhotoUrls: [null]
+            savedPhotoUrls: [null],
+            loader: ""
             // highlighted: false
             // photoUrl: null
         }
@@ -29,6 +30,7 @@ class StepEditForm extends React.Component {
         this.removePreviewPic = this.removePreviewPic.bind(this);
         this.deleteImage = this.deleteImage.bind(this);
         this.fileInputRef = React.createRef();
+        this.handleInvalidSubmission = this.handleInvalidSubmission.bind(this);
         // this.onDragOver = this.onDragOver.bind(this);
         // this.onDragLeave = this.onDragLeave.bind(this);
         // this.onDrop = this.onDrop.bind(this);
@@ -36,12 +38,16 @@ class StepEditForm extends React.Component {
 
     setStateStep () {
         const {id, recipe_id, title, body, photosUrls} = this.props.step
-        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls})
+        this.setState({id: id, recipe_id: recipe_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls, loader: ""})
     }
 
     componentDidMount() {
         this.props.grabStep(this.props.match.params.stepId)
             .then(()=> this.setStateStep())
+    }
+
+    componentWillUnmount() {
+        this.setState({loader: ""})
     }
 
     // componentDidUpdate (prevProps, prevState) {
@@ -84,9 +90,15 @@ class StepEditForm extends React.Component {
         }
     }
 
+    handleInvalidSubmission () {
+        this.setState({loader: ""})
+        this.props.openModal("update")
+    }
+
     handleSubmit(e) {
         const { history, step} = this.props
         e.preventDefault();
+        this.setState({loader: "open"})
         const formData = new FormData();
         formData.append('step[title]', this.state.title)
         formData.append('step[body]', this.state.body)
@@ -99,6 +111,7 @@ class StepEditForm extends React.Component {
 
         if (this.state.title.length === 0 || this.state.body.length === 0){
             this.props.openModal("update")
+            this.setState({loader: ""})
         }else {
 
             $.ajax({
@@ -107,7 +120,7 @@ class StepEditForm extends React.Component {
                 data: formData,
                 contentType: false,
                 processData: false
-            }).then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
+            }).then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.handleInvalidSubmission())
             // this.props.editStep(this.state)
             //     .then(() => history.push(`/recipes/${step.recipe_id}/edit`), () => this.props.openModal("update"))
         }
@@ -212,6 +225,7 @@ class StepEditForm extends React.Component {
 
         return (
             <div>
+                <div className={`loader ${this.state.loader}`}></div>
                 <form className="edit-step-form" >
                     <div className="edit-step-form-header">
                         <div 

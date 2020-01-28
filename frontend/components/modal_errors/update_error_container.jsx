@@ -10,7 +10,7 @@ class UpdateStepError extends React.Component {
     render () {
         return (
             <div className="update-error-container">
-                <p>Please enter a title and a description</p>
+                <p>Please enter a title, a description, and submit a picture</p>
                 <button onClick={() => this.props.closeModal()} ><p className="x">×</p></button>
             </div>
         )     

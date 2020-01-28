@@ -19,7 +19,6 @@ class RecipeEditForm extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.emptyBody = this.emptyBody.bind(this);
         this.renderPreview = this.renderPreview.bind(this);
-        // this.handleLog = this.handleLog.bind(this);
         
     }
 
@@ -91,7 +90,6 @@ class RecipeEditForm extends React.Component {
     }
 
     render () {
-
 
         const {recipe, errors, steps, createStep} = this.props;
 

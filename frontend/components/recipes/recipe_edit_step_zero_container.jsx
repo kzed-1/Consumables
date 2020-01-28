@@ -17,7 +17,8 @@ class RecipeEditStepZero extends React.Component {
             body: "", 
             photos: [],
             photoUrls: [null],
-            savedPhotoUrls: [null]
+            savedPhotoUrls: [null],
+            loader: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setStateRecipe = this.setStateRecipe.bind(this);
@@ -25,18 +26,24 @@ class RecipeEditStepZero extends React.Component {
         this.openFileInputWindow = this.openFileInputWindow.bind(this);
         this.fileInputRef = React.createRef();
         this.removePreviewPic = this.removePreviewPic.bind(this);
+        this.renderLoader = this.renderLoader.bind(this);
+        // this.handleUpdateSubmission = this.handleUpdateSubmission.bind(this);
 
     }
 
     setStateRecipe() {
 
         const { id, author_id, title, body, photosUrls } = this.props.recipe
-        this.setState({ id: id, author_id: author_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls })
+        this.setState({ id: id, author_id: author_id, title: title, body: body, photos: [], savedPhotoUrls: photosUrls, loader: "" })
     }
 
     componentDidMount() {
         this.props.grabRecipe(this.props.match.params.recipeId)
             .then(() => this.setStateRecipe())
+    }
+
+    componentWillUnmount() {
+        this.setState({loader: ""})
     }
 
     handleInput(type) {
@@ -48,6 +55,7 @@ class RecipeEditStepZero extends React.Component {
     handleSubmit(e) {
         const { history, recipe } = this.props
         e.preventDefault();
+        this.setState({ loader: "open" })
         const formData = new FormData();
         formData.append('recipe[title]', this.state.title)
         formData.append('recipe[body]', this.state.body)
@@ -56,13 +64,20 @@ class RecipeEditStepZero extends React.Component {
         for (let i = 0; i <this.state.photos.length; i++){
             formData.append('recipe[photos][]', this.state.photos[i])
         }
-        $.ajax({
-            method: 'PATCH',
-            url: `/api/recipes/${this.state.id}`,
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"));
+
+        if (this.state.photos.length === 0) {
+            this.props.openModal("update")
+            this.setState({loader: ""})
+        }else {
+            $.ajax({
+                method: 'PATCH',
+                url: `/api/recipes/${this.state.id}`,
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"));
+        }
+
 
         // this.props.editRecipe(this.state)
         //     .then(() => history.push(`/recipes/${recipe.id}/edit`), () => this.props.openModal("update"))
@@ -117,8 +132,19 @@ class RecipeEditStepZero extends React.Component {
         }).then(() => history.push(`/recipes/${this.state.id}/edit/stepZero`))
     }
 
+    renderLoader () {
+        if(this.state.loader) {
+            return (
+                <div className="loader"></div>
+            )
+        }else {
+            return null
+        }
+    }
+
     render() {
 
+        debugger;
 
         const { recipe, errors } = this.props;
         if (!recipe) {
@@ -170,6 +196,8 @@ class RecipeEditStepZero extends React.Component {
 
         return (
             <div>
+                {/* {this.renderLoader()} */}
+                <div className={`loader ${this.state.loader}`}></div>
                 <form className="edit-form" >
                     <div className="form-header">
                         <div className={`pic-box dropzone ${preview ? "present" : ""}`} onClick={ preview ? null : this.openFileInputWindow}>

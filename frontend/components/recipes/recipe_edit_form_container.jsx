@@ -7,31 +7,6 @@ import {closeModal} from '../../actions/modal_action';
 import { createStep } from '../../actions/steps_action';
 import {getAllSteps} from '../../reducers/selectors';
 
-// class RecipeEditFormWrapper extends React.Component {
-
-//     componentDidMount () {
-//         this.props.grabRecipe(this.props.match.params.recipeId)
-//     }
-
-//     render () {
-//         // const {editRecipe, recipe, errors, history} = this.props
-        
-
-//         if (!recipe) {
-//             return null;
-//         }
-//         return (
-//             <RecipeEditForm 
-//                 // recipe={recipe}
-//                 // editRecipe={editRecipe}
-//                 // errors={errors}
-//                 // history={history}
-//                 props={this.props}
-//             />
-//         )
-
-//     }
-// }
 
 
 
