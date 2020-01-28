@@ -144,7 +144,6 @@ class RecipeEditStepZero extends React.Component {
 
     render() {
 
-        debugger;
 
         const { recipe, errors } = this.props;
         if (!recipe) {
