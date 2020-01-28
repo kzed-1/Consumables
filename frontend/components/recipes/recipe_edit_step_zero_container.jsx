@@ -65,7 +65,7 @@ class RecipeEditStepZero extends React.Component {
             formData.append('recipe[photos][]', this.state.photos[i])
         }
 
-        if (this.state.photos.length === 0) {
+        if (this.state.photos.length === 0 && this.state.savedPhotoUrls.length === 0) {
             this.props.openModal("update")
             this.setState({loader: ""})
         }else {
