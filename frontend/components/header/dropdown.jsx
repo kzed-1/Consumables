@@ -78,7 +78,7 @@ class DropDown extends React.Component {
         const component = (this.state.open) ? (
             <div className="dropdown">
                 <div className="logout-profile">
-                    <Link to="/about"><p className="profile-link">About Us</p></Link>
+                    <Link onMouseDown={() => this.props.history.push("/about")} className="profile-link" to="/about">About Us</Link>
                     <button className="logoutbutton" onMouseDown={() => logout()}>Log Out</button>
                 </div>
                 <div className="button-divider"><Link onMouseDown={() => this.props.history.push("/recipes/new")}className="create-recipe-link" to="/recipes/new">New Recipe</Link></div> 
