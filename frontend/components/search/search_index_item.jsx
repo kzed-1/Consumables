@@ -18,8 +18,8 @@ class SearchIndexItem extends React.Component {
         // debugger;
 
         return (
-            <div>
-                <main className="result-container">
+            <div className="result-container-wrapper">
+                <div className="result-container">
                     <div className="result-pic-wrapper" >
                         <Link to={`/recipes/${recipe.id}`}>
                             <img className="result-pic" src={picture} alt="" />
@@ -32,7 +32,7 @@ class SearchIndexItem extends React.Component {
                         </Link>
                         <p>{recipe.body}</p>
                     </div>
-                </main>
+                </div>
             </div>
         )
     }

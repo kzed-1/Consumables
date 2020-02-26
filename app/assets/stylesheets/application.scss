@@ -1259,17 +1259,23 @@ input.title-input:focus {
     transform: scaleX(-1);
 }
 
+
+.result-container-wrapper {
+    width: 55%;
+}
+
 .result-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 15px;
     margin: 10px auto;
-    max-width: 1000px;
+    // max-width: 1000px;
     color: #777777;
     font-size: 14px;
     line-height: 20px;
-    min-width: 800px;
+    width: 100%;
+    // min-width: 800px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
