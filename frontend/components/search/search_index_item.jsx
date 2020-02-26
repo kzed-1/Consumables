@@ -15,6 +15,8 @@ class SearchIndexItem extends React.Component {
             picture = recipe.photosUrls[0]
         }
 
+        // debugger;
+
         return (
             <div>
                 <main className="result-container">
@@ -26,7 +28,7 @@ class SearchIndexItem extends React.Component {
                     <div className="description-container">
                         <Link to={`/recipes/${recipe.id}`}>
                             <h1>{recipe.title}</h1>
-                            <p>link</p>
+                            <p className="recipe-link" >{`https://consumables-app.herokuapp.com/#/recipes/${recipe.id}`}</p>
                         </Link>
                         <p>{recipe.body}</p>
                     </div>

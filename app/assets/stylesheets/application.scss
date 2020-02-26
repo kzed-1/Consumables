@@ -1154,6 +1154,14 @@ input.title-input:focus {
 
 //search 
 
+.recipe-link {
+    margin: 5px 0px 5px 0px;
+}
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+
 .search-index-container {
     display: flex;
     flex-direction: column;
