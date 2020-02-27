@@ -22,7 +22,8 @@ class Recipe < ApplicationRecord
     has_many :steps,
         primary_key: :id,
         foreign_key: :recipe_id,
-        class_name: :Step
+        class_name: :Step,
+        dependent: :destroy
 
     has_many_attached :photos
 

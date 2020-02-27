@@ -1,7 +1,7 @@
 export const fetchRecipeSearch = (query) => {
     return $.ajax({
         method: "GET",
-        url: "api/search",
+        url: "api/recipes/search",
         data: {query}
     })
 };

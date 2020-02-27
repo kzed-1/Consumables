@@ -25,7 +25,8 @@ class User < ApplicationRecord
     has_many :recipes,
         primary_key: :id,
         foreign_key: :author_id,
-        class_name: :User
+        class_name: :User,
+        dependent: :destroy
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

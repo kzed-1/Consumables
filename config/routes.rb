@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :JSON} do 
     resources :users, only: [:create]
     resource :sessions, only: [:create, :destroy]
-    resources :recipes
+    resources :recipes do 
+      collection do 
+        get 'search'
+      end 
+    end 
     resources :steps 
-    get 'search', action: :search, controller: 'recipes'
+    # get 'search', action: :search, controller: 'recipes'
   end
 end
