@@ -26,7 +26,7 @@ class Recipe < ApplicationRecord
 
     has_many_attached :photos
 
-    def self.search(input)
+    def self.find_by_recipe_name(input)
         Recipe.where("title ILIKE :search", search: "%#{input}%").to_a
     end
     
