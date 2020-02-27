@@ -43,7 +43,7 @@ class Api::RecipesController < ApplicationController
     end 
 
     def search 
-        @recipes = Recipe.search_by_title(params[:query])
+        @recipes = Recipe.search(params[:query])
         render :index
     end 
 
