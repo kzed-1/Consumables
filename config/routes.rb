@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy]
     resources :recipes
     resources :steps 
-    get :search, controller: 'recipes'
+    get 'search', action: :search, controller: 'recipes'
   end
 end
