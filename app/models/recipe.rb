@@ -27,7 +27,7 @@ class Recipe < ApplicationRecord
     has_many_attached :photos
 
     def self.find_by_recipe_name(input)
-        Recipe.where("title ILIKE ?", "%#{input}%").to_a
+        Recipe.where("title ILIKE ?", "%#{input}%")
     end
     
 end
