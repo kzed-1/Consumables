@@ -7,7 +7,7 @@ import {NavLink, Link} from 'react-router-dom';
 import Splash from './splash/splash';
 import {Switch} from 'react-router-dom';
 import HeaderBottomContainer from './header/header_bottom_container';
-import { AuthRoute, ProtectedRoute} from '../util/route_utils';
+import { AuthRoute, ProtectedRoute} from '../util/route_utils.js';
 import RecipeIndexContainer from './recipes/recipe_index_container';
 import Modal from './modal';
 import { closeModal } from '../actions/modal_action';

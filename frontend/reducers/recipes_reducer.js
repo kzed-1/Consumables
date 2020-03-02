@@ -1,5 +1,5 @@
-import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE, CLEAR_RECIPES} from '../../actions/recipes_actions';
-import { RECEIVE_STEP, REMOVE_STEP} from '../../actions/steps_action';
+import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE, CLEAR_RECIPES} from '../actions/recipes_actions';
+import { RECEIVE_STEP, REMOVE_STEP} from '../actions/steps_action';
 
 
 export default (oldstate = {}, action) => {

@@ -6,8 +6,7 @@ import { closeModal } from '../../actions/modal_action';
 
 class UpdateStepError extends React.Component {
 
-
-    render () {
+    render() {
         return (
             <div className="update-error-container">
                 <p>Please enter a title, a description, and submit a picture</p>
