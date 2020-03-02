@@ -1,7 +1,12 @@
 class Api::RecipesController < ApplicationController
 
     def index
-        @recipes = Recipe.all
+        if params[:userId] 
+            return @recipes = Recipe.find_by_userid(params[:userId])
+            
+        else
+            return @recipes = Recipe.all     
+        end
     end
 
     def create

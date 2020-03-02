@@ -30,5 +30,9 @@ class Recipe < ApplicationRecord
     def self.find_by_recipe_name(input)
         Recipe.where("title ILIKE ?", "%#{input}%")
     end
+
+    def self.find_by_userid(userid)
+        Recipe.where("author_id = ? ", userid)
+    end
     
 end

@@ -15,7 +15,6 @@ class SearchIndexItem extends React.Component {
             picture = recipe.photosUrls[0]
         }
 
-        // debugger;
 
         return (
             <div className="result-container-wrapper">

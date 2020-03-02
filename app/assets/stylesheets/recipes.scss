@@ -249,7 +249,8 @@
     position: relative;
     overflow: hidden;
     margin-left: 4px;
-    
+    object-fit: cover;
+    object-position: center;
 }
 
 .author-icon-name {
@@ -282,13 +283,13 @@
     margin-left: 4px;
 }
 
-.username:hover {
-    text-decoration: underline;
-    font-weight: 700;
-    font-size: 16px;
-    color: #555;
-    margin-left: 4px;
-}
+// .username:hover {
+//     text-decoration: underline;
+//     font-weight: 700;
+//     font-size: 16px;
+//     color: #555;
+//     margin-left: 4px;
+// }
 
 .author-recipe-pic {
     // height: 80px;
@@ -299,8 +300,9 @@
     margin: 0 auto;
     margin-left: 0%; 
     height: 100%;
-    width: auto;
-    
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
 }
 
 .pics-container {

@@ -5,6 +5,14 @@ export const grabRecipes = () => (
     })
 )
 
+export const grabRecipesByUser = (userId) => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/recipes',
+        data: {userId}
+    })
+)
+
 export const grabRecipe = (recipeId) => (
     $.ajax({
         method: 'GET',

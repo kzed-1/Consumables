@@ -82,7 +82,7 @@ class SearchIndex extends React.Component {
                         <h1 className="lets-make-title">LET'S MAKE:</h1>
                         <div className="search-bar-container">
                             <input onKeyDown={this.enterKeyPressed} onChange={this.handleInput} value ={this.state.query} className="search-bar" type="text"/>
-                            {!this.isEmpty &&  <img src ={window.close} className="clear-search-button" onClick={this.clearSearch}/>}
+                            {!this.isEmpty && <img src ={window.close} className="clear-search-button" onClick={this.clearSearch}/>}
                             <div className="mag-glass-wrapper"><img className="mag-glass" onClick={this.handleSubmit} src={window.magGlass} alt="" /></div>
                         </div>
                     </span>

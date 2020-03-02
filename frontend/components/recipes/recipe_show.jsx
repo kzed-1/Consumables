@@ -5,12 +5,18 @@ import StepsIndexContainer from '../steps/steps_index_container';
 class RecipeShow extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            otherRecipes: this.props.moreRecipes
+        }
+
         this.date = this.date.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.showPicture = this.showPicture.bind(this);
     }
     
     componentDidMount() {
-        this.props.grabRecipe(this.props.match.params.recipeId)
+        this.props.grabUserRecipe(this.props.currentUserId)
+        // this.setState({ otherRecipes: this.props.moreRecipes})
     };
 
     handleDelete (recipeId) {
@@ -21,8 +27,6 @@ class RecipeShow extends React.Component {
     componentWillUnmount () {
         this.props.clearSteps();
     }
-
-
 
     date(date) {
         const months = [
@@ -46,42 +50,65 @@ class RecipeShow extends React.Component {
         return `${month} ${day}, ${year}`
     }
 
+    showPicture() {
+        const {recipe} = this.props;
+
+        if (!recipe.photosUrls) {
+            return window.panacakes;
+        } else {
+            return recipe.photosUrls[0];
+        }
+    }
+
+    showMoreRecipes() {
+
+        const { moreRecipes, recipe }  = this.props
+        delete moreRecipes[recipe.id]
+        const allRecipes = Object.values(moreRecipes)
+
+        const displayRecipe = []
+
+        for (let i = 0; i < 3; i++) {
+            let randomNum = Math.floor(Math.random() * allRecipes.length)
+            displayRecipe.push(allRecipes[randomNum])
+            allRecipes.splice(randomNum, 1)
+        }
+
+        const filteredRecipes = displayRecipe.map((recipe) => 
+            <Link to={`/recipes/${recipe.id}`} 
+                key = {recipe.id} className="crop2"
+                >
+                <img className="author-recipe-pic" src={recipe.photosUrls[0]} />
+            </Link>
+        )
+    
+        return filteredRecipes
+    }
+
     render () {
 
-        const {recipe, currentUserId, grabRecipe} = this.props
+        const {recipe, currentUserId, grabRecipe, moreRecipes} = this.props
         
-        let deleteRecipeButton = null;
-
         if(!recipe){
             return null;
         }
 
-        let picture;
-
-        if (!recipe.photosUrls) {
-            picture = window.panacakes
-        } else {
-            picture = recipe.photosUrls[0]
-        }
-
-        if (currentUserId === recipe.author_id) {
-            deleteRecipeButton = 
-            <div className= "delete-recipe-container">
+        let deleteEditRecipeButtons = (currentUserId === recipe.author_id) ? 
+            <div className="delete-recipe-container">
                 <div className="delete-edit">
                     <button className="delete-button"
                         onClick={() => this.handleDelete(recipe.id)}>
                         Delete Recipe
-                    </button>
-                    <button className="edit-button" 
+                        </button>
+                    <button className="edit-button"
                         onClick={() => this.props.history.push(`/recipes/${recipe.id}/edit`)}>
                         Edit Recipe
                     </button>
                 </div>
                 <div className="bottom-line"></div>
-            </div>
-        }else {
-            null
-        }
+            </div> 
+            : null;
+
         
         return (
             <div className="entire-show-container">
@@ -99,7 +126,7 @@ class RecipeShow extends React.Component {
                     </div>
                 </header>
                 <div className="intro-container">
-                    <img className="main-recipe-pic" src = {picture} alt=""/>
+                    <img className="main-recipe-pic" src = {this.showPicture()} alt=""/>
                     <div className="author-info">
                         <div className="author-icon-name">
                             <div className="crop"><img className="usericon" src={window.user2} alt="" /></div>
@@ -108,9 +135,7 @@ class RecipeShow extends React.Component {
                         </div>
                         <div className="pics-container">
                             <p className="more-by-author">More by the author:</p>
-                            <div className="crop2"><img className="author-recipe-pic" src={window.pizza} /></div>
-                            <div className="crop2"><img className="author-recipe-pic" src={window.yogurt} /></div>
-                            <div className="crop2"><img className="author-recipe-pic" src={window.pancake} /></div>
+                            {this.showMoreRecipes()}
                         </div>
                     </div>
 
@@ -119,66 +144,8 @@ class RecipeShow extends React.Component {
                     <div className="bottom-line"></div>
 
                 <StepsIndexContainer recipe={recipe} grabRecipe={grabRecipe} />
-                {/* <div className="step-container">
-                    <h2 className="step-title">Step 1: supplies</h2>
-                    <ul>
-                        1 tbsp. butter
-                        2 cloves garlic, minced
-                        1 1/2 c. heavy cream
-                        1/2 c. freshly grated Parmesan cheese, divided
-                        Crushed red pepper flakes
-                        Kosher salt
-                        Freshly ground black pepper
-                        2 tbsp. extra-virgin olive oil
-                        1 lb. thin chicken cutlets
-                        Vegetable oil, for brushing
-                        Cornmeal, for dusting
-                        1 lb. store-bought pizza dough, divided in half
-                        1/2 small red onion, finely chopped
-                        2 c. shredded mozzarella
-                        Freshly sliced green onion, for serving
-                    </ul>
-                    <div className="bottom-line"></div>
-                </div>
-                <div className="step-container">
-                    <h2 className="step-title">Step 1</h2>
-                    <img className="step-photo" src="" alt=""/>
-                    <p>In a small saucepan over medium heat, melt butter. Add garlic and cook, stirring, until fragrant, about 1 minute. Pour cream into garlic butter and bring to a simmer. Reduce heat to medium-low and continue to simmer, stirring occasionally, until liquid is reduced by half, about 15 minutes. </p>
-                    <div className="bottom-line"></div>
-                </div>
-                <div className="step-container">
-                    <h2 className="step-title">Step 2</h2>
-                    <p>Stir in ¼ cup of Parmesan and a pinch of red pepper flakes. Season with salt and pepper and remove from heat.</p>
-                    <div className="bottom-line"></div>
-                </div>
-                <div className="step-container">
-                    <h2 className="step-title">Step 3</h2>
-                    <p>Meanwhile, in a large skillet over medium-high heat, heat oil. Add chicken and cook, working in batches if necessary, until chicken is cooked through, flipping halfway through, about 1 to 2 minutes per side. Transfer chicken to a cutting board. Using a fork and knife, thinly slice chicken into strips.</p>
-                    <div className="bottom-line"></div>
-                </div >
-                <div className="step-container">
-                    <h2 className="step-title">Step 4</h2>
-                    <p>Preheat oven to 500°. Cut two pieces of parchment to fit a large rimmed baking sheet. On a work surface, sprinkle one piece of parchment with a thin layer of cornmeal. Working with one ball of dough at a time, roll into a 1/4"-thick round and transfer to a baking sheet. </p>
-                    <div className="bottom-line"></div>
-                </div>
-                <div className="step-container">
-                    <h2 className="step-title">Step 5</h2>
-                    <p>Spread half the cream sauce over each pizza, leaving a ½" border on the edge. Add half the sliced chicken, half the red onion, half the mozzarella, and half the remaining ¼ cup Parmesan on one pizza. Repeat with remaining pizza dough and toppings.</p>
-                    <div className="bottom-line"></div>
-                </div>
-                <div className="step-container">
-                    <h2 className="step-title">Step 6</h2>
-                    <p>Bake, one pizza at a time, until crust is golden and cheese is melty, about 15 minutes. </p>
-                    <div className="bottom-line"></div>
-                </div >
-                <div className="step-container">
-                    <h2 className="step-title">Step 7</h2>
-                    <p>Garnish with green onions and more red pepper flakes and serve immediately. </p>
-                    <div className="bottom-line"></div>
-                </div > */}
-                
+                {deleteEditRecipeButtons}
 
-                {deleteRecipeButton}
             </div>
         )
     }

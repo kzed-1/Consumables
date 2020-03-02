@@ -15,3 +15,14 @@ export const getAllSteps = (state, ownProps) => {
 
     return result
 }
+
+
+export const getMoreRecipesLinks = (state, ownProps) => {
+    const recipe = state.entities.recipes[ownProps.match.params.recipeId]
+    const userId = recipe.author_id
+
+    
+
+
+
+}

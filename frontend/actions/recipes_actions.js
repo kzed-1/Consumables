@@ -1,4 +1,4 @@
-import * as RecipesApiUtil from '../util/recipe_util.jsx'
+import * as RecipesApiUtil from '../util/recipe_util'
 
 export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
@@ -46,6 +46,11 @@ export const grabRecipes = () => (dispatch) => (
         .then(recipes => dispatch(receiveAllRecipes(recipes)))
 )
 
+export const grabRecipesByUser = (userId) => (dispatch) => (
+    RecipesApiUtil.grabRecipesByUser(userId)
+        .then(recipes => dispatch(receiveAllRecipes(recipes)))
+)
+
 export const grabRecipe = (recipeId) => (dispatch) => {
     return RecipesApiUtil.grabRecipe(recipeId)
         .then(recipe => dispatch(receiveRecipe(recipe)))              
@@ -74,6 +79,8 @@ export const deleteRecipe = (recipeId) => (dispatch) => {
 export const clearErrors = () => (dispatch) => (
     dispatch(clearRecipeErrors())
 );
+
+
 
 
 
